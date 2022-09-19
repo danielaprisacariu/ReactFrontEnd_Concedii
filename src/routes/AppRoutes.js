@@ -8,8 +8,9 @@ import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import Dashboard from 'features/dashboard/Dashboard'
 import ToateConcediile from 'features/dashboard/toateconcediile/ToateConcediile.js'
 import HolidaysMenu from 'features/holidaysMenu/HolidaysMenu'
-import CerereConcediuContainer from '../components/CerereConcediu/CerereConcediuContainer'
-import NewEmployee from 'features/newEmployee/NewEmployee'
+import CerereConcediuContainer from '../features/CerereConcediu/CererereConcediuContainer'
+import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
+import EmployeesPageContainer from 'components/employees/EmployeesPageContainer'
 
 export default function AppRoutes() {
   return (
@@ -18,8 +19,9 @@ export default function AppRoutes() {
       <Redirect exact from='/' to='/dashboard' />
       <CustomRoute isPrivate={false} exact path='/toateconcediile' component={ToateConcediile} />
       <CustomRoute isPrivate={false} exact path='/holidaysMenu' component={HolidaysMenu} />
-      <CustomRoute isPrivate={false} exact path='/newEmployee' component={NewEmployee} />
+      <CustomRoute isPrivate={false} exact path='/newEmployee' component={NewEmployeeContainer} />
       <Redirect exact from='/' to='/newEmployee' />
+      <CustomRoute isPrivate={false} exact path='/employees' component={EmployeesPageContainer} />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} exact path='/CerereConcediuContainer' component={CerereConcediuContainer} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
