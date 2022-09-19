@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export function DatePickers() {
+export function DatePickersCustomComponent() {
   const classes = useStyles()
 
   return (
