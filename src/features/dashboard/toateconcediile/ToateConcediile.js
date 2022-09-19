@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { Typography, Grid, Container, Table, TableCell } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
+import "./ToateConcediile.css"
+
 
 
 function ToateConcediile(){
@@ -8,8 +10,8 @@ function ToateConcediile(){
     addToast('Welcome', 'success')
     return (
     <Fragment>
-      <Table>
-        <tr>
+      <Table className = 'Parinte'>
+        <tr className='HeaderTable1'>
             <TableCell>Nume</TableCell>
             <TableCell>Prenume</TableCell>
             <TableCell>Data incepere</TableCell>
@@ -19,7 +21,15 @@ function ToateConcediile(){
             <TableCell>Stare concediu</TableCell>
             
         </tr>
-
+        <tr className='Content'>
+            <TableCell>Miguel</TableCell>
+            <TableCell>Gustavo</TableCell>
+            <TableCell>21/09/2022</TableCell>
+            <TableCell>23/09/2022</TableCell>
+            <TableCell>Odihna</TableCell>
+            <TableCell>Ionut</TableCell>
+            <TableCell>Aprobat</TableCell>
+        </tr>
       </Table>
     </Fragment>
     )
