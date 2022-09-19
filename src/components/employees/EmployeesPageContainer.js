@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react'
+import EmployeeFilter from './EmployeeFilters';
 import EmployeesTableCard from './EmployeesTableCard'
 
 
@@ -10,7 +11,9 @@ function EmployeesPageContainer(){
 
     return (
         <>
+            
             <EmployeesTableCard employeesArray={array}></EmployeesTableCard>
+            <EmployeeFilter></EmployeeFilter>
         </>
     )
 

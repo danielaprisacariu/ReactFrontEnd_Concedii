@@ -3,6 +3,7 @@ import { Typography, Grid } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import './NewEmployeeCSS.css'
 
+
 function NewEmployee() {
   const addToast = useToast()
   addToast('Welcome', 'success')
