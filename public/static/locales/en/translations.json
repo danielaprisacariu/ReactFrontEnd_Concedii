@@ -11,9 +11,13 @@
   "DECIMAL": "{{number,intlDecimal}}",
   "DECIMAL2": "{{number,intlDecimal2}}",
   "MyProfile": "My Profile",
+  "Toate Concediile": "All Holidays",
+  "HolidaysMenu": "Holidays Menu",
+  "Cerere Concediu": "Leave Request",
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
     "Dashboard": "Dashboard",
+    "NewEmployee": "New Employee",
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security"
