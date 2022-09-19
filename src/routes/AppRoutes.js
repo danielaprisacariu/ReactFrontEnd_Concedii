@@ -6,6 +6,8 @@ import CustomRoute from '../components/routing/CustomRoute'
 
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import Dashboard from 'features/dashboard/Dashboard'
+import CerereConcediuContainer from '../components/CerereConcediu/CerereConcediuContainer'
+
 
 export default function AppRoutes() {
   return (
@@ -13,6 +15,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/dashboard' component={Dashboard} />
       <Redirect exact from='/' to='/dashboard' />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
+      <CustomRoute isPrivate={false} exact path='/CerereConcediuContainer' component={CerereConcediuContainer} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
   )
