@@ -1,6 +1,7 @@
 import React from 'react'
-import { Dashboard } from '@material-ui/icons'
+import { Add, Dashboard } from '@material-ui/icons'
 
-const menuItems = [{ icon: <Dashboard />, text: 'NavBar.Dashboard', path: '/dashboard', name: 'Dashboard' }]
+const menuItems = [{ icon: <Dashboard />, text: 'NavBar.Dashboard', path: '/dashboard', name: 'Dashboard' },
+                    { icon: <Add />, text: 'NavBar.NewEmployee', path: '/newEmployee', name: 'NewEmployee' }]
 
 export default menuItems
