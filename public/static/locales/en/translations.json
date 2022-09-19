@@ -11,6 +11,8 @@
   "DECIMAL": "{{number,intlDecimal}}",
   "DECIMAL2": "{{number,intlDecimal2}}",
   "MyProfile": "My Profile",
+  "Toate Concediile": "All Holidays",
+  "HolidaysMenu":"Holidays Menu",
   "Forbidden": "Not allowed to see this page!",
   "NavBar": {
     "Dashboard": "Dashboard",
