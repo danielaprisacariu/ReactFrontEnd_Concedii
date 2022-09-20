@@ -8,7 +8,7 @@ const userMenuItems = [
   { icon: <Person />, text: 'MyProfile', path: '/myProfile', name: 'MyProfile' },
   { icon: <CalendarViewDayRounded />, text: 'Toate Concediile', path: '/toateconcediile', nume: 'Toate Concediile' },
   { icon: <MenuBook />, text: 'HolidaysMenu', path: '/holidaysMenu', name: 'HolidaysMenu' },
-  { icon: <CalendarToday />, text: 'CerereConcediu', path: '/CerereConcediuContainer', name: 'Cerere Concediu' }
+  { icon: <CalendarToday />, text: 'Cerere Concediu', path: '/CerereConcediuContainer', name: 'CerereConcediu' }
 ]
 
 export default userMenuItems

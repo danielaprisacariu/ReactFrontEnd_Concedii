@@ -92,11 +92,72 @@ const styles = () => {
       lineHeight: '22px',
       /* identical to box height */
 
-      letterpacing: '1px',
+      letterSpacing: '1px',
       marginBottom: '15px',
 
       color: '#C7C7C7'
+    },
+
+    paragraf: {
+      width: '650px',
+      height: '96px',
+
+      marginTop: '-140px',
+      marginLeft: '23px',
+      fontFamily: 'Open Sans',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: '16px',
+      lineHeight: '24px',
+
+      color: '#202020'
+    },
+
+    comentariiTextField: {
+      marginTop: '12px',
+
+      width: '720px',
+      height: '150px'
+    },
+
+    butonAdauga: {
+      marginTop: '40px',
+      marginBottom: '40px',
+
+      width: '295px',
+      height: '60px',
+      background: '#5ECFFF',
+
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
+      borderRadius: '14px',
+      fontFamily: 'Cairo',
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: '18px',
+      lineHeight: '24px',
+      color: '#FFFFFF'
+    },
+
+    butonSalveaza: {
+      marginTop: '40px',
+      marginBottom: '40px',
+      width: '195px',
+      height: '60px',
+
+      background: '#6418C3',
+
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
+      borderRadius: '14px',
+
+      fontFamily: 'Cairo',
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: '18px',
+      lineHeight: '24px',
+
+      color: '#FFFFFF'
     }
   }
 }
+
 export default styles

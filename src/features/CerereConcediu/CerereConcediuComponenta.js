@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react'
-import { Typography, Grid } from '@material-ui/core'
+import { Typography, Grid, Button } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { DatePickersCustomComponent } from './DatePickersCustomComponent'
 import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { makeStyles } from '@material-ui/core'
 import Styles from './Styles'
+import { ComentariiTextField } from './ComentariiTextField'
+import AttachFileIcon from '@material-ui/icons/AttachFile'
+import SaveIcon from '@material-ui/icons/Save'
 
 import PropTypes from 'prop-types'
 
@@ -66,6 +69,26 @@ function CerereConcediuComponenta(props) {
 
         <Grid item xs={6}>
           <ComboBoxComponenta arrayDataSource={inlocuitori}> </ComboBoxComponenta>
+        </Grid>
+        <Grid item xs={12}>
+          <div className={classes.span1}> COMENTARII</div>
+        </Grid>
+
+        <Grid item xs={12}>
+          <ComentariiTextField> </ComentariiTextField>
+        </Grid>
+
+        <Grid item xs={8}>
+          <Button className={classes.butonAdauga}>
+            <AttachFileIcon> </AttachFileIcon> ADAUGA FISIERE
+          </Button>
+        </Grid>
+
+        <Grid item xs={4}>
+          <Button className={classes.butonSalveaza}>
+            <SaveIcon> </SaveIcon>
+            SALVEAZA
+          </Button>
         </Grid>
       </div>
     </Grid>
