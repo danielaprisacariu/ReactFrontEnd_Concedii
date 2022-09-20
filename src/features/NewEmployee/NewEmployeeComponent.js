@@ -7,8 +7,6 @@ import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent() {
-    const addToast = useToast()
-    addToast('Welcome', 'success')
     const classes = useStyles();
     return (
     <Grid container>
@@ -16,6 +14,7 @@ function NewEmployeeComponent() {
         <Grid item xs={12}>
         <h1 className={classes.Title}> Add New Employee </h1>
         </Grid>
+        <div className={classes.DA}></div>
         <Grid item xs={6}>
           <div className={classes.lable}> Last Name </div>
         </Grid>
@@ -38,6 +37,7 @@ function NewEmployeeComponent() {
           <div className={classes.box}> test id </div>
         </Grid>
            <DateCustomComponent className={classes.data}> </DateCustomComponent>
+           
      </Grid>
      
     )
