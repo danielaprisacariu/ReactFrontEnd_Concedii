@@ -4,11 +4,12 @@ import PropTypes from 'prop-types'
 
 export default function CererereConcediuCard(props) {
   const { tipuriConcedii } = props
+  const { inlocuitori } = props
 
   return (
     <>
-      <CerereConcediuComponenta tipuriConcedii={tipuriConcedii}></CerereConcediuComponenta>
+      <CerereConcediuComponenta tipuriConcedii={tipuriConcedii} inlocuitori={inlocuitori}></CerereConcediuComponenta>
     </>
   )
 }
-CererereConcediuCard.propTypes = { tipuriConcedii: PropTypes.array.isRequired }
+CererereConcediuCard.propTypes = { tipuriConcedii: PropTypes.array.isRequired, inlocuitori: PropTypes.array.isRequired }
