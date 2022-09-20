@@ -22,7 +22,7 @@ function EmployeesTableCard(props){
     return (
         <Table>
             <TableHead className={classes.tableHeader}>
-                <TableRow>
+                <TableRow className={classes.tableCells}>
                     <TableCell className={classes.tableCells}>Nume</TableCell>
                     <TableCell className={classes.tableCells}>Prenume</TableCell>
                     <TableCell className={classes.tableCells}>Email</TableCell>
