@@ -41,6 +41,17 @@ const Style = () => {
             borderRadius: '14px'
           },
 
+          bigbox: {
+            marginTop: '12px',
+            boxSizing: 'border-box',
+        
+            width: '1000px',
+            height: '300px',
+        
+            border: '1px solid #C2C2C2',
+            borderRadius: '14px'
+          },
+
           date: {
             width: '140px',
             height: '22px',
