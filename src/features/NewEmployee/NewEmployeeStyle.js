@@ -11,9 +11,8 @@ const Style = () => {
         fontWeight: '700',
         fontSize: '34px',
         lineHeight: '64px',
-        
-      
         color: '#202020'},
+
          lable: {
             marginTop: '25px',
             width: '334px',
@@ -24,7 +23,7 @@ const Style = () => {
             fontWeight: '700',
             fontSize: '16px',
             lineHeight: '22px',
-            /* identical to box height */
+           
         
             letterpacing: '1px',
         
@@ -51,12 +50,18 @@ const Style = () => {
             fontWeight: '700',
             fontSize: '16px',
             lineHeight: '22px',
-            /* identical to box height */
+           
       
             letterSpacing: '1px',
       
             color: '#C7C7C7',
             marginBottom: '15px'
+          },
+
+          pag: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'spaceBetween'
           },
     }
   }

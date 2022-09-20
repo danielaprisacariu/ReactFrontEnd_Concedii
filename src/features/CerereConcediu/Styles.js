@@ -62,9 +62,40 @@ const styles = () => {
 
       width: '350px',
       height: '60px',
-
+      justifyContent: 'center',
       border: '1px solid #C2C2C2',
       borderRadius: '14px'
+    },
+
+    span2: {
+      width: '300px',
+      height: '25px',
+      marginTop: '-43px',
+      marginLeft: '11px',
+      fontFamily: 'Open Sans',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      fontSize: '18px',
+      lineHeight: '25px',
+      color: '#202020'
+    },
+
+    span3: {
+      marginTop: '40px',
+      width: '334px',
+      height: '22px',
+
+      fontFamily: 'Open Sans',
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: '16px',
+      lineHeight: '22px',
+      /* identical to box height */
+
+      letterpacing: '1px',
+      marginBottom: '15px',
+
+      color: '#C7C7C7'
     }
   }
 }
