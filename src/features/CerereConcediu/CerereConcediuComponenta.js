@@ -4,7 +4,7 @@ import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { DatePickersCustomComponent } from './DatePickersCustomComponent'
 import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { makeStyles } from '@material-ui/core'
-import Styles from './Styles'
+import Styles from './Styles.js'
 import { ComentariiTextField } from './ComentariiTextField'
 import AttachFileIcon from '@material-ui/icons/AttachFile'
 import SaveIcon from '@material-ui/icons/Save'
@@ -22,54 +22,41 @@ function CerereConcediuComponenta(props) {
   addToast('Welcome', 'success')
   return (
     <Grid container>
-      <Typography></Typography>
-
       <Grid item xs={12}>
         <h1 className={classes.h1}> Adauga concediu </h1>
       </Grid>
+
       <div className={classes.DA}>
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
           <div className={classes.span}> DATA INCEPUT </div>
+          <DatePickersCustomComponent className={classes.data}></DatePickersCustomComponent>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
           <div className={classes.span}> DATA SFARSIT</div>
-        </Grid>
-        <Grid item xs={6}>
           <DatePickersCustomComponent className={classes.data}> </DatePickersCustomComponent>
-        </Grid>
-        <Grid item xs={6}>
-          <DatePickersCustomComponent className={classes.data}> </DatePickersCustomComponent>
-        </Grid>
-        <Grid item xs={6}>
-          <div className={classes.span1}> TOTAL ZILE LIBERE SOLICITATE </div>
-        </Grid>
-        <Grid item xs={6}>
-          <div className={classes.span1}>ZILE LIBERE DISPONIBILE</div>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
+          <div className={classes.span1}> TOTAL ZILE LIBERE SOLICITATE </div>
           <div className={classes.box}></div>
           <div className={classes.span2}> 6 zile </div>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
+          <div className={classes.span1}>ZILE LIBERE DISPONIBILE</div>
           <div className={classes.box}></div>
           <div className={classes.span2}>17 zile </div>
         </Grid>
-        <Grid item xs={6}>
-          <div className={classes.span3}>TIP CONCEDIU</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div className={classes.span3}>INLOCUITOR</div>
-        </Grid>
 
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
+          <div className={classes.span3}>TIP CONCEDIU</div>
           <ComboBoxComponenta arrayDataSource={tipuriConcedii}> </ComboBoxComponenta>
         </Grid>
-
-        <Grid item xs={6}>
+        <Grid item md={6} xs={12}>
+          <div className={classes.span3}>INLOCUITOR</div>
           <ComboBoxComponenta arrayDataSource={inlocuitori}> </ComboBoxComponenta>
         </Grid>
+
         <Grid item xs={12}>
           <div className={classes.span1}> COMENTARII</div>
         </Grid>
@@ -78,13 +65,7 @@ function CerereConcediuComponenta(props) {
           <ComentariiTextField> </ComentariiTextField>
         </Grid>
 
-        <Grid item xs={8}>
-          <Button className={classes.butonAdauga}>
-            <AttachFileIcon> </AttachFileIcon> ADAUGA FISIERE
-          </Button>
-        </Grid>
-
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <Button className={classes.butonSalveaza}>
             <SaveIcon> </SaveIcon>
             SALVEAZA

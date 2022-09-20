@@ -4,18 +4,9 @@ import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import Styles from './Styles'
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200
-  }
-}))
+const useStyles = makeStyles(Styles)
 
 export function DatePickersCustomComponent() {
   const classes = useStyles()
