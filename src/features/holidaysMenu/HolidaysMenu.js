@@ -14,36 +14,23 @@ function crd(Id,DataInceput,DataSfarsit,TipConcediu,Inlocuitor,Comentarii,StareC
 
 function HolidaysMenu() {
 
-  const [page,setPage]=useState(1)
+  const [page,setPage]=useState(0)
   
-    const handleBackButtonClick = (event,page) => {
-      console.log('backPage')
-      TablePagination.onPageChange(event, page - 1);
-    };
-  
-    const handleNextButtonClick = (event,page) => {
-      console.log('nextPage')
-      TablePagination.onPageChange(event, page + 1);
-    };
-  
-    const handleLastPageButtonClick = (event) => {
-      console.log('lastPage')
-      TablePagination.onPageChange(event, Math.max(0, Math.ceil(5 / 1) - 1));
-    }
+    
     
   const classes=useStyles()
   function BackButtons(){
     return(
-     <Fragment> <div onClick={console.log('FristPage'),() => {setPage(1)}}className={classes.BtnPrev}><div className={classes.FBar}></div><div className={classes.BtnPrevCover}></div></div>
-      <div className={classes.BtnPrev}><div onClick={() => {setPage(page+1)}} className={classes.BtnPrevCover}></div></div>
+     <Fragment> <div onClick={console.log('FristPage'),() => {setPage(0)}}className={classes.BtnPrev}><div className={classes.FBar}></div><div className={classes.BtnPrevCover}></div></div>
+      <div onClick={console.log('BackPage'),() => {setPage(page-1)}} className={classes.BtnPrev}><div  className={classes.BtnPrevCover}></div></div>
       </Fragment>
     )
   }
   function FrontButtons(){
     return(
       <Fragment>
-      <div className={classes.BtnNext}><div onClick={() => {setPage(page-1)}}className={classes.BtnPrevCover}></div></div>
-            <div className={classes.BtnNext}><div onClick={() => {setPage(5)}} className={classes.LBar}></div><div className={classes.BtnPrevCover}></div></div></Fragment>
+      <div onClick={console.log('NextPage'),() => {setPage(page+1)}} className={classes.BtnNext}><div className={classes.BtnPrevCover}></div></div>
+            <div onClick={console.log('lastPage'),() => {setPage(rows.length-1)}} className={classes.BtnNext}><div  className={classes.LBar}></div><div className={classes.BtnPrevCover}></div></div></Fragment>
     )
   }
   const rows=[
