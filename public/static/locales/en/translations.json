@@ -18,6 +18,7 @@
   "NavBar": {
     "Dashboard": "Dashboard",
     "NewEmployee": "New Employee",
+    "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security"
