@@ -1,19 +1,17 @@
 import React, { Fragment } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
-import './NewEmployeeCSS.css'
+import NewEmployeeCard from './NewEmployeeCard'
+import appStyle from './NewEmployeeStyle';
+import { makeStyles } from '@material-ui/core'
 
 
-function NewEmployee() {
-  const addToast = useToast()
-  addToast('Welcome', 'success')
+function NewEmployeeContainer() {
   return (
-    <Fragment>
-      <Typography>
-        <h1> Add New Employee </h1>
-      </Typography>
-    </Fragment>
-  )
+   
+    <NewEmployeeCard></NewEmployeeCard>
+        
+)
 }
 
-export default NewEmployee
+export default NewEmployeeContainer
