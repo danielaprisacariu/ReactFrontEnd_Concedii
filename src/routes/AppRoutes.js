@@ -6,9 +6,9 @@ import CustomRoute from '../components/routing/CustomRoute'
 
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import Dashboard from 'features/dashboard/Dashboard'
-import ToateConcediile from 'features/dashboard/toateconcediile/ToateConcediile'
+import ToateConcediile from 'features/dashboard/toateconcediile/ToateConcediile.js'
 import HolidaysMenu from 'features/holidaysMenu/HolidaysMenu'
-import CerereConcediuContainer from '../components/CerereConcediu/CerereConcediuContainer'
+import CerereConcediuContainer from '../features/CerereConcediu/CererereConcediuContainer'
 import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
 import EmployeesPageContainer from 'components/employees/EmployeesPageContainer'
 
