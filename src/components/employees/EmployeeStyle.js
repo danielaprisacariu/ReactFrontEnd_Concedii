@@ -1,6 +1,6 @@
 import styles from 'assets/jss/styles'
 
-const Miguel = () => {
+const appStyle = () => {
   
     return {
       tableHeader: {
@@ -77,4 +77,4 @@ const Miguel = () => {
     }
   }
   
-  export default Miguel
+  export default appStyle

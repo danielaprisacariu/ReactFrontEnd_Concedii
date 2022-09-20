@@ -17,7 +17,7 @@ function EmployeeFilter(){
         <>
             <div className={classes.filterStyles}>
                 <TextField className={classes.searchField} placeholder='Cuta' value={searchWord} id='searchWord' type="text" onChange={handleChange}></TextField>
-                <SearchIcon className={classes.btnClass} onClick={()=>{EmployeesPageContainer(searchWord)}}></SearchIcon>
+                <SearchIcon className={classes.btnClass} onClick={()=>{}}></SearchIcon>
             </div>
         </>
     )
