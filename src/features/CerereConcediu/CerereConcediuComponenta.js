@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { DatePickersCustomComponent } from './DatePickersCustomComponent'
+import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { makeStyles } from '@material-ui/core'
 import Styles from './Styles'
 
@@ -11,6 +12,8 @@ const useStyles = makeStyles(Styles)
 
 function CerereConcediuComponenta(props) {
   const { tipuriConcedii } = props
+  const { inlocuitori } = props
+
   const addToast = useToast()
   const classes = useStyles()
   addToast('Welcome', 'success')
@@ -43,16 +46,32 @@ function CerereConcediuComponenta(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <div className={classes.box}> 6 ZILE </div>
+          <div className={classes.box}></div>
+          <div className={classes.span2}> 6 zile </div>
         </Grid>
         <Grid item xs={6}>
-          <div className={classes.box}>17 ZILE</div>
+          <div className={classes.box}></div>
+          <div className={classes.span2}>17 zile </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.span3}>TIP CONCEDIU</div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.span3}>INLOCUITOR</div>
+        </Grid>
+
+        <Grid item xs={6}>
+          <ComboBoxComponenta arrayDataSource={tipuriConcedii}> </ComboBoxComponenta>
+        </Grid>
+
+        <Grid item xs={6}>
+          <ComboBoxComponenta arrayDataSource={inlocuitori}> </ComboBoxComponenta>
         </Grid>
       </div>
     </Grid>
   )
 }
 
-CerereConcediuComponenta.propTypes = { tipuriConcedii: PropTypes.array.isRequired }
+CerereConcediuComponenta.propTypes = { tipuriConcedii: PropTypes.array.isRequired, inlocuitori: PropTypes.array.isRequired }
 
 export default CerereConcediuComponenta
