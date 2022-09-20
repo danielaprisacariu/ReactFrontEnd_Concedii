@@ -3,6 +3,7 @@
   "RowsOf": "din",
   "RowsPerPage": "Randuri pe pagina",
   "MyProfile": "Profilul meu",
+  "Employees": "Angajati",
   "HolidaysMenu": "Meniu Concedii",
   "Toate Concediile": "Toate Concediile",
   "Cerere Concediu": "Cerere Concediu",
@@ -10,6 +11,7 @@
   "NavBar": {
     "Dashboard": "Panou central",
     "NewEmployee": "Angajat Nou",
+    "Employees": "Angajati",
     "Settings": "Setari",
     "Privacy": "Confidentialitate",
     "Security": "Securitate"

@@ -109,7 +109,10 @@ const HolidaysMenuStyle = ()=>{
             marginTop:'10px'
         },
         Footer:{
-            height:'20%'
+            backgroundColor : 'rgba(100, 24, 195, 1)',
+            color:'white',
+            height:'60px',
+       
         }
      
        

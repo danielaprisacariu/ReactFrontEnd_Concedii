@@ -40,7 +40,8 @@ const styles = () => {
     },
 
     span1: {
-      marginTop: '25px',
+      marginTop: '40px',
+      marginBottom: '25px',
       width: '334px',
       height: '22px',
 
@@ -51,16 +52,15 @@ const styles = () => {
       lineHeight: '22px',
       /* identical to box height */
 
-      letterpacing: '1px',
+      letterSpacing: '1px',
 
       color: '#C7C7C7'
     },
 
     box: {
-      marginTop: '12px',
       boxSizing: 'border-box',
-
-      width: '350px',
+      marginBottom: '40px',
+      width: '50%',
       height: '60px',
       justifyContent: 'center',
       border: '1px solid #C2C2C2',
@@ -70,7 +70,7 @@ const styles = () => {
     span2: {
       width: '300px',
       height: '25px',
-      marginTop: '-43px',
+      marginTop: '-80px',
       marginLeft: '11px',
       fontFamily: 'Open Sans',
       fontStyle: 'normal',
@@ -81,7 +81,7 @@ const styles = () => {
     },
 
     span3: {
-      marginTop: '40px',
+      marginTop: '25px',
       width: '334px',
       height: '22px',
 
@@ -116,26 +116,8 @@ const styles = () => {
     comentariiTextField: {
       marginTop: '12px',
 
-      width: '720px',
+      width: '70%',
       height: '150px'
-    },
-
-    butonAdauga: {
-      marginTop: '40px',
-      marginBottom: '40px',
-
-      width: '295px',
-      height: '60px',
-      background: '#5ECFFF',
-
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.04)',
-      borderRadius: '14px',
-      fontFamily: 'Cairo',
-      fontStyle: 'normal',
-      fontWeight: '700',
-      fontSize: '18px',
-      lineHeight: '24px',
-      color: '#FFFFFF'
     },
 
     butonSalveaza: {
@@ -156,6 +138,17 @@ const styles = () => {
       lineHeight: '24px',
 
       color: '#FFFFFF'
+    },
+
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    textField: {
+      marginLeft: 'spacing(1)',
+      marginRight: 'spacing(1)',
+      width: '200',
+      marginBottom: '25px'
     }
   }
 }
