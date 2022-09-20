@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useState } from 'react'
 import { Typography, Grid,TableFooter, TableCell, Table,TableRow,TableBody,TableHead,TableContainer} from '@material-ui/core'
 import { styled } from '@material-ui/styles'
 import {makeStyles} from '@material-ui/core'
@@ -13,12 +13,8 @@ function crd(Id,DataInceput,DataSfarsit,TipConcediu,Inlocuitor,Comentarii,StareC
 }
 
 function HolidaysMenu() {
-  const page=1
-  const handleFirstPageButtonClick = (event,page
-    ) => {
-      console.log('firstPage')
-      TablePagination.onPageChange(event, 0);
-    };
+
+  const [page,setPage]=useState(1)
   
     const handleBackButtonClick = (event,page) => {
       console.log('backPage')
@@ -34,7 +30,22 @@ function HolidaysMenu() {
       console.log('lastPage')
       TablePagination.onPageChange(event, Math.max(0, Math.ceil(5 / 1) - 1));
     }
+    
   const classes=useStyles()
+  function BackButtons(){
+    return(
+     <Fragment> <div onClick={console.log('FristPage'),() => {setPage(1)}}className={classes.BtnPrev}><div className={classes.FBar}></div><div className={classes.BtnPrevCover}></div></div>
+      <div className={classes.BtnPrev}><div onClick={() => {setPage(page+1)}} className={classes.BtnPrevCover}></div></div>
+      </Fragment>
+    )
+  }
+  function FrontButtons(){
+    return(
+      <Fragment>
+      <div className={classes.BtnNext}><div onClick={() => {setPage(page-1)}}className={classes.BtnPrevCover}></div></div>
+            <div className={classes.BtnNext}><div onClick={() => {setPage(5)}} className={classes.LBar}></div><div className={classes.BtnPrevCover}></div></div></Fragment>
+    )
+  }
   const rows=[
     crd(1,'20/10/2020','21/10/2020','Odihna','Miguel Gustavo','Concediu de odihna','Respins'),
     crd(2,'24/09/2021','02/10/2021','Medical','Matei Mirel','Ma simt rau ','Aprobat'),
@@ -58,9 +69,9 @@ function HolidaysMenu() {
          <TableCell className={classes.Cell} >Stare Concedii</TableCell>
         </TableRow>  
       </TableHead>
-    
+   
       <TableBody>
-        {rows.slice( page*2, (page+1)*2).map((row)=>(
+        {rows.slice( page*1 , (page+1)*1).map((row)=>(
          
          <TableRow className={classes.Rows} key={row.Id} >
          <TableCell className={classes.Cell} >{row.DataInceput}</TableCell>
@@ -81,10 +92,9 @@ function HolidaysMenu() {
           <TableCell className={classes.Cell}></TableCell>
           <TableCell className={classes.Cell}></TableCell>
           <TableCell className={classes.Cell}></TableCell>
-          <TableCell className={classes.Cell,classes.CF}> <div onClick={handleFirstPageButtonClick}className={classes.BtnPrev}><div className={classes.FBar}></div><div className={classes.BtnPrevCover}></div></div>
-            <div className={classes.BtnPrev}><div onClick={handleBackButtonClick} className={classes.BtnPrevCover}></div></div>
-            <div className={classes.BtnNext}><div onClick={handleNextButtonClick}className={classes.BtnPrevCover}></div></div>
-            <div className={classes.BtnNext}><div onClick={handleLastPageButtonClick} className={classes.LBar}></div><div className={classes.BtnPrevCover}></div></div>
+          <TableCell className={classes.Cell,classes.CF}>
+              <BackButtons/>
+              <FrontButtons/>
           </TableCell>
         </TableRow>
       </TableFooter>
