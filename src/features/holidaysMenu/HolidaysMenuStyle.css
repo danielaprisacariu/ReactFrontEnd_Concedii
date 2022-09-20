@@ -2,7 +2,7 @@
 .Cap{
     width: 60vw;
     background-color: rgba(77, 13, 19, 0.616);
-    color:rgb(233, 216, 218);
+    color:lightgray;
     font-weight:bold;
     border-radius: 15px 15px 0px 0px;
     align-items:center;

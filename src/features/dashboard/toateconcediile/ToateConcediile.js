@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 
 
 const useStyles= makeStyles(ToateConcediileStyle)
+
 function ToateConcediile(){
     const totateConcediile =[{id:1, name:"Popescu",surname:"Alex",date:'29/02/2022',date2:'31/03/2022',inlocuitor:"Popescu Ionut",stare:"Aprobat"},
                             {id:2, name:"Gogu",surname:"Alex",date:'27/02/2022',date2:'30/03/2022',inlocuitor:"Popescu Ionut",stare:"Aprobat"},
@@ -19,8 +20,8 @@ function ToateConcediile(){
     const classes = useStyles()
     const addToast = useToast()
     addToast('Welcome', 'success')
-    return (
-        <TableContainer className={classes.Tabel} >
+    return (<div className={classes.Background}> 
+        <TableContainer className={classes.Tabel}>
          <Table >
           <TableHead className={classes.Parinte}>
             <TableRow>
@@ -46,7 +47,7 @@ function ToateConcediile(){
           </TableBody>
           </Table>
       </TableContainer>
-    )
+    </div>)
 }
 
 export default ToateConcediile;
