@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { makeStyles } from '@material-ui/core'
+import { CardMedia, makeStyles } from '@material-ui/core'
 import DateleMeleStyles from './DateleMeleStyles'
 import { Typography, Grid, Button } from '@material-ui/core'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
@@ -8,6 +8,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import { TextFieldReadOnly } from './TextFieldReadOnly'
 import { FieldTextEditabil } from './FieldTextEditabil'
 import SaveIcon from '@material-ui/icons/Save'
+import EditIcon from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles(DateleMeleStyles)
 function DateleMeleContainer() {
@@ -27,51 +28,56 @@ function DateleMeleContainer() {
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> POZA </div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <div className={classes.pozaField}>
+            <CardMedia className={classes.imagine} component='img' image={angajat.poza} alt='imagine'></CardMedia>
+            <Button className={classes.schimbaPoza}>
+              <EditIcon> </EditIcon>
+            </Button>
+          </div>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> NUME </div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.nume}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> PRENUME </div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.prenume}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> CNP</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.cnp}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> SERIE</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.serie}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> NUMAR</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.numar}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}>DATA NASTERE </div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.dataNastere}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> EMAIL</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.email}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> TELEFON </div>
-          <FieldTextEditabil> </FieldTextEditabil>
+          <FieldTextEditabil angajat={angajat}> </FieldTextEditabil>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> FUNCTIE </div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.functie}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> DEPARTAMENT</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.departament}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={4}>
           <div className={classes.label}> DATA ANGAJARE</div>
-          <TextFieldReadOnly> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={angajat.dataAngajare}> </TextFieldReadOnly>
         </Grid>
         <Grid item xs={12}>
           <Button className={classes.butonActualizare}>
@@ -85,3 +91,19 @@ function DateleMeleContainer() {
 }
 
 export default DateleMeleContainer
+
+const angajat = {
+  id: 1,
+  poza: './images/Natalia_Dyer_by_Gage_Skidmore.jpg',
+  nume: 'Mitrut',
+  prenume: 'Elena',
+  cnp: ' 6010505407459',
+  serie: 'RK',
+  numar: '218754',
+  dataNastere: '05/05/2001',
+  email: 'elena.mitrut@totalsoft.ro',
+  telefon: '0770976542',
+  functie: 'manager',
+  departament: 'dezvoltare',
+  dataAngajare: '08/22/2022'
+}

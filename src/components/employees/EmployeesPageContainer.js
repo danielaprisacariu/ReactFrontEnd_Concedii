@@ -80,9 +80,7 @@ const array = [
 
 function EmployeesPageContainer() {
   const classes = useStyles()
-  //console.log(array);
   const cards = []
-  //console.log(filter)
 
   return (
     <>
