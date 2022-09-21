@@ -23,10 +23,11 @@ const DateleMeleStyles = () => {
     },
 
     root: {
-      width: '175px',
-      height: '60px',
+      width: '75%',
+      height: '50px',
       marginTop: '15px',
       marginBottom: '15px'
+
       /* Grey-03 */
     },
 
@@ -65,6 +66,33 @@ const DateleMeleStyles = () => {
       lineHeight: '24px',
 
       color: '#FFFFFF'
+    },
+
+    imagine: {
+      marginLeft: '16px',
+      height: '60px',
+      width: '60px'
+    },
+
+    pozaField: {
+      display: 'flex',
+      justifyContent: 'spaceBetween',
+      width: '75%',
+      height: '70px',
+      marginTop: '25px',
+      marginBottom: '15px',
+      padding: '2px',
+      /* White */
+
+      background: '#FFFFFF',
+      /* Shadow02 */
+
+      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.12)',
+      borderRadius: '14px'
+    },
+
+    schimbaPoza: {
+      marginLeft: 'auto'
     }
   }
 }

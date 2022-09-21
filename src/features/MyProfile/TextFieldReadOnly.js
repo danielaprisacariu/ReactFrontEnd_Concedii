@@ -2,16 +2,18 @@ import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import DateleMeleStyles from './DateleMeleStyles'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(DateleMeleStyles)
 
-export function TextFieldReadOnly() {
+export function TextFieldReadOnly(props) {
+  const { dataPersonala } = props
   const classes = useStyles()
   return (
     <TextField
       className={classes.root}
+      value={dataPersonala}
       id='standard-read-only-input'
-      defaultValue='Hello World'
       InputProps={{
         readOnly: true
       }}
@@ -19,3 +21,5 @@ export function TextFieldReadOnly() {
     />
   )
 }
+
+TextFieldReadOnly.propTypes = { dataPersonala: PropTypes.object }
