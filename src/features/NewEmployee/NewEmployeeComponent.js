@@ -1,63 +1,57 @@
 import React, { Fragment } from 'react'
-import { Typography, Grid , Button, TextField} from '@material-ui/core'
-import appStyle from './NewEmployeeStyle';
+import { Typography, Grid, Button, TextField } from '@material-ui/core'
+import appStyle from './NewEmployeeStyle'
 import { DateCustomComponent } from './DateCustomComponent'
 import { NewEmployeeCombobox } from './NewEmployeeCombobox'
 import { makeStyles } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import SaveIcon from '@material-ui/icons/Save'
 import { CustomTextField } from './CustomTextField'
- 
 
 const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
   const { fct } = props
   const { department } = props
-    const classes = useStyles()
-    return (
+  const classes = useStyles()
+  return (
     <Grid container>
       <Typography></Typography>
-        <Grid item xs={12}>
+      <Grid item xs={12}>
         <h1 className={classes.Title}> Add New Employee </h1>
-        </Grid>
-        <div className={classes.pag}>
-
+      </Grid>
+      <div className={classes.pag}>
         <Grid item xs={6}>
-          <div className={classes.label}> Last Name </div>
+          <div className={classes.label}>Last Name</div>
         </Grid>
         <Grid item xs={6}>
           <div className={classes.label}>First Name</div>
         </Grid>
-
         <Grid item xs={6}>
-          <TextField className={classes.box}> </TextField>
+          <TextField variant='outlined'> </TextField>
         </Grid>
         <Grid item xs={6}>
-          <TextField className={classes.box}></TextField>
+          <TextField variant='outlined'></TextField>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <div className={classes.label}>National Identity Card</div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <div className={classes.label}>Identity Card Series</div>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <div className={classes.label}>Identity Card Number</div>
         </Grid>
-        
 
-        <Grid item xs={6}>
-          <TextField className={classes.box}></TextField>
+        <Grid item xs={4}>
+          <TextField variant='outlined'></TextField>
         </Grid>
-        <Grid item xs={3}>
-          <TextField className={classes.halfbox}></TextField>
+        <Grid item xs={4}>
+          <TextField variant='outlined'></TextField>
         </Grid>
-        <Grid item xs={3}>
-          <TextField className={classes.halfbox}></TextField>
+        <Grid item xs={4}>
+          <TextField variant='outlined'></TextField>
         </Grid>
-         
-
 
         <Grid item xs={6}>
           <div className={classes.label}>Date of Employment</div>
@@ -67,10 +61,10 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-           <DateCustomComponent className={classes.data}> </DateCustomComponent>
-        </Grid>  
+          <DateCustomComponent className={classes.data}> </DateCustomComponent>
+        </Grid>
         <Grid item xs={6}>
-          <TextField className={classes.box}></TextField>
+          <TextField variant='outlined'></TextField>
         </Grid>
 
         <Grid item xs={6}>
@@ -100,14 +94,11 @@ function NewEmployeeComponent(props) {
             Save Employee
           </Button>
         </Grid>
+      </div>
+    </Grid>
+  )
+}
 
-        </div>
-     </Grid>
-     
-    )
-  }
-  
-  NewEmployeeComponent.propTypes = { fct: PropTypes.array.isRequired, department: PropTypes.array.isRequired }
+NewEmployeeComponent.propTypes = { fct: PropTypes.array.isRequired, department: PropTypes.array.isRequired }
 
-  export default NewEmployeeComponent
-
+export default NewEmployeeComponent
