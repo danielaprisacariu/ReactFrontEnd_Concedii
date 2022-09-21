@@ -8,6 +8,7 @@ import Styles from './Styles.js'
 import { ComentariiTextField } from './ComentariiTextField'
 import AttachFileIcon from '@material-ui/icons/AttachFile'
 import SaveIcon from '@material-ui/icons/Save'
+import { useHistory } from 'react-router'
 
 import PropTypes from 'prop-types'
 
@@ -17,6 +18,10 @@ function CerereConcediuComponenta(props) {
   const { tipuriConcedii } = props
   const { inlocuitori } = props
 
+  const history = useHistory()
+  const handleClick = () => {
+    history.push({ pathname: `/toateconcediile` })
+  }
   const addToast = useToast()
   const classes = useStyles()
   addToast('Welcome', 'success')
@@ -66,7 +71,7 @@ function CerereConcediuComponenta(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <Button className={classes.butonSalveaza}>
+          <Button className={classes.butonSalveaza} onClick={handleClick}>
             <SaveIcon> </SaveIcon>
             SALVEAZA
           </Button>
