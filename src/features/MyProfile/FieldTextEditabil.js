@@ -13,6 +13,7 @@ export function FieldTextEditabil(props) {
     <TextField
       className={classes.root}
       id='outline-helperText'
+      defaultValue={'0770765234'}
       label='telefon'
       variant='outlined'
       onChange={event => onChange('telefon', event.target.value)}

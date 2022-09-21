@@ -81,7 +81,7 @@ const DateleMeleStyles = () => {
       height: '70px',
       marginTop: '25px',
       marginBottom: '15px',
-      padding: '2px',
+      padding: '3px',
       /* White */
 
       background: '#FFFFFF',
