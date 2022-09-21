@@ -28,7 +28,7 @@ export function NewEmployeeCombobox(props) {
       <Autocomplete
         options={arrayDataSource}
         getOptionLabel={element => element.nume}
-        style={{ width: 300 }}
+        style={{ width: 350 }}
         renderInput={params => <TextField {...params} variant='outlined' />}
       />
     </div>

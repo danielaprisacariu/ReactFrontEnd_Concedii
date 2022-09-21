@@ -100,6 +100,7 @@ const HolidaysMenuStyle = () => {
       color: 'white',
       height: '60px'
     }
+
   }
 }
 
