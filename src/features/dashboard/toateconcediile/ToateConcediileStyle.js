@@ -11,7 +11,8 @@ return{
 },
 Tabel:{
     boxShadow:"#B2BEB5 3px 3px 0px 0px",
-    borderRadius:'15px 15px 15px 15px'
+    borderRadius:'15px 15px 15px 15px',
+    display:'blocked'
 },
 Rows:{
     '&:nth-of-type(even)': {
@@ -45,7 +46,79 @@ Header:{
 Background:{
     with:'100%',
     height:'100%',
-}
+},
+CF:{
+    display:'flex'
+},
+Footer:{
+    backgroundColor : 'rgba(100, 24, 195, 1)',
+color:'white',
+height:'60px',
+
+
+  
+ },
+ BtnPrev:{
+     width:'20px',
+     aspectRatio:'1',
+     backgroundColor:'white',
+     borderRadius:'15%',
+     transform:'rotate(45deg)',
+     position:'relative',
+     margin:'10px 10px 10px 10px',
+     '&:hover':{
+         backgroundColor : 'lightgray'
+     },
+     '&:active':{
+         backgroundColor:'gray'
+     }
+ },
+ BtnPrevCover:{
+     width:'20px',
+     aspectRatio:'1',
+     backgroundColor:'rgba(100, 24, 195, 1)',
+     borderRadius:'15%',
+     marginLeft:'5px',
+     marginTop:'-5px',
+     position:'absolute', 
+     zIndex:'1'
+ },
+ FBar:{
+     width:'5.5px',
+     aspectRatio:'0.2',
+     backgroundColor:'inherit',
+     borderRadius:'15%',
+     transform:'rotate(-45deg)',
+     position:'absolute',
+     marginLeft:'-5px',
+     marginTop:'10px'
+ },
+ BtnNext:{
+     width:'20px',
+     aspectRatio:'1',
+     backgroundColor:'white',
+     borderRadius:'15%',
+     transform:'rotate(-135deg)',
+     position:'relative',
+   margin:'10px 10px 10px 10px',
+   '&:hover':{
+     backgroundColor : '#a8a89b'
+ },
+ '&:active':{
+     backgroundColor:'#73736b'
+ 
+ }
+ },
+ LBar:{
+     width:'5.5px',
+     aspectRatio:'0.2',
+     backgroundColor:'inherit',
+     borderRadius:'15%',
+     transform:'rotate(135deg)',
+     position:'absolute',
+     marginLeft:'-6px',
+     marginTop:'10px'
+ }
     
 }
 }
