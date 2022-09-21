@@ -7,9 +7,17 @@ const useStyles = makeStyles(DateleMeleStyles)
 
 export function FieldTextEditabil(props) {
   const classes = useStyles()
-  const { angajat } = props
+  const { onChange } = props
 
-  return <TextField className={classes.root} id='outline-helperText' label='Editable' value={angajat.telefon} variant='outlined' />
+  return (
+    <TextField
+      className={classes.root}
+      id='outline-helperText'
+      label='telefon'
+      variant='outlined'
+      onChange={event => onChange('telefon', event.target.value)}
+    />
+  )
 }
 
-FieldTextEditabil.propTypes = { angajat: PropTypes.object }
+FieldTextEditabil.propTypes = { angajat: PropTypes.object, onChange: PropTypes.func }

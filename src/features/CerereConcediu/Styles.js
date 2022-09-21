@@ -60,7 +60,7 @@ const styles = () => {
     box: {
       boxSizing: 'border-box',
       marginBottom: '40px',
-      width: '50%',
+      width: '300px',
       height: '60px',
       justifyContent: 'center',
       border: '1px solid #C2C2C2',

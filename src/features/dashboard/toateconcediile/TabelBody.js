@@ -17,7 +17,7 @@ function BodyTabel(props) {
   const classes = useStyles()
   return (
     <TableBody>
-      {miguel?.slice(page * 1, (page + 1) * 1).map(row => (
+      {miguel?.slice(page * 5, (page + 1) * 5).map(row => (
         <TableRow className={classes.Rows} key={row.id}>
           <TableCell className={classes.Cell}>{row.name}</TableCell>
           <TableCell className={classes.Cell}>{row.surname}</TableCell>
