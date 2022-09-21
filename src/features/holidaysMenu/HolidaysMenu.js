@@ -1,93 +1,29 @@
-import React, { Fragment,useState } from 'react'
-import { Typography, Grid,TableFooter, TableCell, Table,TableRow,TableBody,TableHead,TableContainer} from '@material-ui/core'
-import { styled } from '@material-ui/styles'
-import {makeStyles} from '@material-ui/core'
-import TablePagination from '@material-ui/core/TablePagination'
+import React, { useState } from 'react'
+import { TableFooter, TableCell, Table, TableRow, TableBody, TableHead, TableContainer } from '@material-ui/core'
+
+import { makeStyles } from '@material-ui/core'
 
 import HolidaysMenuStyle from './HolidaysMenuStyle.js'
+import HMTable from './HMTable'
 
-
-const useStyles= makeStyles(HolidaysMenuStyle)
-function crd(Id,DataInceput,DataSfarsit,TipConcediu,Inlocuitor,Comentarii,StareConcedii){
-  return{Id,DataInceput,DataSfarsit,TipConcediu,Inlocuitor,Comentarii,StareConcedii}; 
+const useStyles = makeStyles(HolidaysMenuStyle)
+function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii) {
+  return { Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii }
 }
 
 function HolidaysMenu() {
+  const [page, setPage] = useState(0)
+  const rowsOnPage = 1
 
-  const [page,setPage]=useState(0)
-  
-    
-    
-  const classes=useStyles()
-  function BackButtons(){
-    return(
-     <Fragment> <div onClick={console.log('FristPage'),() => {setPage(0)}}className={classes.BtnPrev}><div className={classes.FBar}></div><div className={classes.BtnPrevCover}></div></div>
-      <div onClick={console.log('BackPage'),() => {setPage(page-1)}} className={classes.BtnPrev}><div  className={classes.BtnPrevCover}></div></div>
-      </Fragment>
-    )
-  }
-  function FrontButtons(){
-    return(
-      <Fragment>
-      <div onClick={console.log('NextPage'),() => {setPage(page+1)}} className={classes.BtnNext}><div className={classes.BtnPrevCover}></div></div>
-            <div onClick={console.log('lastPage'),() => {setPage(rows.length-1)}} className={classes.BtnNext}><div  className={classes.LBar}></div><div className={classes.BtnPrevCover}></div></div></Fragment>
-    )
-  }
-  const rows=[
-    crd(1,'20/10/2020','21/10/2020','Odihna','Miguel Gustavo','Concediu de odihna','Respins'),
-    crd(2,'24/09/2021','02/10/2021','Medical','Matei Mirel','Ma simt rau ','Aprobat'),
-    crd(3,'20/10/2020','21/10/2020','Odihna','Matei Mirel','Ma odihnesc','In asteptare'),
-    crd(4,'20/10/2020','21/10/2020','Medical','Matei Mirel','Sunt gripat','In asteptare'),
-    crd(5,'20/10/2020','21/10/2020','Medical','Popescu Ion','Mi-am rupt piciorul','In asteptare')
+  const rows = [
+    crd(1, '20/10/2020', '21/10/2020', 'Odihna', 'Miguel Gustavo', 'Concediu de odihna', 'Respins'),
+    crd(2, '24/09/2021', '02/10/2021', 'Medical', 'Matei Mirel', 'Ma simt rau ', 'Aprobat'),
+    crd(3, '20/10/2020', '21/10/2020', 'Odihna', 'Matei Mirel', 'Ma odihnesc', 'In asteptare'),
+    crd(4, '20/10/2020', '21/10/2020', 'Medical', 'Matei Mirel', 'Sunt gripat', 'In asteptare'),
+    crd(5, '20/10/2020', '21/10/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt piciorul', 'In asteptare')
+  ]
 
-  ];
-
-  return (
-
-   <TableContainer className={classes.Table} >
-      <Table > 
-       <TableHead className={classes.Header} >
-        <TableRow className={classes.HeaderRow} >    
-         <TableCell className={classes.Cell}>Data Inceput</TableCell>
-         <TableCell className={classes.Cell} >Data Sfarsit</TableCell>
-         <TableCell className={classes.Cell} >Tip Concediu</TableCell>
-         <TableCell className={classes.Cell} >Inlocuitor</TableCell>
-         <TableCell className={classes.Cell} >Comentarii</TableCell>
-         <TableCell className={classes.Cell} >Stare Concedii</TableCell>
-        </TableRow>  
-      </TableHead>
-   
-      <TableBody>
-        {rows.slice( page*1 , (page+1)*1).map((row)=>(
-         
-         <TableRow className={classes.Rows} key={row.Id} >
-         <TableCell className={classes.Cell} >{row.DataInceput}</TableCell>
-          <TableCell className={classes.Cell} >{row.DataSfarsit}</TableCell>
-          <TableCell className={classes.Cell} >{row.TipConcediu}</TableCell>
-          <TableCell className={classes.Cell} >{row.Inlocuitor}</TableCell>
-          <TableCell className={classes.Cell}  >{row.Comentarii}</TableCell>
-          <TableCell className={classes.Cell} >{row.StareConcedii}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-      <TableFooter className={classes.Header}>
-        <TableRow className={classes.TableRow}>
-          
-          <TableCell className={classes.Cell,classes}>  
-          </TableCell>
-          <TableCell className={classes.Cell}></TableCell>
-          <TableCell className={classes.Cell}></TableCell>
-          <TableCell className={classes.Cell}></TableCell>
-          <TableCell className={classes.Cell}></TableCell>
-          <TableCell className={classes.Cell,classes.CF}>
-              <BackButtons/>
-              <FrontButtons/>
-          </TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-  </TableContainer>
-  )
+  return <HMTable page={page} setPage={setPage} rows={rows} rowsOnPage={rowsOnPage} />
 }
 
 export default HolidaysMenu
