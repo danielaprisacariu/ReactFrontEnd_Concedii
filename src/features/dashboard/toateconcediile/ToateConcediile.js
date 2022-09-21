@@ -11,6 +11,8 @@ import TabelBody from './TabelBody'
 const useStyles = makeStyles(ToateConcediileStyle)
 
 function ToateConcediile() {
+  const [pagini,setPage] = useState(0)
+  const rowsOnPage = 1
   const totateConcediile = [
     { id: 1, name: 'Popescu', surname: 'Alex', date: '29/02/2022', date2: '31/03/2022', inlocuitor: 'Popescu Ionut', stare: 'Aprobat' },
     { id: 2, name: 'Gogu', surname: 'Alex', date: '27/02/2022', date2: '30/03/2022', inlocuitor: 'Popescu Ionut', stare: 'Aprobat' },
@@ -19,14 +21,13 @@ function ToateConcediile() {
   ]
   const classes = useStyles()
 
-  const [pagini] = useState(0)
 
   return (
     <TableContainer className={classes.Tabel}>
       <Table>
         <TabelHeader />
-        { <TabelBody miguel={totateConcediile} page={pagini}/> }
-        <TabelFooter />
+        <TabelBody miguel={totateConcediile} page={pagini}/> 
+        <TabelFooter miguelito={totateConcediile} page={pagini} setPage={setPage} />
       </Table>
     </TableContainer>
   )
