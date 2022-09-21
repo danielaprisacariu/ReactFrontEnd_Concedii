@@ -11,8 +11,7 @@ return{
 },
 Tabel:{
     boxShadow:"#B2BEB5 3px 3px 0px 0px",
-    borderRadius:'15px 15px 15px 15px',
-    display:'blocked'
+    borderRadius:'15px 15px 15px 15px'
 },
 Rows:{
     '&:nth-of-type(even)': {
@@ -31,14 +30,15 @@ Rows:{
 
       backgroundColor:'rgb(100, 24, 195, 0.10)'
 
-      }
+      },
+      
 
    
 
 },
 Cell:{
     alignItems:'left',
-    color: 'Inherit'
+    color: 'inherit'
 },
 Header:{
     color:'#FFFFFF'

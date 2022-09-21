@@ -11,10 +11,8 @@ const useStyles = makeStyles(Styles)
 export function DatePickersCustomComponent() {
   const classes = useStyles()
   const [state, setState] = useState(new Date())
-  console.log(new Date())
   const handleChange = event => {
     setState(event.target.value)
-    console.log(state)
   }
   return (
     <form className={classes.container} noValidate>
@@ -22,8 +20,8 @@ export function DatePickersCustomComponent() {
         id='state'
         label=''
         type='date'
+        value={state}
         className={classes.textField}
-        defaultValue={new Date()}
         InputLabelProps={{
           shrink: true
         }}

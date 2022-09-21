@@ -15,13 +15,13 @@ function HeaderTabel(){
     const classes = useStyles()
     return(
         <TableHead className={classes.Parinte}>
-            <TableRow>
-              <TableCell>Nume</TableCell>
-              <TableCell>Prenume</TableCell>
-              <TableCell>Data incepere</TableCell>
-              <TableCell>Data sfarsit</TableCell>
-              <TableCell>Inlocuitor</TableCell>
-              <TableCell>Stare cerere</TableCell>
+            <TableRow className={classes.Rows}>
+              <TableCell className={classes.Cell}>Nume</TableCell>
+              <TableCell className={classes.Cell}>Prenume</TableCell>
+              <TableCell className={classes.Cell}>Data incepere</TableCell>
+              <TableCell className={classes.Cell}>Data sfarsit</TableCell>
+              <TableCell className={classes.Cell}>Inlocuitor</TableCell>
+              <TableCell className={classes.Cell}>Stare cerere</TableCell>
             </TableRow>
           </TableHead>
     )
