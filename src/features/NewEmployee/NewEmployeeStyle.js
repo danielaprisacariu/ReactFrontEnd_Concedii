@@ -38,7 +38,8 @@ const Style = () => {
             width: '350px',
             height: '60px',
             justifyContent: 'center',
-        
+            textAlign:'center',
+            fontSize: '16px',
             border: '1px solid #C2C2C2',
             borderRadius: '14px',
             
@@ -47,7 +48,8 @@ const Style = () => {
           halfbox: {
             marginTop: '12px',
             boxSizing: 'border-box',
-        
+            textAlign:'center',
+            fontSize: '16px',
             width: '175px',
             height: '60px',
             justifyContent: 'center',
@@ -109,6 +111,13 @@ const Style = () => {
             lineHeight: '24px',
       
             color: '#FFFFFF'
+          },
+
+          TextField: {
+            marginTop: '12px',
+      
+            width: '70%',
+            height: '150px'
           },
     }
   }
