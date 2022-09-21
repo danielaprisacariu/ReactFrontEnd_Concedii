@@ -39,7 +39,7 @@ function FooterTabel(props) {
       >
         <div className={classes.BtnPrevCover}></div>
       </div></>)}
-          {page!==Math.ceil(miguelito.length/1 - 1) &&(<><div
+          {page!==Math.ceil(miguelito.length/5 - 1) &&(<><div
         onClick={() => {
           setPage(page + 1)
         }}
@@ -49,7 +49,7 @@ function FooterTabel(props) {
       </div>
       <div
         onClick={() => {
-          setPage(Math.ceil(miguelito.length/1 - 1))
+          setPage(Math.ceil(miguelito.length/5 - 1))
         }}
         className={classes.BtnNext}
       >
