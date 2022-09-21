@@ -11,6 +11,7 @@ import HolidaysMenu from 'features/holidaysMenu/HolidaysMenu'
 import CerereConcediuContainer from '../features/CerereConcediu/CererereConcediuContainer'
 import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
 import EmployeesPageContainer from 'components/employees/EmployeesPageContainer'
+import DateleMeleContainer from '../features/MyProfile/DateleMeleContainer'
 
 export default function AppRoutes() {
   return (
@@ -24,6 +25,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/employees' component={EmployeesPageContainer} />
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />
       <CustomRoute isPrivate={false} exact path='/CerereConcediuContainer' component={CerereConcediuContainer} />
+      <CustomRoute isPrivate={false} exact path='/myProfile' component={DateleMeleContainer} />
       <CustomRoute isPrivate={false} render={() => <NotFound title='PageNotFound'></NotFound>} />
     </Switch>
   )
