@@ -27,30 +27,30 @@ function NewEmployeeComponent(props) {
           <div className={classes.label}>First Name</div>
         </Grid>
         <Grid item xs={6}>
-          <TextField variant='outlined'> </TextField>
+          <TextField className={classes.box} variant='outlined'></TextField>
         </Grid>
         <Grid item xs={6}>
-          <TextField variant='outlined'></TextField>
+          <TextField className={classes.box} variant='outlined'></TextField>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <div className={classes.label}>National Identity Card</div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <div className={classes.label}>Identity Card Series</div>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <div className={classes.label}>Identity Card Number</div>
         </Grid>
 
-        <Grid item xs={4}>
-          <TextField variant='outlined'></TextField>
+        <Grid item xs={6}>
+          <TextField className={classes.box} variant='outlined'></TextField>
         </Grid>
-        <Grid item xs={4}>
-          <TextField variant='outlined'></TextField>
+        <Grid item xs={3}>
+          <TextField className={classes.halfbox} variant='outlined'></TextField>
         </Grid>
-        <Grid item xs={4}>
-          <TextField variant='outlined'></TextField>
+        <Grid item xs={3}>
+          <TextField className={classes.halfbox} variant='outlined'></TextField>
         </Grid>
 
         <Grid item xs={6}>
@@ -64,7 +64,7 @@ function NewEmployeeComponent(props) {
           <DateCustomComponent className={classes.data}> </DateCustomComponent>
         </Grid>
         <Grid item xs={6}>
-          <TextField variant='outlined'></TextField>
+          <TextField className={classes.box} variant='outlined'></TextField>
         </Grid>
 
         <Grid item xs={6}>
