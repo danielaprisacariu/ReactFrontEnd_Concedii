@@ -1,13 +1,17 @@
 import { React, Fragment, useState } from 'react'
-import { TableFooter, TableRow, TableCell, makeStyles } from '@material-ui/core'
+import { TableFooter, TableRow, TableCell, makeStyles,Select,MenuItem,Checkbox,ListItemText } from '@material-ui/core'
 import HolidaysMenuStyle from '../HolidaysMenuStyle'
 import { PropTypes } from 'prop-types'
 
 const useStyles = makeStyles(HolidaysMenuStyle)
 
 function HMTableFooter(props) {
-    const {page, setPage, rows,rowsOnPage}=props
+  const { page, setPage, rows, rowsOnPage,RopVals,RopVal,handleRopValChange } = props
   const classes = useStyles()
+
+
+  console.log("HMTableFooter"+RopVals)
+  console.log(rows.length, rowsOnPage)
   return (
     <TableFooter className={classes.Header}>
       <TableRow className={classes.TableRow}>
@@ -15,61 +19,68 @@ function HMTableFooter(props) {
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
-        <TableCell className={classes.Cell}></TableCell>
+        <TableCell className={classes.Cell}><Select  value={RopVal} onChange={handleRopValChange}>
+             {RopVals?.map((name) => (<MenuItem  key={name} value={name}>  {name}
+              </MenuItem>))}
+              </Select></TableCell>
         <TableCell className={(classes.Cell, classes.CF)}>
-            {page !==1 && (<>  <div
-        onClick={() => {
-          setPage(0)
-        }}
-        className={classes.BtnPrev}
-      >
-        <div className={classes.FBar}></div>
-        <div className={classes.BtnPrevCover}></div>
-      </div>
-      <div
-        onClick={() => {
-          setPage(page - 1)
-        }}
-        className={classes.BtnPrev}
-      >
-        <div className={classes.BtnPrevCover}></div>
-      </div></>)}
-          {page!==rows.length/rowsOnPage &&(<><div
-        onClick={() => {
-          setPage(page + 1)
-        }}
-        className={classes.BtnNext}
-      >
-        <div className={classes.BtnPrevCover}></div>
-      </div>
-      <div
-        onClick={() => {
-          setPage(rows.length - 1)
-        }}
-        className={classes.BtnNext}
-      >
-        <div className={classes.LBar}></div>
-        <div className={classes.BtnPrevCover}></div>
-      </div></> )
-          }
+          {page !== 0 && (
+            <>
+          
+              <div
+                onClick={() => {
+                  setPage(0)
+                }}
+                className={classes.BtnPrev}
+              >
+                <div className={classes.FBar}></div>
+                <div className={classes.BtnPrevCover}></div>
+              </div>
+              <div
+                onClick={() => {
+                  setPage(page - 1)
+                }}
+                className={classes.BtnPrev}
+              >
+                <div className={classes.BtnPrevCover}></div>
+              </div>
+            </>
+          )}
+
+          {page !== Math.ceil(rows.length / rowsOnPage) - 1 && (
+            <>
+              <div
+                onClick={() => {
+                  setPage(page + 1)
+                }}
+                className={classes.BtnNext}
+              >
+                <div className={classes.BtnPrevCover}></div>
+              </div>
+              <div
+                onClick={() => {
+                  setPage(Math.ceil(rows.length / rowsOnPage) - 1)
+                }}
+                className={classes.BtnNext}
+              >
+                <div className={classes.LBar}></div>
+                <div className={classes.BtnPrevCover}></div>
+              </div>
+            </>
+          )}
         </TableCell>
       </TableRow>
     </TableFooter>
   )
 }
-// BackButtons.propTypes = {
-//   page: PropTypes.object,
-//   setPage: PropTypes.object
-// }
-// FrontButtons.propTypes = {
-//   page: PropTypes.object,
-//   setPage: PropTypes.setStateAction,
-//   rows: PropTypes.array
-// }
+
 HMTableFooter.propTypes = {
   page: PropTypes.number,
   setPage: PropTypes.func,
   rows: PropTypes.array,
-  rowsOnPage: PropTypes.number
+  rowsOnPage: PropTypes.number,
+  RopVals: PropTypes.array,
+  RopVal: PropTypes.number,
+  handleRopValChange:PropTypes.func
 }
 export default HMTableFooter

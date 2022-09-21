@@ -5,10 +5,10 @@ import { PropTypes } from 'prop-types'
 
 const useStyles = makeStyles(HolidaysMenuStyle)
 function HMTableBody(props) {
-    const{rows,page,rowsOnPage}=props
-    const classes = useStyles()
+  const { rows, page, rowsOnPage } = props
+  const classes = useStyles()
   return (
-    <TableBody>
+    <TableBody className={classes.TableBody}>
       {rows?.slice(page * rowsOnPage, (page + 1) * rowsOnPage).map(row => (
         <TableRow className={classes.Rows} key={row.Id}>
           <TableCell className={classes.Cell}>{row.DataInceput}</TableCell>
@@ -25,6 +25,6 @@ function HMTableBody(props) {
 HMTableBody.propTypes = {
   rows: PropTypes.array,
   page: PropTypes.number,
-  rowsOnPage: PropTypes.number  
+  rowsOnPage: PropTypes.number
 }
 export default HMTableBody
