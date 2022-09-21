@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import { Typography, Grid , Button} from '@material-ui/core'
+import { Typography, Grid , Button, TextField} from '@material-ui/core'
 import appStyle from './NewEmployeeStyle';
 import { DateCustomComponent } from './DateCustomComponent'
 import { NewEmployeeCombobox } from './NewEmployeeCombobox'
 import { makeStyles } from '@material-ui/core'
-import Style from './NewEmployeeStyle'
 import PropTypes from 'prop-types'
 import SaveIcon from '@material-ui/icons/Save'
-
+import { CustomTextField } from './CustomTextField'
+ 
 
 const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
@@ -30,10 +30,10 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <div className={classes.box}> test </div>
+          <TextField className={classes.box}> </TextField>
         </Grid>
         <Grid item xs={6}>
-          <div className={classes.box}>test</div>
+          <TextField className={classes.box}></TextField>
         </Grid>
 
         <Grid item xs={6}>
@@ -48,13 +48,13 @@ function NewEmployeeComponent(props) {
         
 
         <Grid item xs={6}>
-          <div className={classes.box}> test id </div>
+          <TextField className={classes.box}></TextField>
         </Grid>
         <Grid item xs={3}>
-          <div className={classes.halfbox}> test id </div>
+          <TextField className={classes.halfbox}></TextField>
         </Grid>
         <Grid item xs={3}>
-          <div className={classes.halfbox}> test id </div>
+          <TextField className={classes.halfbox}></TextField>
         </Grid>
          
 
@@ -70,7 +70,7 @@ function NewEmployeeComponent(props) {
            <DateCustomComponent className={classes.data}> </DateCustomComponent>
         </Grid>  
         <Grid item xs={6}>
-          <div className={classes.box}> test numar </div>
+          <TextField className={classes.box}></TextField>
         </Grid>
 
         <Grid item xs={6}>
@@ -91,7 +91,7 @@ function NewEmployeeComponent(props) {
           <div className={classes.label}>Comments</div>
         </Grid>
         <Grid item xs={12}>
-          <div className={classes.bigbox}> test comment </div>
+          <CustomTextField className={classes.bigbox}></CustomTextField>
         </Grid>
 
         <Grid item xs={12}>
