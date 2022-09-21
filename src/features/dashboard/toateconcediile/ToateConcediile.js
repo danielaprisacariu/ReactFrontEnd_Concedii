@@ -59,7 +59,7 @@ function ToateConcediile() {
 
   return (
     <>
-      <SearchBar onFilter={handleFilter} />
+      <SearchBar onFilter={handleFilter}/>
       <TableContainer className={classes.Tabel}>
         <Table>
           <TabelHeader />
