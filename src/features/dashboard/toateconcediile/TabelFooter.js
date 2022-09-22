@@ -5,21 +5,23 @@ import ToateConcediileStyle from './ToateConcediileStyle.js'
 import TableRow from '@material-ui/core/TableRow'
 import { TableFooter, Select, MenuItem } from '@material-ui/core'
 import { PropTypes } from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles(ToateConcediileStyle)
 
 function FooterTabel(props) {
   const { miguelito, page, setPage, RopVal, RopVals, handleRopValChange } = props
   const classes = useStyles()
+  const {t}=useTranslation()
   return (
     <TableFooter className={classes.Footer}>
       <TableRow className={classes.Rows}>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
-        <TableCell className={classes.CText}>Randuri pe pagina :</TableCell>
-        <TableCell className={classes.Cell}>
-          <Select value={RopVal} onChange={handleRopValChange} className ={classes.Selects}>
+        <TableCell className={classes.CText}>{t('Footer.RanduriPePagina')}</TableCell>
+        <TableCell className={classes.Cell, classes.CBox}>
+          <Select defaultValue ={5} value={RopVal} onChange={handleRopValChange} className ={classes.Selects}>
             {RopVals?.map(name => (
               <MenuItem key={name} value={name}>
                 {' '}

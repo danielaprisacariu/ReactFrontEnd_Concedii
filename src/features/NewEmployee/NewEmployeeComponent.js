@@ -82,9 +82,10 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <DateCustomComponent className={classes.data} onChange={event => handleChange('DateOfEmployment', event.target.value)}>
-            {' '}
-          </DateCustomComponent>
+          <DateCustomComponent
+            className={classes.data}
+            onChange={event => handleChange('DateOfEmployment', event.target.value)}
+          ></DateCustomComponent>
         </Grid>
         <Grid item xs={6}>
           <TextField
@@ -102,14 +103,10 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={fct} onChange={handleChange} propertyName='Function'>
-            {' '}
-          </NewEmployeeCombobox>
+          <NewEmployeeCombobox arrayDataSource={fct} onChange={handleChange} propertyName='Function'></NewEmployeeCombobox>
         </Grid>
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={department} onChange={handleChange} propertyName='Departament'>
-            {' '}
-          </NewEmployeeCombobox>
+          <NewEmployeeCombobox arrayDataSource={department} onChange={handleChange} propertyName='Departament'></NewEmployeeCombobox>
         </Grid>
 
         <Grid item xs={12}>

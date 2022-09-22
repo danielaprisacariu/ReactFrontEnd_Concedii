@@ -116,6 +116,9 @@ const ToateConcediileStyle = () => {
         textAlign:'right',
        color:'lightgray',
        fontSize:'18.5px'
+    },
+    CBox:{
+      textAlign:'left'
     }
   }
 }
