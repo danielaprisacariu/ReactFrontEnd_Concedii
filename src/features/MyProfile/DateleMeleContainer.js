@@ -1,4 +1,4 @@
-import React, { Fragment, useReducer, useRef } from 'react'
+import React, { createRef, Fragment, useReducer, useRef } from 'react'
 
 import { CardMedia, IconButton, Input, makeStyles } from '@material-ui/core'
 import DateleMeleStyles from './DateleMeleStyles'
@@ -8,29 +8,13 @@ import { TextFieldReadOnly } from './TextFieldReadOnly'
 import { FieldTextEditabil } from './FieldTextEditabil'
 import SaveIcon from '@material-ui/icons/Save'
 import EditIcon from '@material-ui/icons/Edit'
-import MyProfileReducer from './MyProfileReducer'
+import { MyProfileReducer, initialState } from './MyProfileReducer'
 import { Edit } from '@material-ui/icons'
-
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 const useStyles = makeStyles(DateleMeleStyles)
 
 function DateleMeleContainer() {
   const classes = useStyles()
-
-  const initialState = {
-    id: 1,
-    poza: './images/Natalia_Dyer_by_Gage_Skidmore.jpg',
-    nume: 'Mitrut',
-    prenume: 'Elena',
-    cnp: ' 6010505407459',
-    serie: 'RK',
-    numar: '218754',
-    dataNastere: '05/05/2001',
-    email: 'elena.mitrut@totalsoft.ro',
-    telefon: '0770976542',
-    functie: 'manager',
-    departament: 'dezvoltare',
-    dataAngajare: '08/22/2022'
-  }
 
   const [state, dispatch] = useReducer(MyProfileReducer, initialState)
 
@@ -38,23 +22,15 @@ function DateleMeleContainer() {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
   }
 
-  const inputFile = useRef(null)
+  const inputFile = createRef()
+  var showFileUpload
+
   function handleUploadClick() {
     inputFile.current.click()
   }
   function openFiles() {
     console.log('Forta steaua')
-    return (
-      <input
-        accept='image/*'
-        className={classes.input}
-        id='contained-button-file'
-        multiple
-        type='file'
-        ref={inputFile}
-        onChange={handleUploadClick}
-      />
-    )
+    inputFile.current.click()
   }
 
   return (
@@ -72,9 +48,21 @@ function DateleMeleContainer() {
           <div className={classes.label}> POZA </div>
           <div className={classes.pozaField}>
             <CardMedia className={classes.imagine} component='img' image={state.poza} alt='imagine'></CardMedia>
+            {/* 
+            <EditIcon onClick={openFiles}>
+              <input
+                className={classes.schimbaPoza}
+                accept='image/*'
+                id='contained-button-file'
+                multiple
+                type='file'
+                ref={inputFile}
+                onChange={handleUploadClick}
+              />
+            </EditIcon> */}
 
-            <input />
-            <IconButton
+            {/* <input />
+            {/* <Button
               className={classes.schimbaPoza}
               onClick={openFiles}
               accept='image/*'
@@ -84,8 +72,31 @@ function DateleMeleContainer() {
               ref={inputFile}
               onChange={handleUploadClick}
               icon={EditIcon}
-            ></IconButton>
-            <EditIcon onClick={openFiles}></EditIcon>
+            >
+              Poza
+            </Button> */}
+            <input
+              className={classes.schimbaPoza}
+              onClick={openFiles}
+              accept='image/*'
+              id='contained-button-file'
+              multiple
+              type='file'
+              ref={inputFile}
+              onChange={handleUploadClick}
+              icon={AddCircleOutlineIcon}
+            />
+            {/* <div className={classes.schimbaPoza}>
+              <EditIcon
+                onClick={openFiles}
+                accept='image/*'
+                id='contained-button-file'
+                multiple
+                type='file'
+                ref={inputFile}
+                onChange={handleUploadClick}
+              ></EditIcon>
+            </div> */}
           </div>
         </Grid>
         <Grid item sm={4} xs={12}>
@@ -118,7 +129,7 @@ function DateleMeleContainer() {
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> TELEFON </div>
-          <FieldTextEditabil angajat={state} onChange={onPropertyChange} propertyName='telefon'></FieldTextEditabil>
+          <FieldTextEditabil angajat={state} onChange={onPropertyChange} propertyName='telefon' telefon={state.telefon}></FieldTextEditabil>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> FUNCTIE </div>

@@ -22,4 +22,4 @@ export function TextFieldReadOnly(props) {
   )
 }
 
-TextFieldReadOnly.propTypes = { dataPersonala: PropTypes.object }
+TextFieldReadOnly.propTypes = { dataPersonala: PropTypes.string }

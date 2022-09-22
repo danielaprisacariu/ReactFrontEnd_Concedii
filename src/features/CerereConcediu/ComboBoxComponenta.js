@@ -10,22 +10,6 @@ const useStyles = makeStyles(Styles)
 export function ComboBoxComponenta(props) {
   const { arrayDataSource, onChange, propertyName, id } = props
 
-  // const useStyles = makeStyles(theme => ({
-  //   container: {
-  //     display: 'flex',
-
-  //     flexWrap: 'wrap'
-  //   },
-
-  //   textField: {
-  //     marginLeft: theme.spacing(1),
-
-  //     marginRight: theme.spacing(1),
-
-  //     width: 200
-  //   }
-  // }))
-
   return (
     <div>
       <Autocomplete
