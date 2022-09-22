@@ -19,6 +19,7 @@ function FooterTabel(props) {
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
+        <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.CText}>{t('Footer.RanduriPePagina')}</TableCell>
         <TableCell className={classes.Cell, classes.CBox}>
           <Select defaultValue ={5} value={RopVal} onChange={handleRopValChange} className ={classes.Selects}>

@@ -13,7 +13,6 @@ export function NewEmployeeCombobox(props) {
       <Autocomplete
         options={arrayDataSource}
         getOptionLabel={element => element.nume}
-        value={id}
         style={{ width: 350 }}
         onChange={(event, value) => onChange(propertyName, value.id)}
         renderInput={params => <TextField {...params} variant='standard' />}
