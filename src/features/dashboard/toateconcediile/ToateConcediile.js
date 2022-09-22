@@ -13,7 +13,6 @@ const useStyles = makeStyles(ToateConcediileStyle)
 
 function ToateConcediile() {
   const RopVals=[
-    1,
     5,
     10,
     15,
@@ -26,7 +25,6 @@ function ToateConcediile() {
   }
 
   const [pagini, setPage] = useState(0)
-  const rowsOnPage = 1
   const totateConcediile = [
     { id: 1, name: 'Popescu', surname:'Bogdan', date: '29/02/2022', date2: '31/03/2022', inlocuitor: 'Popescu Ionut', stare: 'Aprobat' },
     { id: 2, name: 'Gogu', surname: 'Marian', date: '27/02/2022', date2: '30/03/2022', inlocuitor: 'Popescu Ionut', stare: 'Aprobat' },
