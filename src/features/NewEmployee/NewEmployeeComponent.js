@@ -8,16 +8,13 @@ import PropTypes from 'prop-types'
 import SaveIcon from '@material-ui/icons/Save'
 import { CustomTextField } from './CustomTextField'
 import { OnPropertyChanged, reducer, initialState } from './NewEmployeeState'
+import { NewEmployeeReducer } from './NewEmployeeState'
 
 const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
-  const { fct } = props
-  const { department } = props
   const classes = useStyles()
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const handleChange = (propertyName, value) => {
-    dispatch({ type: 'OnPropertyChanged', propertyName, value })
-  }
+  const { onChange, state, department, fct } = props
+
   return (
     <Grid container>
       <Typography></Typography>
@@ -57,20 +54,24 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <TextField className={classes.box} variant='outlined' onChange={event => handleChange('NIC', event.target.value)}></TextField>
-        </Grid>
-        <Grid item xs={3}>
           <TextField
-            className={classes.halfbox}
+            className={classes.box}
             variant='outlined'
-            onChange={event => handleChange('Series', event.target.value)}
+            onChange={event => OnPropertyChanged('NIC', event.target.value)}
           ></TextField>
         </Grid>
         <Grid item xs={3}>
           <TextField
             className={classes.halfbox}
             variant='outlined'
-            onChange={event => handleChange('CardNumber', event.target.value)}
+            onChange={event => OnPropertyChanged('Series', event.target.value)}
+          ></TextField>
+        </Grid>
+        <Grid item xs={3}>
+          <TextField
+            className={classes.halfbox}
+            variant='outlined'
+            onChange={event => OnPropertyChanged('CardNumber', event.target.value)}
           ></TextField>
         </Grid>
 
@@ -84,14 +85,14 @@ function NewEmployeeComponent(props) {
         <Grid item xs={6}>
           <DateCustomComponent
             className={classes.data}
-            onChange={event => handleChange('DateOfEmployment', event.target.value)}
+            onChange={event => OnPropertyChanged('DateOfEmployment', event.target.value)}
           ></DateCustomComponent>
         </Grid>
         <Grid item xs={6}>
           <TextField
             className={classes.box}
             variant='outlined'
-            onChange={event => handleChange('PhoneNumber', event.target.value)}
+            onChange={event => OnPropertyChanged('PhoneNumber', event.target.value)}
           ></TextField>
         </Grid>
 
@@ -105,7 +106,7 @@ function NewEmployeeComponent(props) {
         <Grid item xs={6}>
           <NewEmployeeCombobox
             arrayDataSource={fct}
-            onChange={handleChange}
+            onChange={OnPropertyChanged}
             propertyName='Function'
             id={state.Function}
           ></NewEmployeeCombobox>
@@ -113,17 +114,10 @@ function NewEmployeeComponent(props) {
         <Grid item xs={6}>
           <NewEmployeeCombobox
             arrayDataSource={department}
-            onChange={handleChange}
+            onChange={OnPropertyChanged}
             propertyName='Departament'
             id={state.Department}
           ></NewEmployeeCombobox>
-        </Grid>
-
-        <Grid item xs={12}>
-          <div className={classes.label}>Comments</div>
-        </Grid>
-        <Grid item xs={12}>
-          <CustomTextField className={classes.bigbox} onChange={event => handleChange('Comments', event.target.value)}></CustomTextField>
         </Grid>
 
         <Grid item xs={12}>
