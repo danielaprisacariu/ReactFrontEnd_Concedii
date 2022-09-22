@@ -14,6 +14,7 @@ export function TextFieldReadOnly(props) {
       className={classes.root}
       value={dataPersonala}
       id='standard-read-only-input'
+      disabled
       InputProps={{
         readOnly: true
       }}

@@ -1,6 +1,6 @@
 import React, { createRef, useReducer, useRef } from 'react'
 import { MyProfileReducer, initialState } from './MyProfileReducer'
-import DateleMeleCard from './DateleMeleCard'
+import DateleMeleComponenta from './DateleMeleComponenta'
 
 function DateleMeleContainer() {
   const [state, dispatch] = useReducer(MyProfileReducer, initialState)
@@ -15,7 +15,7 @@ function DateleMeleContainer() {
     inputFile.current.click()
   }
 
-  return <DateleMeleCard state={state} onChange={onPropertyChange} handleUploadClick={handleUploadClick}></DateleMeleCard>
+  return <DateleMeleComponenta state={state} onChange={onPropertyChange} handleUploadClick={handleUploadClick}></DateleMeleComponenta>
 }
 
 export default DateleMeleContainer
