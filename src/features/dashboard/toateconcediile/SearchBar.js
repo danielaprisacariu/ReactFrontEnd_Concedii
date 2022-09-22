@@ -1,10 +1,14 @@
 import React from 'react'
-import './ToateConcediile.css'
+
 import { TextField } from '@material-ui/core'
 import PropTypes from 'prop-types'
+import {makeStyles} from '@material-ui/core'
+import ToateConcediileStyle from './ToateConcediileStyle'
+const useStyles=makeStyles(ToateConcediileStyle)
 
 function SearchBar({onFilter}) {
-  return <TextField id='outlined-basic' variant='outlined' witdh ='70%' label='Cautare' onChange={onFilter} />
+  const classes=useStyles()
+  return <TextField id='outlined-basic' variant='outlined' size="small" witdh ='70%' label='Cautare' onChange={onFilter} />
 }
 
 SearchBar.propTypes = {

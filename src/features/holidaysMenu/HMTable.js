@@ -12,6 +12,8 @@ function HMTable(props) {
     const classes=useStyles()
     console.log("HMTable"+RopVals)
   return (
+    <>
+
     <TableContainer className={classes.Table}>
      <Table>
       <TableHeader tipuriConcedii={tipuriConcedii} />
@@ -19,6 +21,7 @@ function HMTable(props) {
       <HMTableFooter RopVals={RopVals} page={page} setPage={setPage} rows={rows} rowsOnPage={rowsOnPage} handleRopValChange={handleRopValChange}/>
     </Table>
     </TableContainer>
+    </>
   )
 }
 HMTable.propTypes = {

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 export function NewEmployeeCombobox(props) {
   const { arrayDataSource } = props
+  const { onChange, propertyName } = props
 
   const useStyles = makeStyles(theme => ({
     container: {
@@ -30,9 +31,10 @@ export function NewEmployeeCombobox(props) {
         getOptionLabel={element => element.nume}
         style={{ width: 350 }}
         renderInput={params => <TextField {...params} variant='outlined' />}
+        onChange={event => onChange(propertyName, event.target.value)}
       />
     </div>
   )
 }
 
-NewEmployeeCombobox.propTypes = { arrayDataSource: PropTypes.array }
+NewEmployeeCombobox.propTypes = { arrayDataSource: PropTypes.array, propertyName: PropTypes.string, onChange: PropTypes.func }

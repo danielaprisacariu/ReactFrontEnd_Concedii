@@ -102,12 +102,12 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={fct} onChange={event => handleChange('Function', event.target.value)}>
+          <NewEmployeeCombobox arrayDataSource={fct} onChange={handleChange} propertyName='Function'>
             {' '}
           </NewEmployeeCombobox>
         </Grid>
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={department} onChange={event => handleChange('Department', event.target.value)}>
+          <NewEmployeeCombobox arrayDataSource={department} onChange={handleChange} propertyName='Departament'>
             {' '}
           </NewEmployeeCombobox>
         </Grid>

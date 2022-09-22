@@ -1,20 +1,30 @@
 import React, { Fragment, useState } from 'react'
-import { Typography, Grid, Container, Table, TableCell } from '@material-ui/core'
-import './ToateConcediile.css'
+import {Table} from '@material-ui/core'
+
 import { makeStyles } from '@material-ui/core'
 import ToateConcediileStyle from './ToateConcediileStyle.js'
 import TableContainer from '@material-ui/core/TableContainer'
 import TabelHeader from './TabelHeader'
 import TabelFooter from './TabelFooter'
 import TabelBody from './TabelBody'
-import Cautare from './SearchHappens'
-import SearchHappens from './SearchHappens'
-import { valueOrDefault } from 'utils/functions'
 import SearchBar from './SearchBar'
 
 const useStyles = makeStyles(ToateConcediileStyle)
 
 function ToateConcediile() {
+  const RopVals=[
+    1,
+    5,
+    10,
+    15,
+    20
+   ]
+   const [RopVal,setRopVal] = useState(5)
+  const handleRopValChange=event=>{
+    console.log(event.target.value)
+    setRopVal(event.target.value)
+  }
+
   const [pagini, setPage] = useState(0)
   const rowsOnPage = 1
   const totateConcediile = [
@@ -63,8 +73,8 @@ function ToateConcediile() {
       <TableContainer className={classes.Tabel}>
         <Table>
           <TabelHeader />
-          <TabelBody miguel={filteredArray} page={pagini} />
-          <TabelFooter miguelito={filteredArray} page={pagini} setPage={setPage} />
+          <TabelBody miguel={filteredArray} page={pagini} RopVal={RopVal} />
+          <TabelFooter miguelito={filteredArray} page={pagini} setPage={setPage} RopVals={RopVals} handleRopValChange={handleRopValChange} RopVal={RopVal}/>
         </Table>
       </TableContainer>
     </>
