@@ -2,13 +2,13 @@ import { React, Fragment, useState } from 'react'
 import { TableFooter, TableRow, TableCell, makeStyles,Select,MenuItem,Checkbox,ListItemText } from '@material-ui/core'
 import HolidaysMenuStyle from '../HolidaysMenuStyle'
 import { PropTypes } from 'prop-types'
-
+import { useTranslation } from 'react-i18next'
 const useStyles = makeStyles(HolidaysMenuStyle)
 
 function HMTableFooter(props) {
   const { page, setPage, rows, rowsOnPage,RopVals,RopVal,handleRopValChange } = props
   const classes = useStyles()
-
+  const {t}=useTranslation()
 
   console.log("HMTableFooter"+RopVals)
   console.log(rows.length, rowsOnPage)
@@ -18,7 +18,7 @@ function HMTableFooter(props) {
         <TableCell className={(classes.Cell, classes)}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
-        <TableCell className={classes.Cell,classes.Clabel}>Randuri pe pagina : </TableCell>
+        <TableCell className={classes.Cell,classes.Clabel}>{t('Footer.RanduriPePagina')} </TableCell>
         <TableCell className={classes.Cell}><Select defaultValue={5} className={classes.Select} value={RopVal} onChange={handleRopValChange}>
              {RopVals?.map((name) => (<MenuItem  key={name} value={name}> {name}
               </MenuItem>))}
