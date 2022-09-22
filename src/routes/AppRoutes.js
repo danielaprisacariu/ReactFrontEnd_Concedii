@@ -10,7 +10,7 @@ import ToateConcediile from 'features/dashboard/toateconcediile/ToateConcediile.
 import HolidaysMenu from 'features/holidaysMenu/HolidaysMenu'
 import CerereConcediuContainer from '../features/CerereConcediu/CererereConcediuContainer'
 import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
-import EmployeesPageContainer from 'components/employees/EmployeesPageContainer'
+import EmployeesPageContainer from 'features/employees/EmployeesPageContainer'
 import DateleMeleContainer from '../features/MyProfile/DateleMeleContainer'
 
 export default function AppRoutes() {
