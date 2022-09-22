@@ -1,11 +1,8 @@
-import React, { Fragment, useState } from 'react'
-import { Typography, Grid } from '@material-ui/core'
-import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
+import React from 'react'
 import { PropTypes } from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Styles from './Styles'
-import Moment from 'moment'
 
 const useStyles = makeStyles(Styles)
 
@@ -19,7 +16,7 @@ export function DatePickersCustomComponent(props) {
         id='state'
         label=''
         type='date'
-        defaultValue={data}
+        value={data}
         className={classes.textField}
         InputLabelProps={{
           shrink: true
@@ -30,4 +27,4 @@ export function DatePickersCustomComponent(props) {
   )
 }
 
-DatePickersCustomComponent.propTypes = { onChange: PropTypes.func, propertyName: PropTypes.string, data: PropTypes.Date }
+DatePickersCustomComponent.propTypes = { onChange: PropTypes.func, propertyName: PropTypes.string, data: PropTypes.string }

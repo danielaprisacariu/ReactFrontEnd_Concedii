@@ -7,18 +7,15 @@ import { PropTypes } from 'prop-types'
 const useStyles = makeStyles(Styles)
 
 export function ComentariiTextField(props) {
-  const { onChange, propertyName } = props
+  const { onChange, propertyName, comentariu } = props
   const classes = useStyles()
-  // const [state, setState] = useState('')
-  // const handleChange = event => {
-  //   setState(event.target.value)
-  //   console.log(state)
-  // }
+
   return (
     <TextField
       className={classes.comentariiTextField}
       multiline
       rows={5}
+      value={comentariu}
       variant='outlined'
       onChange={event => onChange(propertyName, event.target.value)}
     />
@@ -27,5 +24,6 @@ export function ComentariiTextField(props) {
 
 ComentariiTextField.propTypes = {
   onChange: PropTypes.func,
-  propertyName: PropTypes.string
+  propertyName: PropTypes.string,
+  comentariu: PropTypes.string
 }

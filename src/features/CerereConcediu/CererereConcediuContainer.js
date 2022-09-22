@@ -1,23 +1,27 @@
-import React, { Fragment, useReducer } from 'react'
-import CerereConcediuReducer from './CerereConcediuReducer'
-import CererereConcediuCard from './CererereConcediuCard'
+import React, { useReducer } from 'react'
+import { useHistory } from 'react-router-dom'
+import CerereConcediuComponenta from './CerereConcediuComponenta'
+import { CerereConcediuReducer, initialState, inlocuitori, tipuriConcedii } from './CerereConcediuReducer'
 
 export default function CererereConcediuContainer() {
+  const [state, dispatch] = useReducer(CerereConcediuReducer, initialState)
+
+  const onPropertyChange = (propertyName, value) => {
+    dispatch({ type: 'OnPropertyChange', propertyName, value })
+    console.log(state)
+  }
+
+  const history = useHistory()
+  const handleClick = () => {
+    history.push({ pathname: `/toateconcediile` })
+  }
   return (
-    <>
-      <CererereConcediuCard tipuriConcedii={tipuriConcedii} inlocuitori={inlocuitori}></CererereConcediuCard>
-    </>
+    <CerereConcediuComponenta
+      tipuriConcedii={tipuriConcedii}
+      inlocuitori={inlocuitori}
+      onChange={onPropertyChange}
+      onHistoryClick={handleClick}
+      state={state}
+    ></CerereConcediuComponenta>
   )
 }
-
-const tipuriConcedii = [
-  { id: 1, nume: 'Remote' },
-  { id: 2, nume: 'Odihna' },
-  { id: 3, nume: 'Medical' },
-  { id: 4, nume: 'Neplatit' }
-]
-
-const inlocuitori = [
-  { id: 1, nume: 'Popa Dorin' },
-  { id: 2, nume: 'Radu Ionescu' }
-]
