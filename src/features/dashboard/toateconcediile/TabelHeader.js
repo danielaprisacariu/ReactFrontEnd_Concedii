@@ -21,6 +21,7 @@ function HeaderTabel(){
             <TableRow className={classes.Rows}>
               <TableCell className={classes.Cell}>{t('Header.Nume')}</TableCell>
               <TableCell  className={classes.Cell}>{t('Header.Prenume')}</TableCell>
+              <TableCell  className={classes.Cell}>{t('Header.Tip')}</TableCell>
               <TableCell  className={classes.Cell}>{t('Header.DataIncepere')}</TableCell>
               <TableCell className={classes.Cell}>{t('Header.DataSfarsit')}</TableCell>
               <TableCell className={classes.Cell}>{t('Header.Inlocuitor')}</TableCell>
