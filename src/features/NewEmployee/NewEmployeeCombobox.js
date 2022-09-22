@@ -3,10 +3,11 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import Style from './NewEmployeeStyle'
 
 export function NewEmployeeCombobox(props) {
   const { arrayDataSource } = props
-  const { onChange, propertyName } = props
+  const { onChange, propertyName, id } = props
 
   const useStyles = makeStyles(theme => ({
     container: {
@@ -29,12 +30,18 @@ export function NewEmployeeCombobox(props) {
       <Autocomplete
         options={arrayDataSource}
         getOptionLabel={element => element.nume}
+        value={id}
         style={{ width: 350 }}
         renderInput={params => <TextField {...params} variant='outlined' />}
-        onChange={event => onChange(propertyName, event.target.value)}
+        onChange={(event, value) => onChange(propertyName, value.id)}
       />
     </div>
   )
 }
 
-NewEmployeeCombobox.propTypes = { arrayDataSource: PropTypes.array, propertyName: PropTypes.string, onChange: PropTypes.func }
+NewEmployeeCombobox.propTypes = {
+  arrayDataSource: PropTypes.array,
+  propertyName: PropTypes.string,
+  onChange: PropTypes.func,
+  id: PropTypes.number
+}

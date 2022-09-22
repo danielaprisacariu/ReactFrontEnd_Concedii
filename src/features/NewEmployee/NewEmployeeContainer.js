@@ -1,18 +1,26 @@
 import React, { Fragment } from 'react'
 import { Typography, Grid } from '@material-ui/core'
 import NewEmployeeCard from './NewEmployeeCard'
-import Style from './NewEmployeeStyle';
+import Style from './NewEmployeeStyle'
 import { makeStyles } from '@material-ui/core'
 
-
 export default function NewEmployeeContainer() {
-  return (
-   
-    <NewEmployeeCard fct={fct} department={department}></NewEmployeeCard>
-        
-)
-
+  return <NewEmployeeCard fct={fct} department={department}></NewEmployeeCard>
 }
+
+const initialState = {
+  LastName: null,
+  FirstName: null,
+  NIC: null,
+  Series: null,
+  CardNumber: null,
+  PhoneNumber: null,
+  DatOfEmployment: null,
+  Department: null,
+  Function: null,
+  Comments: null
+}
+
 const fct = [
   { id: 1, nume: 'Web Developer' },
   { id: 2, nume: 'Accountant' },
@@ -33,4 +41,3 @@ const department = [
   { id: 7, nume: 'New Employees' },
   { id: 8, nume: 'Management' }
 ]
-
