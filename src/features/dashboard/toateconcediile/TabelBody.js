@@ -12,12 +12,12 @@ const useStyles= makeStyles(ToateConcediileStyle)
 
 
 function BodyTabel(props) {
-  const { miguel ,page } = props
+  const { miguel ,page, RopVal } = props
   
   const classes = useStyles()
   return (
     <TableBody>
-      {miguel?.slice(page * 5, (page + 1) * 5).map(row => (
+      {miguel?.slice(page * RopVal, (page + 1) * RopVal).map(row => (
         <TableRow className={classes.Rows} key={row.id}>
           <TableCell className={classes.Cell}>{row.name}</TableCell>
           <TableCell className={classes.Cell}>{row.surname}</TableCell>
@@ -33,6 +33,7 @@ function BodyTabel(props) {
 
 BodyTabel.propTypes={
 miguel: PropTypes.array,
-page: PropTypes.number
+page: PropTypes.number,
+RopVal: PropTypes.number
 }
 export default BodyTabel
