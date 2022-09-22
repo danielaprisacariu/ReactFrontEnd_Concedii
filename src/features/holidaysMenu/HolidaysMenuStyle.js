@@ -8,6 +8,7 @@ const HolidaysMenuStyle = () => {
       height: '60px'
     },
     Table: {
+      marginTop:'11px',
       borderRadius: '15px',
       boxShadow: 'grey 5px 3px 0px 0px',
       overflow: 'hidden'

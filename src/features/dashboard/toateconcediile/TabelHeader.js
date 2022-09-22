@@ -1,6 +1,6 @@
 import React, { Fragment,useState } from 'react';
 import {TableCell } from '@material-ui/core';
-import "./ToateConcediile.css"
+
 import {makeStyles} from '@material-ui/core';
 import ToateConcediileStyle from './ToateConcediileStyle';
 import TableHead from '@material-ui/core/TableHead';
