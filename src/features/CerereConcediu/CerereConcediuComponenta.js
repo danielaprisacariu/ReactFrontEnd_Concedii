@@ -13,7 +13,6 @@ function CerereConcediuComponenta(props) {
   const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state } = props
 
   const classes = useStyles()
-  //consolllleee
 
   return (
     <Grid container>
