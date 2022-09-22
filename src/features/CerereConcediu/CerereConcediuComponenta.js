@@ -12,12 +12,37 @@ import { useHistory } from 'react-router'
 
 import PropTypes from 'prop-types'
 import CerereConcediuReducer from './CerereConcediuReducer'
+import Moment from 'moment'
 
 const useStyles = makeStyles(Styles)
 
 function CerereConcediuComponenta(props) {
-  const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state } = props
+  const { tipuriConcedii } = props
+  const { inlocuitori } = props
 
+  const initialState = {
+    id: null,
+    tipConcediuId: null,
+    dataInceput: Moment().format('YYYY-MM-DD'),
+    dataSfarsit: null,
+    inlocuitorId: null,
+    comentarii: null,
+    stareConcediuId: 1,
+    angajatId: null,
+    zileConcediu: null
+  }
+
+  const [state, dispatch] = useReducer(CerereConcediuReducer, initialState)
+
+  const onPropertyChange = (propertyName, value) => {
+    dispatch({ type: 'OnPropertyChange', propertyName, value })
+    console.log(state)
+  }
+
+  const history = useHistory()
+  const handleClick = () => {
+    history.push({ pathname: `/toateconcediile` })
+  }
   const classes = useStyles()
 
   return (
@@ -31,7 +56,7 @@ function CerereConcediuComponenta(props) {
           <div className={classes.span}> DATA INCEPUT </div>
           <DatePickersCustomComponent
             className={classes.data}
-            onChange={onChange}
+            onChange={onPropertyChange}
             propertyName='dataInceput'
             data={state.dataInceput}
           ></DatePickersCustomComponent>
@@ -41,7 +66,7 @@ function CerereConcediuComponenta(props) {
           <div className={classes.span}> DATA SFARSIT</div>
           <DatePickersCustomComponent
             className={classes.data}
-            onChange={onChange}
+            onChange={onPropertyChange}
             propertyName='dataSfarsit'
             data={state.dataSfarsit}
           ></DatePickersCustomComponent>
@@ -62,7 +87,7 @@ function CerereConcediuComponenta(props) {
           <div className={classes.span3}>TIP CONCEDIU</div>
           <ComboBoxComponenta
             arrayDataSource={tipuriConcedii}
-            onChange={onChange}
+            onChange={onPropertyChange}
             propertyName='tipConcediuId'
             id={state.TipConcediuId}
           ></ComboBoxComponenta>
@@ -71,7 +96,7 @@ function CerereConcediuComponenta(props) {
           <div className={classes.span3}>INLOCUITOR</div>
           <ComboBoxComponenta
             arrayDataSource={inlocuitori}
-            onChange={onChange}
+            onChange={onPropertyChange}
             propertyName='inlocuitorId'
             id={state.InlocuitorId}
           ></ComboBoxComponenta>
@@ -82,11 +107,11 @@ function CerereConcediuComponenta(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <ComentariiTextField onChange={onChange} propertyName='comentarii' comentariu={state.comentariu}></ComentariiTextField>
+          <ComentariiTextField onChange={onPropertyChange} propertyName='comentarii'></ComentariiTextField>
         </Grid>
 
         <Grid item xs={12}>
-          <Button className={classes.butonSalveaza} onClick={onHistoryClick}>
+          <Button className={classes.butonSalveaza} onClick={handleClick}>
             <SaveIcon> </SaveIcon>
             SALVEAZA
           </Button>
@@ -96,12 +121,6 @@ function CerereConcediuComponenta(props) {
   )
 }
 
-CerereConcediuComponenta.propTypes = {
-  tipuriConcedii: PropTypes.array.isRequired,
-  inlocuitori: PropTypes.array.isRequired,
-  onChange: PropTypes.func,
-  onHistoryClick: PropTypes.func,
-  state: PropTypes.object
-}
+CerereConcediuComponenta.propTypes = { tipuriConcedii: PropTypes.array.isRequired, inlocuitori: PropTypes.array.isRequired }
 
 export default CerereConcediuComponenta
