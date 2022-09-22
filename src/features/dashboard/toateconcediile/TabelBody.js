@@ -6,6 +6,7 @@ import ToateConcediileStyle from './ToateConcediileStyle.js'
 import TableBody from '@material-ui/core/TableBody'
 import TableRow from '@material-ui/core/TableRow'
 import { PropTypes } from 'prop-types'
+import RowFunctinon from './RowFunctinon.js'
 
 
 const useStyles= makeStyles(ToateConcediileStyle)
@@ -17,15 +18,8 @@ function BodyTabel(props) {
   const classes = useStyles()
   return (
     <TableBody>
-      {miguel?.slice(page * RopVal, (page + 1) * RopVal).map(row => (
-        <TableRow className={classes.Rows} key={row.id}>
-          <TableCell className={classes.Cell}>{row.name}</TableCell>
-          <TableCell className={classes.Cell}>{row.surname}</TableCell>
-          <TableCell className={classes.Cell}>{row.date}</TableCell>
-          <TableCell className={classes.Cell}>{row.date2}</TableCell>
-          <TableCell className={classes.Cell}>{row.inlocuitor}</TableCell>
-          <TableCell className={classes.Cell}>{row.stare}</TableCell>
-        </TableRow>
+      {miguel?.slice(page * RopVal, (page + 1) * RopVal).map(miguel => (
+        <RowFunctinon row={miguel} key={miguel.id}/>
       ))}
     </TableBody>
   )
