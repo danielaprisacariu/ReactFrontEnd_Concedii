@@ -1,16 +1,3 @@
-export const initialState = {
-  LastName: null,
-  FirstName: null,
-  NIC: null,
-  Series: null,
-  CardNumber: null,
-  PhoneNumber: null,
-  DatOfEmployment: null,
-  Department: null,
-  Function: null,
-  Comments: null
-}
-
 export function reducer(state, action) {
   switch (action.type) {
     case 'OnPropertyChanged':
