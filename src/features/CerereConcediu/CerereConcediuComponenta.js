@@ -12,10 +12,6 @@ const useStyles = makeStyles(Styles)
 function CerereConcediuComponenta(props) {
   const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state } = props
 
-  const history = useHistory()
-  const handleClick = () => {
-    history.push({ pathname: `/toateconcediile` })
-  }
   const classes = useStyles()
   //consolllleee
 
@@ -85,7 +81,7 @@ function CerereConcediuComponenta(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <Button className={classes.butonSalveaza} onClick={handleClick}>
+          <Button className={classes.butonSalveaza} onClick={onHistoryClick}>
             <SaveIcon> </SaveIcon>
             SALVEAZA
           </Button>
