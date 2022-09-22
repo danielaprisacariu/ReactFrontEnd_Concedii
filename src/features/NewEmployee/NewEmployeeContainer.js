@@ -1,6 +1,4 @@
 import React, { useReducer } from 'react'
-import Style from './NewEmployeeStyle'
-import { makeStyles } from '@material-ui/core'
 import NewEmployeeComponent from './NewEmployeeComponent'
 import { NewEmployeeReducer, initialState, department, fct } from './NewEmployeeState'
 
