@@ -27,7 +27,12 @@
     "DataIncepere":"Data incepere",
     "DataSfarsit":"Data sfarsit",
     "Inlocuitor":"Inlocuitor",
-    "StareConcediu":"Stare cerere"
+    "StareConcediu":"Stare cerere",
+    "Comentarii":"Comentarii",
+    "Tip":"Tip Concediu"
+  },
+  "Footer":{
+    "RanduriPePagina":"Randuri pe pagina : "
   },
   "Dialog": {
     "Yes": "Da",

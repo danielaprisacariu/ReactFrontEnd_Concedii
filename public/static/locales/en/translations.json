@@ -43,8 +43,12 @@
     "DataIncepere":"Start Date",
     "DataSfarsit":"End date",
     "Inlocuitor":"Substitute",
-    "StareConcediu":"Request state"
+    "StareConcediu":"Request state",
+    "Comentarii":"Comment",
+    "Tip":"Holiday Type"
   },
+  "Footer":{
+    "RanduriPePagina":"Rows per page : "},
   "Validations": {
     "Cnp": "The value is not a valid identifier number",
     "UniqueCnp": "The identifier number is not unique",
