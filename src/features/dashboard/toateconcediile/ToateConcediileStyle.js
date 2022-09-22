@@ -1,7 +1,7 @@
 const ToateConcediileStyle =() => {
 return{
     Parinte:{
-    
+   
     width: '100%',
     backgroundColor : 'rgba(100, 24, 195, 0.960)',
     display: 'auto',
@@ -10,6 +10,7 @@ return{
     
 },
 Tabel:{
+    marginTop:'11px',
     boxShadow:"#B2BEB5 3px 3px 0px 0px",
     borderRadius:'15px 15px 15px 15px'
 },
@@ -118,7 +119,8 @@ height:'60px',
      position:'absolute',
      marginLeft:'-6px',
      marginTop:'10px'
- }
+ },
+
     
 }
 }

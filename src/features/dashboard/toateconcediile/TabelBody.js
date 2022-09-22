@@ -1,6 +1,6 @@
 import React from 'react'
 import { TableCell } from '@material-ui/core'
-import './ToateConcediile.css'
+
 import { makeStyles } from '@material-ui/core'
 import ToateConcediileStyle from './ToateConcediileStyle.js'
 import TableBody from '@material-ui/core/TableBody'

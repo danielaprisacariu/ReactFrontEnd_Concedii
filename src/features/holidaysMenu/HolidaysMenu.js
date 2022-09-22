@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core'
 
 import HolidaysMenuStyle from './HolidaysMenuStyle.js'
 import HMTable from './HMTable'
-
+import SearchBar from '../dashboard/toateconcediile/SearchBar'
 const useStyles = makeStyles(HolidaysMenuStyle)
 function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii) {
   return { Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii }
@@ -13,13 +13,15 @@ function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, 
 
 function HolidaysMenu() {
   const RopVals=[
-    1,
-    2,
-    3
+   1,
+   5,
+   10,
+   15,
+   20
   ]
   //console.log("HolidaysMenu"+RopVals)
   const [page, setPage] = useState(0)
-
+  
   const [RopVal,setRopVal] = useState(3)
   const handleRopValChange=event=>{
     console.log(event.target.value)
@@ -40,8 +42,29 @@ function HolidaysMenu() {
     crd(6, '21/11/2020', '22/12/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt mana', 'In asteptare'),
     crd(7, '23/11/2020', '24/12/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt celalalta mana', 'In asteptare')
   ]
+  const [filteredArray, setFilteredArray] = useState(rows)
 
-  return <HMTable RopVals={RopVals} page={page} setPage={setPage} rows={rows} rowsOnPage={RopVal} tipuriConcedii={tipuriConcedii} handleRopValChange={handleRopValChange} />
+  const handleFilter = input => {
+    const value = input.target.value
+    const newArray =  rows.filter(el => {
+      if (value === '') {
+        return el
+      } else {
+        return (el.Inlocuitor.toLowerCase().includes(value) 
+             || el.TipConcediu.toLowerCase().includes(value)
+             || el.StareConcedii.toLowerCase().includes(value)
+             || el.Comentarii.toLowerCase().includes(value)) 
+      }
+    })
+    setFilteredArray(newArray);
+    return
+  }
+
+  return (
+   <>
+   <SearchBar onFilter={handleFilter}/>
+  <HMTable RopVals={RopVals} page={page} setPage={setPage} rows={filteredArray} rowsOnPage={RopVal} tipuriConcedii={tipuriConcedii} handleRopValChange={handleRopValChange} />
+    </>)
 }
 
 export default HolidaysMenu
