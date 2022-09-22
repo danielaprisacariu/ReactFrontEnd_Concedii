@@ -14,7 +14,7 @@ function NewEmployeeComponent(props) {
   const { fct } = props
   const { department } = props
   const classes = useStyles()
-  const [localState, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
   const handleChange = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChanged', propertyName, value })
   }
@@ -103,10 +103,20 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={fct} onChange={handleChange} propertyName='Function'></NewEmployeeCombobox>
+          <NewEmployeeCombobox
+            arrayDataSource={fct}
+            onChange={handleChange}
+            propertyName='Function'
+            id={state.Function}
+          ></NewEmployeeCombobox>
         </Grid>
         <Grid item xs={6}>
-          <NewEmployeeCombobox arrayDataSource={department} onChange={handleChange} propertyName='Departament'></NewEmployeeCombobox>
+          <NewEmployeeCombobox
+            arrayDataSource={department}
+            onChange={handleChange}
+            propertyName='Departament'
+            id={state.Department}
+          ></NewEmployeeCombobox>
         </Grid>
 
         <Grid item xs={12}>
