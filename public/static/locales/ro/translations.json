@@ -21,6 +21,14 @@
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola"
   },
+  "Header":{
+    "Nume":"Nume",
+    "Prenume":"Prenume",
+    "DataIncepere":"Data incepere",
+    "DataSfarsit":"Data sfarsit",
+    "Inlocuitor":"Inlocuitor",
+    "StareConcediu":"Stare cerere"
+  },
   "Dialog": {
     "Yes": "Da",
     "No": "Nu"

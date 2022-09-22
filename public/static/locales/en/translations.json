@@ -37,6 +37,14 @@
     "MinDateMessage": "Date should not be before minimal date",
     "MaxDateMessage": "Date should not be after maximal date"
   },
+  "Header":{
+    "Nume":"Name",
+    "Prenume":"Surename",
+    "DataIncepere":"Start Date",
+    "DataSfarsit":"End date",
+    "Inlocuitor":"Substitute",
+    "StareConcediu":"Request state"
+  },
   "Validations": {
     "Cnp": "The value is not a valid identifier number",
     "UniqueCnp": "The identifier number is not unique",

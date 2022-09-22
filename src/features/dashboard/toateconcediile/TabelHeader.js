@@ -5,6 +5,8 @@ import {makeStyles} from '@material-ui/core';
 import ToateConcediileStyle from './ToateConcediileStyle';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { useTranslation } from 'react-i18next'
+import Header from 'components/layout/Header';
 
 
 
@@ -12,16 +14,17 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyles= makeStyles(ToateConcediileStyle)
 
 function HeaderTabel(){
+    const {t}=useTranslation()
     const classes = useStyles()
     return(
         <TableHead className={classes.Parinte}>
             <TableRow className={classes.Rows}>
-              <TableCell className={classes.Cell}>Nume</TableCell>
-              <TableCell className={classes.Cell}>Prenume</TableCell>
-              <TableCell className={classes.Cell}>Data incepere</TableCell>
-              <TableCell className={classes.Cell}>Data sfarsit</TableCell>
-              <TableCell className={classes.Cell}>Inlocuitor</TableCell>
-              <TableCell className={classes.Cell}>Stare cerere</TableCell>
+              <TableCell className={classes.Cell}>{t('Header.Nume')}</TableCell>
+              <TableCell  className={classes.Cell}>{t('Header.Prenume')}</TableCell>
+              <TableCell  className={classes.Cell}>{t('Header.DataIncepere')}</TableCell>
+              <TableCell className={classes.Cell}>{t('Header.DataSfarsit')}</TableCell>
+              <TableCell className={classes.Cell}>{t('Header.Inlocuitor')}</TableCell>
+              <TableCell className={classes.Cell}>{t('Header.StareConcediu')}</TableCell>
             </TableRow>
           </TableHead>
     )
