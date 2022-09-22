@@ -90,49 +90,47 @@ function DateleMeleContainer() {
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> NUME </div>
-          <TextFieldReadOnly dataPersonala={state.nume}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.nume}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> PRENUME </div>
-          <TextFieldReadOnly dataPersonala={state.prenume}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.prenume}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> CNP</div>
-          <TextFieldReadOnly dataPersonala={state.cnp}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.cnp}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> SERIE</div>
-          <TextFieldReadOnly dataPersonala={state.serie}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.serie}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> NUMAR</div>
-          <TextFieldReadOnly dataPersonala={state.numar}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.numar}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>DATA NASTERE </div>
-          <TextFieldReadOnly dataPersonala={state.dataNastere}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.dataNastere}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> EMAIL</div>
-          <TextFieldReadOnly dataPersonala={state.email}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.email}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> TELEFON </div>
-          <FieldTextEditabil angajat={state} onChange={onPropertyChange}>
-            {' '}
-          </FieldTextEditabil>
+          <FieldTextEditabil angajat={state} onChange={onPropertyChange} propertyName='telefon'></FieldTextEditabil>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> FUNCTIE </div>
-          <TextFieldReadOnly dataPersonala={state.functie}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.functie}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> DEPARTAMENT</div>
-          <TextFieldReadOnly dataPersonala={state.departament}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.departament}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}> DATA ANGAJARE</div>
-          <TextFieldReadOnly dataPersonala={state.dataAngajare}> </TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.dataAngajare}></TextFieldReadOnly>
         </Grid>
         <Grid item xs={12}>
           <Button className={classes.butonActualizare}>
@@ -146,19 +144,3 @@ function DateleMeleContainer() {
 }
 
 export default DateleMeleContainer
-
-const angajat = {
-  id: 1,
-  poza: './images/Natalia_Dyer_by_Gage_Skidmore.jpg',
-  nume: 'Mitrut',
-  prenume: 'Elena',
-  cnp: ' 6010505407459',
-  serie: 'RK',
-  numar: '218754',
-  dataNastere: '05/05/2001',
-  email: 'elena.mitrut@totalsoft.ro',
-  telefon: '0770976542',
-  functie: 'manager',
-  departament: 'dezvoltare',
-  dataAngajare: '08/22/2022'
-}

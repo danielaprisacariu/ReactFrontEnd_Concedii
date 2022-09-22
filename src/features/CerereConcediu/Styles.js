@@ -149,6 +149,10 @@ const styles = () => {
       marginRight: 'spacing(1)',
       width: '200',
       marginBottom: '25px'
+    },
+    cbStyle: {
+      width: '200px',
+      backgroundColor: 'red'
     }
   }
 }
