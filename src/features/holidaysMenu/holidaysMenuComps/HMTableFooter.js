@@ -19,7 +19,7 @@ function HMTableFooter(props) {
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell,classes.Clabel}>{t('Footer.RanduriPePagina')} </TableCell>
-        <TableCell className={classes.Cell}><Select defaultValue={5} className={classes.Select} value={RopVal} onChange={handleRopValChange}>
+        <TableCell className={classes.Cell,classes.CRV}><Select defaultValue={5} className={classes.Select} value={RopVal} onChange={handleRopValChange}>
              {RopVals?.map((name) => (<MenuItem  key={name} value={name}> {name}
               </MenuItem>))}
               </Select></TableCell>
