@@ -6,11 +6,12 @@ import { NewEmployeeCombobox } from './NewEmployeeCombobox'
 import { makeStyles } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import SaveIcon from '@material-ui/icons/Save'
+import { useHistory } from 'react-router'
 
 const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
   const classes = useStyles()
-  const { onChange, state, department, fct } = props
+  const { onChange, state, department, fct, onHistoryClick } = props
 
   return (
     <Grid container>
@@ -56,6 +57,25 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={6}>
+          <div className={classes.label}>Date of Birth</div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.label}>E-mail adress</div>
+        </Grid>
+
+        <Grid item xs={6}>
+          <DateCustomComponent
+            className={classes.date}
+            onChange={onChange}
+            propertyName='DateOfBirth'
+            data={state.DateOfBirth}
+          ></DateCustomComponent>
+        </Grid>
+        <Grid item xs={6}>
+          <TextField className={classes.box} variant='outlined' onChange={event => onChange('Email', event.target.value)}></TextField>
+        </Grid>
+
+        <Grid item xs={6}>
           <div className={classes.label}>Date of Employment</div>
         </Grid>
         <Grid item xs={6}>
@@ -64,8 +84,10 @@ function NewEmployeeComponent(props) {
 
         <Grid item xs={6}>
           <DateCustomComponent
-            className={classes.data}
-            onChange={event => onChange('DateOfEmployment', event.target.value)}
+            className={classes.date}
+            onChange={onChange}
+            propertyName='DateOfEmployment'
+            data={state.DateOfEmployment}
           ></DateCustomComponent>
         </Grid>
         <Grid item xs={6}>
@@ -92,7 +114,14 @@ function NewEmployeeComponent(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <Button className={classes.savebtn}>
+          <div className={classes.label}>Password</div>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField className={classes.box} variant='outlined' onChange={event => onChange('Password', event.target.value)}></TextField>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Button className={classes.savebtn} onClick={onHistoryClick}>
             <SaveIcon> </SaveIcon>
             Save Employee
           </Button>
@@ -106,6 +135,7 @@ NewEmployeeComponent.propTypes = {
   fct: PropTypes.array.isRequired,
   department: PropTypes.array.isRequired,
   onChange: PropTypes.func,
+  onHistoryClick: PropTypes.func,
   state: PropTypes.object
 }
 
