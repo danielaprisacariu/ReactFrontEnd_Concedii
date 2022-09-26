@@ -1,14 +1,18 @@
+import Moment from 'moment'
+
 export const initialState = {
   LastName: null,
   FirstName: null,
   NIC: null,
   Series: null,
   CardNumber: null,
+  DateOfBirth: Moment().format('YYYY-MM-DD'),
+  Email: null,
   PhoneNumber: null,
-  DatOfEmployment: null,
+  DateOfEmployment: Moment().format('YYYY-MM-DD'),
   Department: null,
   Function: null,
-  Comments: null
+  Password: null
 }
 export const fct = [
   { id: 1, nume: 'Web Developer' },
