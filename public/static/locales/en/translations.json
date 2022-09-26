@@ -37,18 +37,19 @@
     "MinDateMessage": "Date should not be before minimal date",
     "MaxDateMessage": "Date should not be after maximal date"
   },
-  "Header":{
-    "Nume":"Name",
-    "Prenume":"Surename",
-    "DataIncepere":"Start Date",
-    "DataSfarsit":"End date",
-    "Inlocuitor":"Substitute",
-    "StareConcediu":"Request state",
-    "Comentarii":"Comment",
-    "Tip":"Holiday Type"
+  "Header": {
+    "Nume": "Name",
+    "Prenume": "Surename",
+    "DataIncepere": "Start Date",
+    "DataSfarsit": "End date",
+    "Inlocuitor": "Substitute",
+    "StareConcediu": "Request state",
+    "Comentarii": "Comment",
+    "Tip": "Holiday Type"
   },
-  "Footer":{
-    "RanduriPePagina":"Rows per page : "},
+  "Footer": {
+    "RanduriPePagina": "Rows per page : "
+  },
   "Validations": {
     "Cnp": "The value is not a valid identifier number",
     "UniqueCnp": "The identifier number is not unique",
@@ -69,5 +70,21 @@
       "MinCharacters": "The length must be greater than {{min}}",
       "Unique": "The value of {{selector}} must be unique"
     }
+  },
+  "EmployeeDetailsTranslations": {
+    "EmployeeDetails": "Employee Details",
+    "Image": "Image",
+    "LastName": "Last Name",
+    "FirstName": "First Name",
+    "CNP": "Identification number",
+    "Series": "Series",
+    "CardNumber": "Card number",
+    "Email": "Email",
+    "DateOfBirth": "Date of birth",
+    "PhoneNumber": "Phone number",
+    "DateOfEmployment": "Date of employment",
+    "Department": "Department",
+    "Function": "Function",
+    "Update": "Update"
   }
 }

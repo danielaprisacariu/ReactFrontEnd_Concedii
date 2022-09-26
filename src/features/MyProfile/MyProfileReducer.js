@@ -15,11 +15,13 @@ export const initialState = {
 }
 
 export function MyProfileReducer(state, action) {
-  const { propertyName, value } = action
+  const { propertyName, value, angajatDB } = action
 
   switch (action.type) {
     case 'OnPropertyChange':
       return { ...state, [propertyName]: value }
+    case 'OnUploadFromDB':
+      return { state: angajatDB }
     default:
       throw new Error()
   }

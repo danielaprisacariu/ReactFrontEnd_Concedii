@@ -3,6 +3,7 @@
   "RowsOf": "din",
   "RowsPerPage": "Randuri pe pagina",
   "MyProfile": "Profilul meu",
+  "EmployeeDetails": "Detalii Angajat",
   "Employees": "Angajati",
   "HolidaysMenu": "Meniu Concedii",
   "Toate Concediile": "Toate Concediile",
@@ -21,18 +22,18 @@
     "HidePassword": "Ascunde parola",
     "ShowPassword": "Arata parola"
   },
-  "Header":{
-    "Nume":"Nume",
-    "Prenume":"Prenume",
-    "DataIncepere":"Data incepere",
-    "DataSfarsit":"Data sfarsit",
-    "Inlocuitor":"Inlocuitor",
-    "StareConcediu":"Stare cerere",
-    "Comentarii":"Comentarii",
-    "Tip":"Tip Concediu"
+  "Header": {
+    "Nume": "Nume",
+    "Prenume": "Prenume",
+    "DataIncepere": "Data incepere",
+    "DataSfarsit": "Data sfarsit",
+    "Inlocuitor": "Inlocuitor",
+    "StareConcediu": "Stare cerere",
+    "Comentarii": "Comentarii",
+    "Tip": "Tip Concediu"
   },
-  "Footer":{
-    "RanduriPePagina":"Randuri pe pagina : "
+  "Footer": {
+    "RanduriPePagina": "Randuri pe pagina : "
   },
   "Dialog": {
     "Yes": "Da",
@@ -63,5 +64,21 @@
       "MinCharacters": "Lungimea trebuie sa fie mai mare decat {{min}}",
       "Unique": "Valoarea pentru {{selector}} trebuie sa fie unica"
     }
+  },
+  "EmployeeDetailsTranslations": {
+    "EmployeeDetails": "Detalii Angajat",
+    "Image": "Imagine",
+    "LastName": "Nume",
+    "FirstName": "Prenume",
+    "CNP": "CNP",
+    "Series": "Serie",
+    "CardNumber": "Numar",
+    "Email": "Email",
+    "DateOfBirth": "Data nasterii",
+    "PhoneNumber": "Telefon",
+    "DateOfEmployment": "Data angajarii",
+    "Department": "Department",
+    "Function": "Functie",
+    "Update": "Actualizare"
   }
 }
