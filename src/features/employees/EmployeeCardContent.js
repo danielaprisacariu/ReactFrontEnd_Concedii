@@ -10,6 +10,9 @@ const useStyles = makeStyles(appStyle)
 
 function EmployeeCardContent({ employee }) {
   const classes = useStyles()
+
+  var imgURL = `data:image/*;base64,${employee.poza}`
+
   return (
     <>
       <CardHeader
@@ -20,17 +23,18 @@ function EmployeeCardContent({ employee }) {
           </IconButton>
         }
       />
-      <CardMedia className={classes.imageStyle} component='img' image={employee.Poza} alt='imagine' />
+      <CardMedia className={classes.imageStyle} component='img' image={imgURL} alt='imagine' />
+      {/*  */}
       <CardContent>
-        <Typography className={classes.employeeContentName}>{employee.Nume + ' ' + employee.Prenume}</Typography>
-        <Typography className={classes.employeeContentFunction}>{employee.Functie}</Typography>
-        <Typography className={classes.employeeContentDepartament}>{employee.Departament}</Typography>
+        <Typography className={classes.employeeContentName}>{employee.nume + ' ' + employee.prenume}</Typography>
+        <Typography className={classes.employeeContentFunction}>{employee.functie.denumire}</Typography>
+        <Typography className={classes.employeeContentDepartament}>{employee.departament.denumire}</Typography>
         <Grid container className={classes.iconCardMyStyle}>
           <Grid item xs={2}>
             <PhoneIcon></PhoneIcon>
           </Grid>
           <Grid item xs={2}>
-            <Typography>{employee.NrTelefon}</Typography>
+            <Typography>{employee.nrTelefon}</Typography>
           </Grid>
         </Grid>
 
@@ -39,7 +43,7 @@ function EmployeeCardContent({ employee }) {
             <MailIcon></MailIcon>
           </Grid>
           <Grid item xs={2}>
-            <Typography>{employee.Email}</Typography>
+            <Typography>{employee.email}</Typography>
           </Grid>
         </Grid>
       </CardContent>

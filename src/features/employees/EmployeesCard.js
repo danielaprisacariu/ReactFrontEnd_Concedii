@@ -17,8 +17,8 @@ function EmployeesCard({ employees }) {
   const classes = useStyles()
   return (
     <Grid container spacing={5}>
-      {employees.map(employee => (
-        <Grid item xs={3} key={employee.Id}>
+      {employees?.angajati?.map(employee => (
+        <Grid item xs={3} key={employee.id}>
           <IconCard
             icon={PermContactCalendarIcon}
             content={<EmployeeCardContent employee={employee}></EmployeeCardContent>}
@@ -32,7 +32,7 @@ function EmployeesCard({ employees }) {
 }
 
 EmployeesCard.propTypes = {
-  employees: PropTypes.object.isRequired
+  employees: PropTypes.object
 }
 
 export default EmployeesCard
