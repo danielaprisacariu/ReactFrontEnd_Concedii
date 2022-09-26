@@ -114,6 +114,9 @@ const HolidaysMenuStyle = () => {
       fontSize:'18.5px',
       color:'lightgrey',
    
+    },
+    CRV:{
+      textAlign:'left'
     }
 
   }

@@ -1,7 +1,8 @@
 import React from 'react'
-import { TableBody, TableRow, TableCell, makeStyles } from '@material-ui/core'
+import { TableBody,makeStyles } from '@material-ui/core'
 import HolidaysMenuStyle from '../HolidaysMenuStyle'
 import { PropTypes } from 'prop-types'
+import HMTableRow from './HMTableRow'
 
 const useStyles = makeStyles(HolidaysMenuStyle)
 function HMTableBody(props) {
@@ -10,14 +11,7 @@ function HMTableBody(props) {
   return (
     <TableBody className={classes.TableBody}>
       {rows?.slice(page * rowsOnPage, (page + 1) * rowsOnPage).map(row => (
-        <TableRow className={classes.Rows} key={row.Id}>
-          <TableCell className={classes.Cell}>{row.DataInceput}</TableCell>
-          <TableCell className={classes.Cell}>{row.DataSfarsit}</TableCell>
-          <TableCell className={classes.Cell}>{row.TipConcediu}</TableCell>
-          <TableCell className={classes.Cell}>{row.Inlocuitor}</TableCell>
-          <TableCell className={classes.Cell}>{row.Comentarii}</TableCell>
-          <TableCell className={classes.Cell}>{row.StareConcedii}</TableCell>
-        </TableRow>
+       <HMTableRow key={row.Id} row={row}/>
       ))}
     </TableBody>
   )
