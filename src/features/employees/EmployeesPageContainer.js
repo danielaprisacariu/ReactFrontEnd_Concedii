@@ -84,6 +84,7 @@ const array = [
 function EmployeesPageContainer() {
   const classes = useStyles()
   const { data } = useQueryWithErrorHandling(GET_ALL_EMPLOYEE)
+  //cons
 
   return (
     <>

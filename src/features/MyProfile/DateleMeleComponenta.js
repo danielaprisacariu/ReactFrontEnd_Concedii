@@ -8,12 +8,15 @@ import { TextFieldReadOnly } from './TextFieldReadOnly'
 import { FieldTextEditabil } from './FieldTextEditabil'
 import SaveIcon from '@material-ui/icons/Save'
 import { useTranslation } from 'react-i18next'
+import Moment from 'moment'
 
 const useStyles = makeStyles(DateleMeleStyles)
 
 function DateleMeleCard({ state, onChange, handleUploadClick }) {
   const classes = useStyles()
   const { t } = useTranslation()
+
+  var imgURL = `data:image/*;base64,${state.poza}`
 
   return (
     <Grid container>
@@ -32,7 +35,7 @@ function DateleMeleCard({ state, onChange, handleUploadClick }) {
             <CardMedia
               className={classes.imagine}
               component='img'
-              image={state.poza}
+              image={imgURL}
               alt='imagine'
               onChange={event => onChange('poza', event.target.value)}
             ></CardMedia>
@@ -58,15 +61,15 @@ function DateleMeleCard({ state, onChange, handleUploadClick }) {
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.Series')}</div>
-          <TextFieldReadOnly dataPersonala={state.serie}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.serie.toUpperCase()}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.CardNumber')}</div>
-          <TextFieldReadOnly dataPersonala={state.numar}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.no}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.DateOfBirth')}</div>
-          <TextFieldReadOnly dataPersonala={state.dataNastere}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={Moment(state.dataNasterii).format('DD-MM-YYYY')}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.Email')}</div>
@@ -74,19 +77,19 @@ function DateleMeleCard({ state, onChange, handleUploadClick }) {
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.PhoneNumber')}</div>
-          <FieldTextEditabil angajat={state} onChange={onChange} propertyName='telefon' telefon={state.telefon}></FieldTextEditabil>
+          <FieldTextEditabil angajat={state} onChange={onChange} propertyName='nrTelefon' telefon={state.nrTelefon}></FieldTextEditabil>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.Function')}</div>
-          <TextFieldReadOnly dataPersonala={state.functie}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.functie.denumire}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.Department')}</div>
-          <TextFieldReadOnly dataPersonala={state.departament}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={state.departament.denumire}></TextFieldReadOnly>
         </Grid>
         <Grid item sm={4} xs={12}>
           <div className={classes.label}>{t('EmployeeDetailsTranslations.DateOfEmployment')}</div>
-          <TextFieldReadOnly dataPersonala={state.dataAngajare}></TextFieldReadOnly>
+          <TextFieldReadOnly dataPersonala={Moment(state.dataAngajare).format('DD-MM-YYYY')}></TextFieldReadOnly>
         </Grid>
         <Grid item xs={12}>
           <Button className={classes.butonActualizare}>

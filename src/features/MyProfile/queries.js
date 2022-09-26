@@ -14,7 +14,7 @@ export const GET_EMPLOYEE_BY_ID = gql`
       serie
       no
       nrTelefon
-      # poza
+      poza
       esteAdmin
       departament {
         denumire
