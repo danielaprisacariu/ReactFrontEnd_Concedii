@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-import { MenuItem, Select } from '@material-ui/core'
 import Styles from './Styles.js'
 
 const useStyles = makeStyles(Styles)
@@ -15,7 +14,6 @@ export function ComboBoxComponenta(props) {
       <Autocomplete
         options={arrayDataSource}
         getOptionLabel={element => element.nume}
-        value={id}
         style={{ width: 300 }}
         onChange={(event, value) => onChange(propertyName, value.id)}
         renderInput={params => <TextField {...params} variant='standard' />}

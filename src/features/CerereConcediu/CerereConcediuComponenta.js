@@ -58,7 +58,7 @@ function CerereConcediuComponenta(props) {
             arrayDataSource={tipuriConcedii}
             onChange={onChange}
             propertyName='tipConcediuId'
-            id={state.TipConcediuId}
+            id={state.tipConcediuId}
           ></ComboBoxComponenta>
         </Grid>
         <Grid item md={6} xs={12}>
@@ -67,7 +67,7 @@ function CerereConcediuComponenta(props) {
             arrayDataSource={inlocuitori}
             onChange={onChange}
             propertyName='inlocuitorId'
-            id={state.InlocuitorId}
+            id={state.inlocuitorId}
           ></ComboBoxComponenta>
         </Grid>
 

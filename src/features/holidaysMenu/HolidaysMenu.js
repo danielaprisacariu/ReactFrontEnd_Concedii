@@ -10,20 +10,44 @@ const useStyles = makeStyles(HolidaysMenuStyle)
 function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii) {
   return { Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii }
 }
+//preluare date
+
+import { gql } from '@apollo/client'
+
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 function HolidaysMenu() {
-  const RopVals=[
-   1,
-   5,
-   10,
-   15,
-   20
+
+  const USER_DATA_QUERY = gql`
+    query concediiData($id: Int!) {
+      concediiData(id: $id) {
+        id
+        dataInceput
+        dataSfarsit
+      }
+    }
+  `
+  useQueryWithErrorHandling(USER_DATA_QUERY, {
+    variables: {id:1 },
+
+    onCompleted: data => {
+      if (data != undefined || data != null) {
+        //dispatch({ inputName: 'allObject', inputValue: data.getProfileData, inputType: 'allObject' })
+console.log('a mers')
+        //refacere data
+      }
+    }
+  })
+  const RopVals = [
+    1, 5,
+
+    10, 15, 20
   ]
   //console.log("HolidaysMenu"+RopVals)
   const [page, setPage] = useState(0)
-  
-  const [RopVal,setRopVal] = useState(5)
-  const handleRopValChange=event=>{
+
+  const [RopVal, setRopVal] = useState(5)
+  const handleRopValChange = event => {
     console.log(event.target.value)
     setRopVal(event.target.value)
   }
@@ -46,25 +70,36 @@ function HolidaysMenu() {
 
   const handleFilter = input => {
     const value = input.target.value
-    const newArray =  rows.filter(el => {
+    const newArray = rows.filter(el => {
       if (value === '') {
         return el
       } else {
-        return (el.Inlocuitor.toLowerCase().includes(value) 
-             || el.TipConcediu.toLowerCase().includes(value)
-             || el.StareConcedii.toLowerCase().includes(value)
-             || el.Comentarii.toLowerCase().includes(value)) 
+        return (
+          el.Inlocuitor.toLowerCase().includes(value) ||
+          el.TipConcediu.toLowerCase().includes(value) ||
+          el.StareConcedii.toLowerCase().includes(value) ||
+          el.Comentarii.toLowerCase().includes(value)
+        )
       }
     })
-    setFilteredArray(newArray);
+    setFilteredArray(newArray)
     return
   }
 
   return (
-   <>
-   <SearchBar onFilter={handleFilter}/>
-  <HMTable RopVals={RopVals} page={page} setPage={setPage} rows={filteredArray} rowsOnPage={RopVal} tipuriConcedii={tipuriConcedii} handleRopValChange={handleRopValChange} />
-    </>)
+    <>
+      <SearchBar onFilter={handleFilter} />
+      <HMTable
+        RopVals={RopVals}
+        page={page}
+        setPage={setPage}
+        rows={filteredArray}
+        rowsOnPage={RopVal}
+        tipuriConcedii={tipuriConcedii}
+        handleRopValChange={handleRopValChange}
+      />
+    </>
+  )
 }
 
 export default HolidaysMenu

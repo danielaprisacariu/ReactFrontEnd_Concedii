@@ -12,7 +12,7 @@ const DateleMeleStyles = () => {
       fontFamily: 'Cairo',
       fontStyle: 'normal',
       fontWeight: '700',
-      fontSize: '34px',
+      fontSize: '32px',
       lineHeight: '64px',
       marginBottom: '40px',
       /* identical to box height */
