@@ -12,7 +12,7 @@ const useStyles = makeStyles(ToateConcediileStyle)
 function FooterTabel(props) {
   const { miguelito, page, setPage, RopVal, RopVals, handleRopValChange } = props
   const classes = useStyles()
-  const {t}=useTranslation()
+  const { t } = useTranslation()
   return (
     <TableFooter className={classes.Footer}>
       <TableRow className={classes.Rows}>
@@ -21,8 +21,8 @@ function FooterTabel(props) {
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.Cell}></TableCell>
         <TableCell className={classes.CText}>{t('Footer.RanduriPePagina')}</TableCell>
-        <TableCell className={classes.Cell, classes.CBox}>
-          <Select defaultValue ={5} value={RopVal} onChange={handleRopValChange} className ={classes.Selects}>
+        <TableCell className={(classes.Cell, classes.CBox)}>
+          <Select defaultValue={5} value={RopVal} onChange={handleRopValChange} className={classes.Selects}>
             {RopVals?.map(name => (
               <MenuItem key={name} value={name}>
                 {' '}
@@ -54,7 +54,7 @@ function FooterTabel(props) {
               </div>
             </>
           )}
-          {page !== Math.ceil(miguelito.length / RopVal) - 1 && (
+          {page !== Math.ceil(miguelito?.length / RopVal) - 1 && (
             <>
               <div
                 onClick={() => {
@@ -66,7 +66,7 @@ function FooterTabel(props) {
               </div>
               <div
                 onClick={() => {
-                  setPage(Math.ceil(miguelito.length / RopVal) - 1)
+                  setPage(Math.ceil(miguelito?.length / RopVal) - 1)
                 }}
                 className={classes.BtnNext}
               >
@@ -81,7 +81,7 @@ function FooterTabel(props) {
   )
 }
 FooterTabel.propTypes = {
-  miguelito: PropTypes.array,
+  miguelito: PropTypes.object,
   page: PropTypes.number,
   setPage: PropTypes.func,
   RopVal: PropTypes.number,
