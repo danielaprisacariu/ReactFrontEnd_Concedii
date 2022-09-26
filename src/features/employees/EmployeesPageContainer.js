@@ -6,6 +6,9 @@ import EmployeesTableCard from './EmployeesTableCard'
 import appStyle from './EmployeeStyle'
 import { makeStyles } from '@material-ui/core'
 import PropTypes from 'prop-types'
+import { useQuery } from '@apollo/client'
+import { GET_ALL_EMPLOYEE } from './queries'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 const useStyles = makeStyles(appStyle)
 
@@ -80,14 +83,14 @@ const array = [
 
 function EmployeesPageContainer() {
   const classes = useStyles()
-  const cards = []
+  const { data } = useQueryWithErrorHandling(GET_ALL_EMPLOYEE)
 
   return (
     <>
       {/* <EmployeesTableCard employeesArray={array}></EmployeesTableCard> */}
       {/* <EmployeeFilter></EmployeeFilter> */}
 
-      <EmployeesCard employees={array}></EmployeesCard>
+      <EmployeesCard employees={data}></EmployeesCard>
     </>
   )
 }

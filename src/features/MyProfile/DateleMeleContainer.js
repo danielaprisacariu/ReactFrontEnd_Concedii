@@ -1,8 +1,8 @@
-import React, { createRef, useEffect, useReducer, useRef } from 'react'
+import React, { createRef, useEffect, useReducer } from 'react'
 import { MyProfileReducer, initialState } from './MyProfileReducer'
 import DateleMeleComponenta from './DateleMeleComponenta'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
-import { GET_EMPLOYEE_BY_ID } from './querys'
+import { GET_EMPLOYEE_BY_ID } from './queries'
 
 function DateleMeleContainer() {
   const [state, dispatch] = useReducer(MyProfileReducer, initialState)

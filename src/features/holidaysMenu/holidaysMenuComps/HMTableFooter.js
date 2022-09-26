@@ -10,8 +10,8 @@ function HMTableFooter(props) {
   const classes = useStyles()
   const {t}=useTranslation()
 
-  console.log("HMTableFooter"+RopVals)
-  console.log(rows.length, rowsOnPage)
+
+
   return (
     <TableFooter className={classes.Header}>
       <TableRow className={classes.TableRow}>
@@ -47,7 +47,7 @@ function HMTableFooter(props) {
             </>
           )}
 
-          {page !== Math.ceil(rows.length / rowsOnPage) - 1 && (
+          {page !== Math.ceil(rows?.length / rowsOnPage) - 1 && (
             <>
               <div
                 onClick={() => {
@@ -59,7 +59,7 @@ function HMTableFooter(props) {
               </div>
               <div
                 onClick={() => {
-                  setPage(Math.ceil(rows.length / rowsOnPage) - 1)
+                  setPage(Math.ceil(rows?.length / rowsOnPage) - 1)
                 }}
                 className={classes.BtnNext}
               >

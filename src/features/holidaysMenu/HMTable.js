@@ -8,7 +8,7 @@ import {makeStyles} from '@material-ui/core'
 import HolidaysMenuStyle from './HolidaysMenuStyle'
 const useStyles=makeStyles(HolidaysMenuStyle)
 function HMTable(props) {
-   const { page, setPage, rows, rowsOnPage,tipuriConcedii,handleRopValChange,RopVals }=props
+   const { page, setPage, rows, rowsOnPage,handleRopValChange,RopVals }=props
     const classes=useStyles()
     console.log("HMTable"+RopVals)
   return (
@@ -16,7 +16,7 @@ function HMTable(props) {
 
     <TableContainer className={classes.Table}>
      <Table>
-      <TableHeader tipuriConcedii={tipuriConcedii} />
+      <TableHeader  />
       <HMTableBody page={page} rows={rows} rowsOnPage={rowsOnPage} />
       <HMTableFooter RopVals={RopVals} page={page} setPage={setPage} rows={rows} rowsOnPage={rowsOnPage} handleRopValChange={handleRopValChange}/>
     </Table>
@@ -29,7 +29,7 @@ HMTable.propTypes = {
   setPage: PropTypes.func,
   rows: PropTypes.array,
   rowsOnPage: PropTypes.number,
-  tipuriConcedii: PropTypes.array,
+
   handleRopValChange: PropTypes.func,
   RopVals:PropTypes.array
 }
