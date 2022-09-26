@@ -7,14 +7,14 @@ function HMTableRow({row}){
     const classes=useStyles()
     return(
 <TableRow className={classes.Rows} >
-<TableCell className={classes.Cell}>{row.DataInceput}</TableCell>
-<TableCell className={classes.Cell}>{row.DataSfarsit}</TableCell>
-<TableCell className={classes.Cell}>{row.TipConcediu}</TableCell>
-<TableCell className={classes.Cell}>{row.Inlocuitor}</TableCell>
-<TableCell className={classes.Cell}>{row.Comentarii}</TableCell>
-<TableCell className={classes.Cell}>{row.StareConcedii}</TableCell>
+<TableCell className={classes.Cell}>{row.dataInceput}</TableCell>
+<TableCell className={classes.Cell}>{row.dataSfarsit}</TableCell>
+<TableCell className={classes.Cell}>{row.tipConcediuNume}</TableCell>
+<TableCell className={classes.Cell}>{row.inlocuitorNume}</TableCell>
+<TableCell className={classes.Cell}>{row.comentarii}</TableCell>
+<TableCell className={classes.Cell}>{row.stareConcediuNume}</TableCell>
 </TableRow>)}
 HMTableRow.propTypes={
-    row:Array.PropTypes
+    row: PropTypes.object
 }
 export default HMTableRow

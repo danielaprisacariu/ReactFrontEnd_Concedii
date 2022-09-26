@@ -11,7 +11,7 @@ function HMTableBody(props) {
   return (
     <TableBody className={classes.TableBody}>
       {rows?.slice(page * rowsOnPage, (page + 1) * rowsOnPage).map(row => (
-       <HMTableRow key={row.Id} row={row}/>
+       <HMTableRow key={row.id} row={row}/>
       ))}
     </TableBody>
   )
