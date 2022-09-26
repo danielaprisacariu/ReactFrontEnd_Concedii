@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { PropTypes } from 'prop-types'
 const useStyles = makeStyles(HolidaysMenuStyle)
 
-function TableHeader(props) {
+function TableHeader(p) {
   const {t}=useTranslation()
-  const { tipuriConcedii } = props
+
   const classes = useStyles()
   return (
     <TableHead className={classes.Header}>
@@ -25,6 +25,6 @@ function TableHeader(props) {
   )
 }
 TableHeader.propTypes = {
-  tipuriConcedii: PropTypes.array
+
 }
 export default TableHeader

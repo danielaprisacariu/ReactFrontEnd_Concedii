@@ -2,42 +2,30 @@ import React, { useState } from 'react'
 import { TableFooter, TableCell, Table, TableRow, TableBody, TableHead, TableContainer } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core'
-
+import {useQueryWithErrorHandling} from 'hooks/errorHandling'
 import HolidaysMenuStyle from './HolidaysMenuStyle.js'
 import HMTable from './HMTable'
 import SearchBar from '../dashboard/toateconcediile/SearchBar'
+import {USER_DATA_QUERY} from './holidaysMenuComps/QUERYhm'
+import { useQuery } from '@apollo/client'
+
 const useStyles = makeStyles(HolidaysMenuStyle)
 function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii) {
   return { Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii }
 }
 //preluare date
 
-import { gql } from '@apollo/client'
 
-import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+
 
 function HolidaysMenu() {
 
-  const USER_DATA_QUERY = gql`
-    query concediiData($id: Int!) {
-      concediiData(id: $id) {
-        id
-        dataInceput
-        dataSfarsit
-      }
-    }
-  `
-  useQueryWithErrorHandling(USER_DATA_QUERY, {
-    variables: {id:1 },
-
-    onCompleted: data => {
-      if (data != undefined || data != null) {
-        //dispatch({ inputName: 'allObject', inputValue: data.getProfileData, inputType: 'allObject' })
-console.log('a mers')
-        //refacere data
-      }
-    }
-  })
+  const id=26
+  useQueryWithErrorHandling(USER_DATA_QUERY,{variables:{id:id} , onCompleted: data => {
+    setFilteredArray (data.concediiData)
+  }})
+  
+ 
   const RopVals = [
     1, 5,
 
@@ -48,29 +36,16 @@ console.log('a mers')
 
   const [RopVal, setRopVal] = useState(5)
   const handleRopValChange = event => {
-    console.log(event.target.value)
+  
     setRopVal(event.target.value)
   }
-  const tipuriConcedii = [
-    { id: 1, nume: 'Remote' },
-    { id: 2, nume: 'Odihna' },
-    { id: 3, nume: 'Medical' },
-    { id: 4, nume: 'Neplatit' }
-  ]
-  const rows = [
-    crd(1, '20/10/2020', '21/10/2020', 'Odihna', 'Miguel Gustavo', 'Concediu de odihna', 'Respins'),
-    crd(2, '24/09/2021', '02/10/2021', 'Medical', 'Matei Mirel', 'Ma simt rau ', 'Aprobat'),
-    crd(3, '20/10/2020', '21/10/2020', 'Odihna', 'Matei Mirel', 'Ma odihnesc', 'In asteptare'),
-    crd(4, '20/10/2020', '21/10/2020', 'Medical', 'Matei Mirel', 'Sunt gripat', 'In asteptare'),
-    crd(5, '20/10/2020', '21/10/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt piciorul', 'In asteptare'),
-    crd(6, '21/11/2020', '22/12/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt mana', 'In asteptare'),
-    crd(7, '23/11/2020', '24/12/2020', 'Medical', 'Popescu Ion', 'Mi-am rupt celalalta mana', 'In asteptare')
-  ]
-  const [filteredArray, setFilteredArray] = useState(rows)
+ 
+  
+  const [filteredArray, setFilteredArray] = useState()
 
   const handleFilter = input => {
     const value = input.target.value
-    const newArray = rows.filter(el => {
+    const newArray = filteredArray.filter(el => {
       if (value === '') {
         return el
       } else {
@@ -95,7 +70,7 @@ console.log('a mers')
         setPage={setPage}
         rows={filteredArray}
         rowsOnPage={RopVal}
-        tipuriConcedii={tipuriConcedii}
+ 
         handleRopValChange={handleRopValChange}
       />
     </>
