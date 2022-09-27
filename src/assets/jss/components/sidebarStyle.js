@@ -109,7 +109,7 @@ const sidebarStyle = theme => {
       width: drawerMiniWidth + 'px!important'
     },
     logo: {
-      padding: '15px 0px 30px 0',
+      padding: '0px 0px 30px 0',
       margin: '0',
       display: 'block',
       position: 'relative',

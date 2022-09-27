@@ -25,7 +25,10 @@ const getTheme = () => {
     case 'lightBlue':
       return lightBlueTheme
     default:
-      return defaultTheme
+      return {
+        ...defaultTheme,
+        palette: { ...defaultTheme.palette, sideMenu: { ...defaultTheme.palette.sideMenu, activeBkColor: '#990000' } }
+      }
   }
 }
 

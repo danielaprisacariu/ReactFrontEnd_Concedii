@@ -11,15 +11,19 @@ const useStyles = makeStyles(ToateConcediileStyle)
 
 function RowFunctinon(props) {
   const classes = useStyles()
-
   const { row } = props
+  const dateIncep = row?.dataInceput.split('T')[0].split('-')
+  const dataIncepAfis = dateIncep[2] + '/' + dateIncep[1] + '/' + dateIncep[0]
+  const dateSfars = row?.dataSfarsit.split('T')[0].split('-')
+  const dataSfarsAfis = dateSfars[2] + '/' + dateSfars[1] + '/' + dateSfars[0]
+
   return (
     <TableRow className={classes.Rows}>
       <TableCell className={classes.Cell}>{row?.angajatNume}</TableCell>
       <TableCell className={classes.Cell}>{row?.angajatPrenume}</TableCell>
       <TableCell className={classes.Cell}>{row?.tipConcediuNume}</TableCell>
-      <TableCell className={classes.Cell}>{row?.dataInceput}</TableCell>
-      <TableCell className={classes.Cell}>{row?.dataSfarsit}</TableCell>
+      <TableCell className={classes.Cell}>{dataIncepAfis}</TableCell>
+      <TableCell className={classes.Cell}>{dataSfarsAfis}</TableCell>
       <TableCell className={classes.Cell}>{row?.inlocuitorNume}</TableCell>
       <TableCell className={classes.Cell}>{row?.stareConcediu}</TableCell>
     </TableRow>
