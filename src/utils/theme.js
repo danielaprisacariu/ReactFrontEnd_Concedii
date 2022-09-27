@@ -27,7 +27,10 @@ const getTheme = () => {
     default:
       return {
         ...defaultTheme,
-        palette: { ...defaultTheme.palette, sideMenu: { ...defaultTheme.palette.sideMenu, activeBkColor: '#990000' } }
+        palette: {
+          ...defaultTheme.palette,
+          sideMenu: { ...defaultTheme.palette.sideMenu, activeBkColor: '#990000' }
+        }
       }
   }
 }

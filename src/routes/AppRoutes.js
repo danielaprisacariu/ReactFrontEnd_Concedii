@@ -3,7 +3,6 @@ import React from 'react'
 import { Switch, Redirect } from 'react-router-dom'
 
 import CustomRoute from '../components/routing/CustomRoute'
-
 import { Forbidden, NotFound } from '@bit/totalsoft_oss.react-mui.kit.core'
 import Dashboard from 'features/dashboard/Dashboard'
 import ToateConcediile from 'features/dashboard/toateconcediile/ToateConcediile.js'
