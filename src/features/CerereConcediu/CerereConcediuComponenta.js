@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(Styles)
 function CerereConcediuComponenta(props) {
-  const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state } = props
+  const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state, onHandleSave } = props
 
   const classes = useStyles()
 
@@ -80,7 +80,7 @@ function CerereConcediuComponenta(props) {
         </Grid>
 
         <Grid item xs={12}>
-          <Button className={classes.butonSalveaza} onClick={onHistoryClick}>
+          <Button className={classes.butonSalveaza} onClick={onHandleSave}>
             <SaveIcon> </SaveIcon>
             SALVEAZA
           </Button>
@@ -95,7 +95,8 @@ CerereConcediuComponenta.propTypes = {
   inlocuitori: PropTypes.array.isRequired,
   onChange: PropTypes.func,
   onHistoryClick: PropTypes.func,
-  state: PropTypes.object
+  state: PropTypes.object,
+  onHandleSave: PropTypes.func
 }
 
 export default CerereConcediuComponenta

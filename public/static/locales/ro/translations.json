@@ -77,8 +77,24 @@
     "DateOfBirth": "Data nasterii",
     "PhoneNumber": "Telefon",
     "DateOfEmployment": "Data angajarii",
-    "Department": "Department",
+    "Department": "Departament",
     "Function": "Functie",
     "Update": "Actualizare"
+  },
+  "NewEmployeeTranslations": {
+    "AddNewEmployee": "Adauga un angajat nou",
+    "LastName": "Nume",
+    "FirstName": "Prenume",
+    "NationalIdentityCard": "CNP",
+    "IdentityCardSeries": "Serie",
+    "IdentityCardNumber": "Numar",
+    "Email": "Email",
+    "PhoneNumber": "Telefon",
+    "DateofEmployment": "Data angajarii",
+    "DateofBirth": "Data nasterii",
+    "Department": "Departament",
+    "Function": "Functie",
+    "Password": "Parola",
+    "SaveEmployee": "Adaugati noul angajat"
   }
 }
