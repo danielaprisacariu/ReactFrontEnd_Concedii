@@ -14,9 +14,10 @@ import { GET_CONCEDII_TOATE } from './TCQuerry'
 const useStyles = makeStyles(ToateConcediileStyle)
 
 function ToateConcediile() {
+  const [filteredArray, setFilteredArray] = useState()
   const { data } = useQueryWithErrorHandling(GET_CONCEDII_TOATE, {
     onCompleted: data => {
-      setFilteredArray(data?.ToateConcediileDATA)
+      setFilteredArray(data?.toateConcediileDATA)
     }
   })
   const RopVals = [5, 10, 15, 20]
@@ -31,11 +32,10 @@ function ToateConcediile() {
 
   const classes = useStyles()
 
-  const [filteredArray, setFilteredArray] = useState()
   console.log(filteredArray)
   const handleFilter = input => {
     const value = input.target.value
-    const newArray = data?.ToateConcediileDATA.filter(el => {
+    const newArray = data?.toateConcediileDATA.filter(el => {
       if (value === '') {
         return el
       } else {

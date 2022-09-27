@@ -6,13 +6,13 @@ import { GET_EMPLOYEE_BY_ID } from './queries'
 
 function DateleMeleContainer() {
   const [state, dispatch] = useReducer(MyProfileReducer, initialState)
+
   const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEE_BY_ID, { variables: { id: 24 } })
 
   useEffect(() => {
-    if (state || loading || !data) return
-    var angajatDB = data.angajat
-    dispatch({ type: 'OnUploadFromDB' }, angajatDB)
-  }, [data])
+    if (loading || !data) return
+    dispatch({ type: 'OnUploadFromDB', value: data.angajat })
+  }, [data, loading])
 
   const onPropertyChange = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
