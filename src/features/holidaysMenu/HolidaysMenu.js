@@ -23,8 +23,9 @@ function HolidaysMenu() {
     onCompleted: data => {
       setFilteredArray(data?.concediiData)
     }
-  })
-
+})
+ 
+ 
   const RopVals = [
     1, 5,
 
@@ -32,12 +33,15 @@ function HolidaysMenu() {
   ]
   //console.log("HolidaysMenu"+RopVals)
   const [page, setPage] = useState(0)
-
+ console.log(page)
   const [RopVal, setRopVal] = useState(5)
   const handleRopValChange = event => {
     setRopVal(event.target.value)
   }
 
+
+  const [filteredArray, setFilteredArray] = useState()
+ 
   const handleFilter = input => {
     const value = input.target.value
     const newArray = filteredArray.filter(el => {
