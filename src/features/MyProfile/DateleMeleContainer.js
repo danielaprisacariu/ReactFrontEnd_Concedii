@@ -10,16 +10,18 @@ function DateleMeleContainer() {
   const addToast = useToast()
 
   const [state, dispatch] = useReducer(MyProfileReducer, initialState)
-  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEE_BY_ID, { variables: { id: 24 } })
+  const { data, loading } = useQueryWithErrorHandling(GET_EMPLOYEE_BY_ID, { variables: { id: 23 } })
 
   const [updateProcess, { loading: saving, _data, _error }] = useMutation(UPDATE_ANGAJAT, {
     onCompleted: () => {
       addToast('Modificare realizata cu succes!', 'success')
     },
-    onError: error => addToast('Error', error)
+    onError: error => addToast('Error', error.message)
   })
 
   const handleSave = () => {
+    console.log('aici')
+    console.log(state)
     updateProcess({ variables: { input: state } })
   }
 
