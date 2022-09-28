@@ -1,36 +1,36 @@
 import Moment from 'moment'
 
 export const initialState = {
-  LastName: null,
-  FirstName: null,
-  NIC: null,
-  Series: null,
-  CardNumber: null,
-  DateOfBirth: Moment().format('YYYY-MM-DD'),
-  Email: null,
-  PhoneNumber: null,
-  DateOfEmployment: Moment().format('YYYY-MM-DD'),
-  Department: null,
-  Function: null,
-  Password: null
+  nume: null,
+  prenume: null,
+  cnp: null,
+  serie: null,
+  no: null,
+  dataNasterii: Moment().format('YYYY-MM-DD'),
+  email: null,
+  nrTelefon: null,
+  dataAngajare: Moment().format('YYYY-MM-DD'),
+  managerId: 30,
+  departamentId: null,
+  functieId: null,
+  parola: null
 }
 export const fct = [
-  { id: 1, nume: 'Web Developer' },
-  { id: 2, nume: 'Accountant' },
+  { id: 1, nume: 'Accountant' },
+  { id: 2, nume: 'Web Developer' },
   { id: 3, nume: 'Consultant' },
   { id: 4, nume: 'Analyst' },
   { id: 5, nume: 'New Employee' },
-  { id: 6, nume: 'Manager' },
-  { id: 7, nume: 'CEO' }
+  { id: 6, nume: 'CEO' }
 ]
 
 export const department = [
   { id: 1, nume: 'Finances' },
-  { id: 2, nume: 'Development' },
-  { id: 3, nume: 'Human Resources' },
-  { id: 4, nume: 'Support' },
-  { id: 5, nume: 'Sales' },
-  { id: 6, nume: 'Marketing' },
+  { id: 2, nume: 'Human Resources' },
+  { id: 3, nume: 'Marketing' },
+  { id: 4, nume: 'Sales' },
+  { id: 5, nume: 'Support' },
+  { id: 6, nume: 'Development' },
   { id: 7, nume: 'New Employees' },
   { id: 8, nume: 'Management' }
 ]

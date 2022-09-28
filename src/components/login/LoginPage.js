@@ -8,6 +8,7 @@ import publicMainStyle from 'assets/jss/components/publicMainStyles'
 import { initialState, reducer } from './reducers/loginReducer'
 import { useMutation } from '@apollo/client'
 import { AUTHENTICATE_USER } from './mutations'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 const useStyles = makeStyles(publicMainStyle)
 
@@ -17,7 +18,7 @@ const LoginPage = props => {
   const { logo } = theme
   const classes = useStyles()
   const [localState, dispatch] = useReducer(reducer, initialState)
-  const [authenticateUser] = useMutation(AUTHENTICATE_USER)
+  const [authenticateUser] = useQueryWithErrorHandling(AUTHENTICATE_USER)
   const [error, setError] = useState(false)
   const [helperText, setHelperText] = useState('')
 
