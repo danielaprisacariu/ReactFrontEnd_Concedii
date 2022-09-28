@@ -20,7 +20,7 @@ export function ConcediereComp({onChange,state}){
                <div>Angajat:<ComboBoxComponenta onChange={onChange}
                                  propertyName='angajatConced'
                                  arrayDataSource={ state.angajatiConced}/></div>                      
-            
+            <button >Concediaza</button>
         </Container>
     )
 }

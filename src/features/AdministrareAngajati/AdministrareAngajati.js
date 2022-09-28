@@ -9,21 +9,40 @@ import { TransferAngajatComp } from './Components/TransferAngajatComp'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 import { AAReducer,initialState } from './Components/AAReducer'
-import { ANGAJATI_QUERY, MANAGERI_QUERY,DEPARTAMENTE_QUERY,FUNCTII_QUERY } from './queries'
-import { getDataFromTree } from '@apollo/client/react/ssr'
+import { ANGAJATI_QUERY, MANAGERI_QUERY,DEPARTAMENTE_QUERY,FUNCTII_QUERY ,MODIFICARE_ECHIPA_MUTATION} from './queries'
 
+import{useMutation} from '@apollo/client'
+import {useToast} from '@bit/totalsoft_oss.react-mui.kit.core'
 export function AdministrareAngajati(){
-
+    const addToast=useToast()
+    const [updateProcess, { loading: saving, _data, _error }] = useMutation(MODIFICARE_ECHIPA_MUTATION, {
+        onCompleted: () => {
+          addToast('Inserare realizata cu succes!', 'success')
+          //history.push({ pathname: `/NewEmployee` })
+        },
+        onError: error => addToast('Error', error)
+      })
     const [state,dispatch]=useReducer(AAReducer,initialState)
     const onChange=(propertyName,value)=>{
         dispatch({type:'OnPropertyChange',propertyName,value})
         console.log(state)
     }
-
+   const EchipaNoua=() => { updateProcess({ variables: { input: {managerEN:26,angajatEN:state.angajatEN} } })}
     useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
         onChange ('manageri',data.manageriData)
       }})
-      useQueryWithErrorHandling(ANGAJATI_QUERY,{variables:{id:state.managerConced},skip:state.managerConced===null, onCompleted: data => {
+      const StergeEchipa=() => { updateProcess({ variables: { input: {managerEN:30,angajatEN:state.managerSE} } })}
+      useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
+          onChange ('manageri',data.manageriData)
+        }})
+        const TransferAngajat=() => { updateProcess({ variables: { input: {managerEN:state.manager2TA,angajatEN:state.angajatTA} } })}
+        useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
+            onChange ('manageri',data.manageriData)
+          }})
+     
+     
+     
+          useQueryWithErrorHandling(ANGAJATI_QUERY,{variables:{id:state.managerConced},skip:state.managerConced===null, onCompleted: data => {
         onChange ('angajatiConced',data.angajatiData)
       }})
       useQueryWithErrorHandling(ANGAJATI_QUERY,{variables:{id:state.managerEN},skip:state.managerEN===null, onCompleted: data => {
@@ -58,12 +77,12 @@ export function AdministrareAngajati(){
       onChange('manageri2TA',manageriFU)}
         return(
             <>
-            <ConcediereComp onChange={onChange} state={state}/>
-            <EchipaNouaComp onChange={onChange} state={state}/>
+            <ConcediereComp onClick={EchipaNoua} onChange={onChange} state={state}/>
+            <EchipaNouaComp onClick={EchipaNoua} onChange={onChange} state={state}/>
             <SchimbareDepart onChange={onChange} state={state}/>
             <SchimbareFunc onChange={onChange} state={state}/>
-            <StergereEchipaComp onChange={onChange} state={state}/>
-            <TransferAngajatComp onChange={onChange} state={state}/>
+            <StergereEchipaComp onClick={StergeEchipa} onChange={onChange} state={state}/>
+            <TransferAngajatComp onClick={TransferAngajat} onChange={onChange} state={state}/>
             </>
         )
 }

@@ -33,4 +33,9 @@ query Query {
      }
    }
 `
+export const MODIFICARE_ECHIPA_MUTATION=gql`
+mutation ModificareEchipa($input: modificareEchipa!) {
+  modificareEchipa(input: $input)
+}
+`
 
