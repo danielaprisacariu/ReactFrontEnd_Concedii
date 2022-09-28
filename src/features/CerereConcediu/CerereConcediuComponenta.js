@@ -5,12 +5,11 @@ import { Button, Grid, makeStyles } from '@material-ui/core'
 import Styles from './Styles.js'
 import { ComentariiTextField } from './ComentariiTextField'
 import SaveIcon from '@material-ui/icons/Save'
-import { useHistory } from 'react-router'
 import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(Styles)
 function CerereConcediuComponenta(props) {
-  const { tipuriConcedii, inlocuitori, onChange, onHistoryClick, state, onHandleSave } = props
+  const { tipuriConcedii, inlocuitori, onChange, state, onHandleSave } = props
 
   const classes = useStyles()
 
@@ -44,7 +43,7 @@ function CerereConcediuComponenta(props) {
         <Grid item md={6} xs={12}>
           <div className={classes.span1}> TOTAL ZILE LIBERE SOLICITATE </div>
           <div className={classes.box}></div>
-          <div className={classes.span2}> 6 zile </div>
+          <p className={classes.span2}>{state.zileConcediu}</p>
         </Grid>
         <Grid item md={6} xs={12}>
           <div className={classes.span1}>ZILE LIBERE DISPONIBILE</div>
@@ -91,8 +90,8 @@ function CerereConcediuComponenta(props) {
 }
 
 CerereConcediuComponenta.propTypes = {
-  tipuriConcedii: PropTypes.array.isRequired,
-  inlocuitori: PropTypes.array.isRequired,
+  tipuriConcedii: PropTypes.array,
+  inlocuitori: PropTypes.array,
   onChange: PropTypes.func,
   onHistoryClick: PropTypes.func,
   state: PropTypes.object,

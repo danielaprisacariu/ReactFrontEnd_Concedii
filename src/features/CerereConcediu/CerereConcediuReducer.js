@@ -1,13 +1,14 @@
 import Moment from 'moment'
+
 export const initialState = {
   tipConcediuId: null,
   dataInceput: Moment().format('YYYY-MM-DD'),
-  dataSfarsit: null,
+  dataSfarsit: Moment().format('YYYY-MM-DD'),
   inlocuitorId: null,
-  comentarii: null,
+  comentarii: '',
   stareConcediuId: 1,
   angajatId: 24,
-  zileConcediu: null
+  zileConcediu: undefined
 }
 
 export const tipuriConcedii = [
@@ -27,6 +28,25 @@ export function CerereConcediuReducer(state, action) {
 
   switch (action.type) {
     case 'OnPropertyChange':
+      if (propertyName === 'dataInceput') {
+        if (value != null && state.dataSfarsit != null) {
+          let dataInceput = Moment(value)
+          let dataSfarsit = Moment(state.dataSfarsit)
+          let dif = dataSfarsit.diff(dataInceput)
+          let duration = Moment.duration(dif)
+          let zileConcediu = duration.days()
+          state = { ...state, zileConcediu: zileConcediu }
+        }
+      } else if (propertyName === 'dataSfarsit') {
+        if (state.dataInceput != null && value != null) {
+          let dataInceput = Moment(state.dataInceput)
+          let dataSfarsit = Moment(value)
+          let dif = dataSfarsit.diff(dataInceput)
+          let duration = Moment.duration(dif)
+          let zileConcediu = duration.days()
+          state = { ...state, zileConcediu: zileConcediu }
+        }
+      }
       return { ...state, [propertyName]: value }
     default:
       throw new Error()

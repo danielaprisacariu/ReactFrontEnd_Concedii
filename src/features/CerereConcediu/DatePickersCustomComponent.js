@@ -27,4 +27,9 @@ export function DatePickersCustomComponent(props) {
   )
 }
 
-DatePickersCustomComponent.propTypes = { onChange: PropTypes.func, propertyName: PropTypes.string, data: PropTypes.string }
+DatePickersCustomComponent.propTypes = {
+  onChange: PropTypes.func,
+  propertyName: PropTypes.string,
+  data: PropTypes.string,
+  state: PropTypes.object
+}
