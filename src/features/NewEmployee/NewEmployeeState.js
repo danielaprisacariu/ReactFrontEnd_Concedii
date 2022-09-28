@@ -13,7 +13,8 @@ export const initialState = {
   managerId: 30,
   departamentId: null,
   functieId: null,
-  parola: null
+  parola: null,
+  concediat: 0
 }
 export const fct = [
   { id: 1, nume: 'Accountant' },
