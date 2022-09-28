@@ -12,7 +12,7 @@ import Moment from 'moment'
 
 const useStyles = makeStyles(DateleMeleStyles)
 
-function DateleMeleCard({ state, onChange, handleUploadClick }) {
+function DateleMeleCard({ state, onChange, handleUploadClick, onSave }) {
   const classes = useStyles()
   const { t } = useTranslation()
 
@@ -92,7 +92,7 @@ function DateleMeleCard({ state, onChange, handleUploadClick }) {
           <TextFieldReadOnly dataPersonala={Moment(state.dataAngajare).format('DD-MM-YYYY')}></TextFieldReadOnly>
         </Grid>
         <Grid item xs={12}>
-          <Button className={classes.butonActualizare}>
+          <Button className={classes.butonActualizare} onClick={onSave}>
             <SaveIcon> </SaveIcon>
             {t('EmployeeDetailsTranslations.Update')}
           </Button>
@@ -105,7 +105,8 @@ function DateleMeleCard({ state, onChange, handleUploadClick }) {
 DateleMeleCard.propTypes = {
   state: PropTypes.object,
   onChange: PropTypes.func,
-  handleUploadClick: PropTypes.func
+  handleUploadClick: PropTypes.func,
+  onSave: PropTypes.func
 }
 
 export default DateleMeleCard

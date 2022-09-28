@@ -5,3 +5,22 @@ export const PUT_CERERE_CONCEDIU = gql`
     inserareConcediu(input: $input)
   }
 `
+export const GET_INLOCUITORI = gql`
+  query angajatiNumeConcatenat($idM: Int!, $angajatiNumeConcatenatId: Int!) {
+    angajatiNumeConcatenat(idM: $idM, id: $angajatiNumeConcatenatId) {
+      id
+      nume
+      managerId
+    }
+  }
+`
+export const GET_TIP_CONCEDII = gql`
+  query tipConcedii {
+    tipConcedii {
+      id
+      nume
+      cod
+      zileTotaleConcediu
+    }
+  }
+`
