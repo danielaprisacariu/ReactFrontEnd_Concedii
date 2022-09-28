@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(Styles)
 function CerereConcediuComponenta(props) {
-  const { tipuriConcedii, inlocuitori, onChange, state, onHandleSave } = props
+  const { tipuriConcedii, inlocuitori, onChange, state, onHandleSave, zileRamase } = props
 
   const classes = useStyles()
 
@@ -48,7 +48,7 @@ function CerereConcediuComponenta(props) {
         <Grid item md={6} xs={12}>
           <div className={classes.span1}>ZILE LIBERE DISPONIBILE</div>
           <div className={classes.box}></div>
-          <div className={classes.span2}>17 zile </div>
+          <div className={classes.span2}>{zileRamase?.zileRamase} </div>
         </Grid>
 
         <Grid item md={6} xs={12}>
@@ -95,7 +95,8 @@ CerereConcediuComponenta.propTypes = {
   onChange: PropTypes.func,
   onHistoryClick: PropTypes.func,
   state: PropTypes.object,
-  onHandleSave: PropTypes.func
+  onHandleSave: PropTypes.func,
+  zileRamase: PropTypes.number
 }
 
 export default CerereConcediuComponenta

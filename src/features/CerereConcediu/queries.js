@@ -24,3 +24,9 @@ export const GET_TIP_CONCEDII = gql`
     }
   }
 `
+
+export const GET_ZILE_RAMASE = gql`
+  query zileRamase($zileRamaseId: Int, $tipConcediuId: Int) {
+    zileRamase(id: $zileRamaseId, tipConcediuId: $tipConcediuId)
+  }
+`
