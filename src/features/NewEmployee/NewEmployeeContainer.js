@@ -5,6 +5,7 @@ import { NewEmployeeReducer, initialState, department, fct } from './NewEmployee
 import { useMutation } from '@apollo/client'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { INPUT_NEW_ANGAJAT } from './input'
+import { SHA256 } from 'crypto-js'
 
 export default function NewEmployeeContainer() {
   const addToast = useToast()
@@ -17,8 +18,10 @@ export default function NewEmployeeContainer() {
     onError: error => addToast('Error', error)
   })
   const handleSave = () => {
-    const newEmployee = state
+    let newEmployee = state
+    let hash = SHA256(newEmployee.parola).toString().toUpperCase()
     console.log('newEmployee', newEmployee)
+    newEmployee = { ...newEmployee, parola: hash }
     updateProcess({ variables: { input: newEmployee } })
   }
   const onPropertyChange = (propertyName, value) => {
