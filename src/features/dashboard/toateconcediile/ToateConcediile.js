@@ -26,13 +26,10 @@ function ToateConcediile() {
     console.log(event.target.value)
     setRopVal(event.target.value)
   }
-  console.log(data)
 
   const [pagini, setPage] = useState(0)
 
   const classes = useStyles()
-
-  console.log(filteredArray)
   const handleFilter = input => {
     const value = input.target.value
     const newArray = data?.toateConcediileDATA.filter(el => {
