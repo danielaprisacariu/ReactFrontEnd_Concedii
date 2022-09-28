@@ -18,7 +18,21 @@ const LoginPage = props => {
   const { logo } = theme
   const classes = useStyles()
   const [localState, dispatch] = useReducer(reducer, initialState)
-  const [authenticateUser] = useQueryWithErrorHandling(AUTHENTICATE_USER)
+  useQueryWithErrorHandling(AUTHENTICATE_USER, {
+    variables: { Email: localState.userName, Parola: localState.password },
+    skip: !localState.isSaving,
+    onCompleted: data => {
+      if (!data.newUserData) {
+        setError(true)
+        setHelperText('Invalid Username or Password.', 'error')
+        dispatch({ type: 'reset' })
+        return
+      }
+      setError(false)
+      setToken('token')
+    },
+    fetchPolicy: 'network-only'
+  })
   const [error, setError] = useState(false)
   const [helperText, setHelperText] = useState('')
 
@@ -28,20 +42,13 @@ const LoginPage = props => {
 
   const handleCLick = async () => {
     setHelperText('')
+    dispatch({ type: 'aMErs' })
     if (!localState.userName || !localState.password) {
       setError(true)
       setHelperText('Username and passwords are mandatory.')
       return
     }
-    const { data } = await authenticateUser({ variables: { userName: localState.userName, password: localState.password } })
-
-    if (!data.authenticateUser) {
-      setError(true)
-      setHelperText('Invalid Username or Password.', 'error')
-      return
-    }
-    setError(false)
-    setToken('token')
+    // const { data } = await authenticateUser({ variables: { userName: localState.userName, password: localState.password } })
   }
 
   return (
