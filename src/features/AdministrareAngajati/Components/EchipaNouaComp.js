@@ -1,5 +1,5 @@
 import React, {useReducer}from 'react'
-import {Container} from '@material-ui/core'
+import {Container,Button} from '@material-ui/core'
 import { PropTypes } from 'prop-types'
 import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { AAReducer,initialState } from './AAReducer'
@@ -19,7 +19,7 @@ export function EchipaNouaComp({onChange,state,onClick}){
                <div>Angajat:<ComboBoxComponenta onChange={onChange}
                                  propertyName='angajatEN'
                                  arrayDataSource={state.angajatiEN}/></div>                      
-                  <button onClick={onClick}>Creeaza</button>
+                  <Button variant="contained" onClick={onClick}>Creeaza</Button>
         </Container>
     )
 }

@@ -8,6 +8,7 @@ import HMTable from './HMTable'
 import SearchBar from '../dashboard/toateconcediile/SearchBar'
 import { USER_DATA_QUERY } from './holidaysMenuComps/QUERYhm'
 import { useQuery } from '@apollo/client'
+import useUserData from 'utils/useData.js'
 
 const useStyles = makeStyles(HolidaysMenuStyle)
 function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, StareConcedii) {
@@ -16,7 +17,8 @@ function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, 
 //preluare date
 
 function HolidaysMenu() {
-  const id = 26
+  const user =useUserData()
+  const id = user.id
   const [filteredArray, setFilteredArray] = useState()
   useQueryWithErrorHandling(USER_DATA_QUERY, {
     variables: { id: id },

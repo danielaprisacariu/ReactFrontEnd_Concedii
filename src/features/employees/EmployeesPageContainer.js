@@ -1,103 +1,63 @@
 import { Grid } from '@material-ui/core'
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import EmployeesCard from './EmployeesCard'
 import EmployeeFilter from './EmployeeFilters'
 import EmployeesTableCard from './EmployeesTableCard'
 import appStyle from './EmployeeStyle'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, Button } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import { useQuery } from '@apollo/client'
 import { GET_ALL_EMPLOYEE } from './queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
+import { AdministrareAngajati } from 'features/AdministrareAngajati/AdministrareAngajati'
+import useUserData from 'utils/useData'
 
 const useStyles = makeStyles(appStyle)
 
-const array = [
-  {
-    Id: 1,
-    Poza: './images/884936_v9_bb.jpg',
-    Nume: 'Dorel',
-    Prenume: 'Ionel',
-    Email: 'dorel.ionel@totalsoft.ro',
-    NrTelefon: '0764256252',
-    Manager: 'Popescu Ion',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  },
-  {
-    Id: 2,
-    Poza: './images/Natalia_Dyer_by_Gage_Skidmore.jpg',
-    Nume: 'Ionescu',
-    Prenume: 'Natalia',
-    Email: 'natalia.ionescu@totalsoft.ro',
-    NrTelefon: '0764256252',
-    Manager: 'Popescu Ion',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  },
-  {
-    Id: 3,
-    Poza: './images/Noah-Schnapp.jpg',
-    Nume: 'Popescu',
-    Prenume: 'Ion',
-    Email: 'ion.popescu@totalsoft.ro',
-    NrTelefon: '0764256252',
-    Manager: '',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  },
-  {
-    Id: 4,
-    Poza: './images/joseph.jpg',
-    Nume: 'Viorel',
-    Prenume: 'Mitrut',
-    Email: 'viorel. mitrut@totalsoft.ro',
-    NrTelefon: '0764256252',
-    Manager: 'Popescu Ion',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  },
-  {
-    Id: 4,
-    Poza: './images/976094_v9_bb.jpg',
-    Nume: 'Vasile',
-    Prenume: 'Ion',
-    Email: 'vasile.ion@totalsoft.ro',
-    NrTelefon: '0764257252',
-    Manager: 'Popescu Ion',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  },
-  {
-    Id: 6,
-    Poza: './images/ionel.jpg',
-    Nume: 'Gheorghe',
-    Prenume: 'Ion',
-    Email: 'gheorghe.ioon@totalsoft.ro',
-    NrTelefon: '0764256254',
-    Manager: '',
-    Functie: 'Frontend Developer',
-    Departament: 'Dezvoltare'
-  }
-]
-
 function EmployeesPageContainer() {
-  const classes = useStyles()
+  const user=useUserData()
+  const [Shown, SetShown] = useState(1)
   const { data } = useQueryWithErrorHandling(GET_ALL_EMPLOYEE)
-  //cons
+  const onHandleSwitch = x => {
+    SetShown(x)
+  }
 
   return (
     <>
-      {/* <EmployeesTableCard employeesArray={array}></EmployeesTableCard> */}
-      {/* <EmployeeFilter></EmployeeFilter> */}
-
-      <EmployeesCard employees={data}></EmployeesCard>
+      {(Shown === 1&&user.id===26)&& (
+        <>
+          <div>
+            <Button variant='contained' onClick={()=> (onHandleSwitch(2))}>Adauga angajat</Button>
+            <Button variant='contained' onClick={()=> (onHandleSwitch(3))}>Administreaza angajatii</Button>
+          </div>
+          <EmployeesCard employees={data}></EmployeesCard>
+        </>
+      )}
+      {(Shown === 2 && user.id===26) && (
+        <>
+          <div>
+            <Button variant='contained' onClick={()=> onHandleSwitch(1)}>Angajati</Button>
+            <Button variant='contained' onClick={()=> onHandleSwitch(3)}>Administreaza angajatii</Button>
+          </div>
+          <NewEmployeeContainer></NewEmployeeContainer>
+        </>
+      )}
+      {(Shown === 3 && user.id===26) && (
+        <>
+          <div>
+            <Button variant='contained' onClick={()=> onHandleSwitch(1)}>Angajati</Button>
+            <Button variant='contained' onClick={()=> onHandleSwitch(2)}>Adaugare Angajat</Button>
+          </div>
+          <AdministrareAngajati></AdministrareAngajati>
+        </>
+      )}
+      {(user.id!==26) && ( <>
+         
+        <EmployeesCard employees={data}></EmployeesCard>
+        </>)}
     </>
   )
 }
-
-// EmployeesPageContainer.propTypes = {
-//   filter: PropTypes.object
-// }
 
 export default EmployeesPageContainer

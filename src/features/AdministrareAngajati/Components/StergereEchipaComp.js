@@ -16,7 +16,7 @@ export function StergereEchipaComp({onClick,onChange,state}) {
         Manager:
         <ComboBoxComponenta onChange={onChange} propertyName='managerSE' arrayDataSource={state.manageri} />
       </div>
-      <Button onClick={onClick}>Desfiinteaza</Button>
+      <Button variant="contained"   onClick={onClick}>Desfiinteaza</Button>
     </Container>
   )
 }

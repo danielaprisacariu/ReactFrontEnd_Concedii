@@ -25,7 +25,7 @@ export function TransferAngajatComp({onChange,state,onClick}) {
         In echipa lui:
         <ComboBoxComponenta onChange={onChange} propertyName='manager2TA' arrayDataSource={state.manageri2TA} />
       </div>
-      <Button onClick={onClick}>Transfera</Button>
+      <Button variant="contained" onClick={onClick}>Transfera</Button>
     </Container>
   )
 }
