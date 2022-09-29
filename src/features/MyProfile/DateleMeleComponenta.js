@@ -50,8 +50,6 @@ function DateleMeleCard({ state, onChange, handleUploadClick, onSave }) {
             <Button variant='contained' component='label' className={classes.schimbaPoza}>
               <EditIcon></EditIcon>
               <input accept='image/*' type='file' onChange={handleChange} hidden />
-              {/*  */}
-              {/* console.log(event.target.files[0]) */}
             </Button>
           </div>
         </Grid>

@@ -20,6 +20,11 @@ export function MyProfileReducer(state, action) {
   console.log(value)
   switch (action.type) {
     case 'OnPropertyChange':
+      if (propertyName == 'nrTelefon') {
+        if (value.length != 10) {
+          console.log('nrtel mic')
+        }
+      }
       return { ...state, [propertyName]: value }
     case 'OnUploadFromDB':
       return { ...state, ...value }

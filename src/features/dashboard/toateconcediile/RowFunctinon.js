@@ -1,5 +1,5 @@
 import React from 'react'
-import { TableCell } from '@material-ui/core'
+import { Checkbox, TableCell } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core'
 import ToateConcediileStyle from './ToateConcediileStyle.js'
@@ -18,7 +18,8 @@ function RowFunctinon(props) {
   const dataSfarsAfis = dateSfars[2] + '/' + dateSfars[1] + '/' + dateSfars[0]
 
   return (
-    <TableRow className={classes.Rows}>
+    <TableRow className={classes.Rows} selected={true} onChange={console.log(row?.angajatNume)}>
+      {/* <Checkbox></Checkbox> */}
       <TableCell className={classes.Cell}>{row?.angajatNume}</TableCell>
       <TableCell className={classes.Cell}>{row?.angajatPrenume}</TableCell>
       <TableCell className={classes.Cell}>{row?.tipConcediuNume}</TableCell>
