@@ -13,7 +13,7 @@ const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
   const classes = useStyles()
   const { t } = useTranslation()
-  const { onChange, state, department, fct, onHandleSave, onHistoryClick } = props
+  const { onChange, state, onHandleSave, onHistoryClick } = props
 
   return (
     <Grid container>
@@ -101,7 +101,7 @@ function NewEmployeeComponent(props) {
 
         <Grid item xs={6}>
           <NewEmployeeCombobox
-            arrayDataSource={fct}
+            arrayDataSource={state.functii}
             onChange={onChange}
             propertyName='functieId'
             id={state.functieId}
@@ -109,7 +109,7 @@ function NewEmployeeComponent(props) {
         </Grid>
         <Grid item xs={6}>
           <NewEmployeeCombobox
-            arrayDataSource={department}
+            arrayDataSource={state.departamente}
             onChange={onChange}
             propertyName='departamentId'
             id={state.departamentId}

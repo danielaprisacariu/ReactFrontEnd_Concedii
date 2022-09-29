@@ -14,7 +14,9 @@ export const initialState = {
   departamentId: null,
   functieId: null,
   parola: null,
-  concediat: false
+  concediat: false,
+  functii: [],
+  departamente: []
 }
 export const fct = [
   { id: 1, nume: 'Accountant' },
