@@ -34,7 +34,7 @@ const LoginPage = props => {
         return
       }
       setError(false)
-      setToken('token')
+      setToken(localState.userName)
       history.push({ pathname: '/logging' })
     },
     fetchPolicy: 'network-only'
