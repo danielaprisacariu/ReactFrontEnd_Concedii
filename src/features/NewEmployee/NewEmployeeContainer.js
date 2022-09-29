@@ -6,6 +6,8 @@ import { useMutation } from '@apollo/client'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { INPUT_NEW_ANGAJAT } from './input'
 import { SHA256 } from 'crypto-js'
+import { DEPARTAMENTE_QUERY, FUNCTII_QUERY } from 'features/AdministrareAngajati/queries'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 
 export default function NewEmployeeContainer() {
   const addToast = useToast()
@@ -28,6 +30,16 @@ export default function NewEmployeeContainer() {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
     console.log(state)
   }
+  useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
+    onCompleted: data => {
+      onPropertyChange('departamente', data.departamenteData)
+    }
+  })
+  useQueryWithErrorHandling(FUNCTII_QUERY, {
+    onCompleted: data => {
+      onPropertyChange('functii', data.functiiData)
+    }
+  })
   const history = useHistory()
   const handleClick = () => {
     history.push({ pathname: '/employees' })
