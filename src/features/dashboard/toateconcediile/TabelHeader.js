@@ -26,6 +26,7 @@ function HeaderTabel(){
               <TableCell className={classes.Cell}>{t('Header.DataSfarsit')}</TableCell>
               <TableCell className={classes.Cell}>{t('Header.Inlocuitor')}</TableCell>
               <TableCell className={classes.Cell}>{t('Header.StareConcediu')}</TableCell>
+     
             </TableRow>
           </TableHead>
     )

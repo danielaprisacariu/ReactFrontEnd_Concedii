@@ -6,6 +6,7 @@ import { theme as orangeTheme } from '@bit/totalsoft_oss.react-mui.themes.orange
 import { theme as redTheme } from '@bit/totalsoft_oss.react-mui.themes.red-theme'
 import { theme as vividOrangeTheme } from '@bit/totalsoft_oss.react-mui.themes.vivid-orange-theme'
 import { theme as lightBlueTheme } from '@bit/totalsoft_oss.react-mui.themes.light-blue-theme'
+import logos from '../assets/img/logo.png'
 
 import { createTheme } from '@material-ui/core'
 
@@ -30,7 +31,8 @@ const getTheme = () => {
         palette: {
           ...defaultTheme.palette,
           sideMenu: { ...defaultTheme.palette.sideMenu, activeBkColor: '#990000' }
-        }
+        },
+        logo: logos
       }
   }
 }
