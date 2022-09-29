@@ -1,5 +1,6 @@
 import React from 'react'
 import { useReducer } from 'react'
+import { Table,TableRow,TableCell} from '@material-ui/core'
 import { ConcediereComp } from "./Components/ConcediereComp"
 import { EchipaNouaComp } from "./Components/EchipaNouaComp"
 import { SchimbareDepart } from './Components/SchimbareDepart'
@@ -17,21 +18,21 @@ export function AdministrareAngajati(){
     const addToast=useToast()
     const [updateProcess, { loading: saving, _data, _error }] = useMutation(MODIFICARE_ECHIPA_MUTATION, {
         onCompleted: () => {
-          addToast('Modificare realizata cu succes!', 'success')
+          addToast('Inserare realizata cu succes!', 'success')
           //history.push({ pathname: `/NewEmployee` })
         },
         onError: error => addToast('Error', error)
       })
-      const [schimbareFunctie, { loading: saving2, _data2, _error2 }] = useMutation(SCHIMBARE_FUNCTIE_MUTATION, {
+      const [schimbareDepart, { loading: saving2, _data2, _error2 }] = useMutation(SCHIMBARE_DEPARTAMENT_MUTATION, {
         onCompleted: () => {
-          addToast('Modificare realizata cu succes!', 'success')
+          addToast('Inserare realizata cu succes!', 'success')
           //history.push({ pathname: `/NewEmployee` })
         },
         onError: error => addToast('Error', error)
       })
-      const [schimbareDepartament, { loading: saving3, _data3, _error3 }] = useMutation(SCHIMBARE_DEPARTAMENT_MUTATION, {
+      const [schimbareFunctie, { loading: saving3, _data3, _error3 }] = useMutation(SCHIMBARE_FUNCTIE_MUTATION, {
         onCompleted: () => {
-          addToast('Modificare realizata cu succes!', 'success')
+          addToast('Inserare realizata cu succes!', 'success')
           //history.push({ pathname: `/NewEmployee` })
         },
         onError: error => addToast('Error', error)
@@ -45,10 +46,20 @@ export function AdministrareAngajati(){
     useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
         onChange ('manageri',data.manageriData)
       }})
-   const StergeEchipa=() => { updateProcess({ variables: { input: {managerEN:30,angajatEN:state.managerSE} } })}
-   const TransferAngajat=() => { updateProcess({ variables: { input: {managerEN:state.manager2TA,angajatEN:state.angajatTA} } })}
-   const SchimbareFunctie=() => { schimbareFunctie({ variables: { input: {angajatFunc:state.angajatFunc,functie:state.functie} } })}  
-   const SchimbareDepartament=() => { schimbareDepartament({ variables: { input: {angajatDep:state.angajatDep,departament:state.departament} } })} 
+      const StergeEchipa=() => { updateProcess({ variables: { input: {managerEN:30,angajatEN:state.managerSE} } })}
+      useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
+          onChange ('manageri',data.manageriData)
+        }})
+        const TransferAngajat=() => { updateProcess({ variables: { input: {managerEN:state.manager2TA,angajatEN:state.angajatTA} } })}
+        useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
+            onChange ('manageri',data.manageriData)
+          }})
+          const SchimbareDepartament=() => { schimbareDepart({ variables: { input: {angajatDep:state.angajatDep,departament:state.departament} } })}
+          const SchimbareFunctie=() => { schimbareFunctie({ variables: { input: {angajatFunc:state.angajatFunc,functie:state.functie} } })}
+        useQueryWithErrorHandling(MANAGERI_QUERY,{ onCompleted: data => {
+            onChange ('manageri',data.manageriData)
+          }})
+     
      
           useQueryWithErrorHandling(ANGAJATI_QUERY,{variables:{id:state.managerConced},skip:state.managerConced===null, onCompleted: data => {
         onChange ('angajatiConced',data.angajatiData)
@@ -84,13 +95,30 @@ export function AdministrareAngajati(){
       onChange('hasChanged',0)
       onChange('manageri2TA',manageriFU)}
         return(
-            <>
-            <ConcediereComp onClick={EchipaNoua} onChange={onChange} state={state}/>
-            <EchipaNouaComp onClick={EchipaNoua} onChange={onChange} state={state}/>
-            <SchimbareDepart onChange={SchimbareDepartament} state={state}/>
-            <SchimbareFunc onChange={SchimbareFunctie} state={state}/>
+            <Table>
+            <TableRow>
+            <TableCell>
             <StergereEchipaComp onClick={StergeEchipa} onChange={onChange} state={state}/>
+            </TableCell>
+            <TableCell>
+            <EchipaNouaComp onClick={EchipaNoua} onChange={onChange} state={state}/>
+            </TableCell>
+        
+            </TableRow>
+            <TableRow>
+            <TableCell>
+            <SchimbareDepart onClick={SchimbareDepartament} onChange={onChange} state={state}/>
+            </TableCell>
+            <TableCell>
+            <SchimbareFunc onClick={SchimbareFunctie} onChange={onChange} state={state}/>
+            </TableCell>
+          
+            </TableRow>
+            <TableRow>
+            <TableCell>
             <TransferAngajatComp onClick={TransferAngajat} onChange={onChange} state={state}/>
-            </>
+            </TableCell>
+            </TableRow>
+            </Table>
         )
 }

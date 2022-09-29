@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react'
-import { Container } from '@material-ui/core'
+import { Container,Button } from '@material-ui/core'
 import { PropTypes } from 'prop-types'
 import { ComboBoxComponenta } from './ComboBoxComponenta'
 
 import { makeStyles } from '@material-ui/styles'
 import AdministrareAngajatiStyle from '../AdministrareAngajatiStyle'
 const useStyles = makeStyles(AdministrareAngajatiStyle)
-export function SchimbareFunc({updateProcess,onChange,state}) {
+export function SchimbareFunc({onClick,onChange,state}) {
   const classes = useStyles()
  
   return (
@@ -24,11 +24,12 @@ export function SchimbareFunc({updateProcess,onChange,state}) {
         Functie:
         <ComboBoxComponenta onChange={onChange} propertyName='functie' arrayDataSource={state.functii} />
       </div>
+      <Button variant="contained" onClick={onClick}>Schimba</Button>
     </Container>
   )
 }
 SchimbareFunc.propTypes={
     onChange: PropTypes.func,
     state: PropTypes.object,
-    updateProcess: PropTypes.func
+    onClick: PropTypes.func
 }

@@ -21,7 +21,7 @@ function HMTable(props) {
       <HMTableBody page={page} rows={rows} rowsOnPage={rowsOnPage} />
       <HMTableFooter RopVals={RopVals} page={page} setPage={setPage} rows={rows} rowsOnPage={rowsOnPage} handleRopValChange={handleRopValChange}/>
     </Table>
-      <AdministrareAngajati/>
+   
     </> 
   )
 }
