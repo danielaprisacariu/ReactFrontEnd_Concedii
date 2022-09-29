@@ -16,14 +16,14 @@ export default function CererereConcediuContainer() {
   const user = useUserData()
   //const userr = AUTHENTICATE_USER()
   const { data: inlocuitori, _loading } = useQueryWithErrorHandling(GET_INLOCUITORI, {
-    variables: { idM: user.managerId, angajatiNumeConcatenatId: 24 }
+    variables: { idM: user.managerId, angajatiNumeConcatenatId: user.id }
   })
 
   const { data: tipConcedii, loading } = useQueryWithErrorHandling(GET_TIP_CONCEDII, {})
 
   let tipId = state?.tipConcediuId
   const { data: zileRamase, loading: ld } = useQueryWithErrorHandling(GET_ZILE_RAMASE, {
-    variables: { zileRamaseId: state.id, tipConcediuId: state?.tipConcediuId },
+    variables: { zileRamaseId: user.id, tipConcediuId: state?.tipConcediuId },
     skip: !state?.tipConcediuId //state?.tipConcediuId
   })
 
