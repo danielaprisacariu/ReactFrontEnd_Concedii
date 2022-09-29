@@ -32,7 +32,7 @@ function HolidaysMenu() {
   ]
   //console.log("HolidaysMenu"+RopVals)
   const [page, setPage] = useState(0)
-
+  console.log(page)
   const [RopVal, setRopVal] = useState(5)
   const handleRopValChange = event => {
     setRopVal(event.target.value)
