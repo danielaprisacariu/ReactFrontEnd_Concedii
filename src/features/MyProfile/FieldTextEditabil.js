@@ -10,6 +10,7 @@ export function FieldTextEditabil(props) {
   const { onChange, propertyName, telefon } = props
 
   return (
+    // <form>
     <TextField
       className={classes.root}
       value={telefon}
@@ -18,6 +19,7 @@ export function FieldTextEditabil(props) {
       variant='outlined'
       onChange={event => onChange(propertyName, event.target.value)}
     />
+    // </form>
   )
 }
 
