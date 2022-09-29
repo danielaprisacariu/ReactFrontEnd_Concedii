@@ -7,5 +7,5 @@ const useStyles = makeStyles(Style)
 
 export function CustomTextField() {
   const classes = useStyles()
-  return <TextField className={classes.TextField} multiline minRows={5} variant='outlined' />
+  return <TextField className={classes.TextField} multiline minRows={5} variant='outlined' required={true} />
 }

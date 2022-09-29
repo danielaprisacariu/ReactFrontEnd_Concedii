@@ -1,19 +1,19 @@
 import Moment from 'moment'
 
 export const initialState = {
-  nume: null,
-  prenume: null,
-  cnp: null,
-  serie: null,
-  no: null,
+  nume: '',
+  prenume: '',
+  cnp: '',
+  serie: '',
+  no: '',
   dataNasterii: Moment().format('YYYY-MM-DD'),
-  email: null,
-  nrTelefon: null,
+  email: '',
+  nrTelefon: '',
   dataAngajare: Moment().format('YYYY-MM-DD'),
   managerId: 30,
   departamentId: 7,
   functieId: 5,
-  parola: null,
+  parola: '',
   concediat: false
   // functii: [],
   // departamente: []
