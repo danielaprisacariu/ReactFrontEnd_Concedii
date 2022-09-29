@@ -7,13 +7,14 @@ import { GET_INLOCUITORI, GET_TIP_CONCEDII, GET_ZILE_RAMASE, PUT_CERERE_CONCEDIU
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import useUserData from '../../utils/useData'
+import { AUTHENTICATE_USER } from 'components/login/mutations'
 
 export default function CererereConcediuContainer() {
   const addToast = useToast()
   const [state, dispatch] = useReducer(CerereConcediuReducer, initialState)
 
   const user = useUserData()
-
+  //const userr = AUTHENTICATE_USER()
   const { data: inlocuitori, _loading } = useQueryWithErrorHandling(GET_INLOCUITORI, {
     variables: { idM: user.managerId, angajatiNumeConcatenatId: 24 }
   })
