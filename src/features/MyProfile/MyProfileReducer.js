@@ -17,7 +17,7 @@ export const initialState = {
 export function MyProfileReducer(state, action) {
   const { propertyName, value } = action
 
-  console.log(value.angajat)
+  console.log(value)
   switch (action.type) {
     case 'OnPropertyChange':
       return { ...state, [propertyName]: value }

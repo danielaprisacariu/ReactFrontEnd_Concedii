@@ -16,6 +16,14 @@ function DateleMeleCard({ state, onChange, handleUploadClick, onSave }) {
   const classes = useStyles()
   const { t } = useTranslation()
 
+  const handleChange = file => {
+    var reader = new FileReader()
+    reader.readAsDataURL(file.target.files[0])
+    reader.onload = () => {
+      onChange('poza', reader.result.substring(reader.result.indexOf(',') + 1, reader.result.length))
+    }
+  }
+
   var imgURL = `data:image/*;base64,${state.poza}`
 
   return (
@@ -41,7 +49,7 @@ function DateleMeleCard({ state, onChange, handleUploadClick, onSave }) {
             ></CardMedia>
             <Button variant='contained' component='label' className={classes.schimbaPoza}>
               <EditIcon></EditIcon>
-              <input accept='image/*' type='file' onChange={event => onChange('poza', './images/' + event.target.files[0].name)} hidden />
+              <input accept='image/*' type='file' onChange={handleChange} hidden />
               {/*  */}
               {/* console.log(event.target.files[0]) */}
             </Button>
