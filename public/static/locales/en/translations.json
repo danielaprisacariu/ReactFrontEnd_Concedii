@@ -21,7 +21,8 @@
     "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
-    "Security": "Security"
+    "Security": "Security",
+    "Delogare": "Logout"
   },
   "Tooltips": {
     "Logout": "Logout",

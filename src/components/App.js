@@ -17,6 +17,7 @@ import { ToastContainer, CheckInternetConnection } from '@bit/totalsoft_oss.reac
 import LoginPage from './login/LoginPage'
 import useToken from './login/UseToken'
 import UserDataProvider from 'providers/UserDataProvider'
+import NewEmployeeContainer from 'features/NewEmployee/NewEmployeeContainer'
 
 const useStyles = makeStyles(appStyle)
 const isWeb = () => window.matchMedia('(min-width: 480px)')?.matches
@@ -58,6 +59,10 @@ function App(props) {
     cx({
       [classes.mainPanelSidebarMini]: !drawerOpen
     })
+
+  if (location.pathname === '/newEmployee') {
+    return <NewEmployeeContainer></NewEmployeeContainer>
+  }
 
   if (!token) {
     return <LoginPage setToken={setToken} />

@@ -10,11 +10,15 @@ import { useMutation } from '@apollo/client'
 import { AUTHENTICATE_USER } from './mutations'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import { SHA256 } from 'crypto-js'
+import { useHistory } from 'react-router'
+import NewEmployeeComponent from 'features/NewEmployee/NewEmployeeComponent'
 
 const useStyles = makeStyles(publicMainStyle)
 
 const LoginPage = props => {
   const { setToken } = props
+  const history = useHistory()
+
   const theme = useTheme()
   const { logo } = theme
   const classes = useStyles()
@@ -31,6 +35,7 @@ const LoginPage = props => {
       }
       setError(false)
       setToken('token')
+      history.push({ pathname: '/logging' })
     },
     fetchPolicy: 'network-only'
   })
@@ -49,7 +54,11 @@ const LoginPage = props => {
       setHelperText('Username and passwords are mandatory.')
       return
     }
+
     // const { data } = await authenticateUser({ variables: { userName: localState.userName, password: localState.password } })
+  }
+  const handleCLick2 = async () => {
+    return history.push({ pathname: '/newEmployee' })
   }
 
   return (
@@ -62,6 +71,9 @@ const LoginPage = props => {
           {error && <Typography color='error'>{helperText}</Typography>}
           <Button className={classes.login} variant='contained' color='primary' size='large' onClick={handleCLick}>
             {'Login'}
+          </Button>
+          <Button className={classes.login} variant='contained' color='primary' size='sm' onClick={handleCLick2}>
+            {'Inregistare'}
           </Button>
         </div>
       </Container>
