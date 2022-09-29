@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { useHistory } from 'react-router-dom'
 import NewEmployeeComponent from './NewEmployeeComponent'
 import { NewEmployeeReducer, initialState, department, fct } from './NewEmployeeState'
@@ -37,6 +37,14 @@ export default function NewEmployeeContainer() {
 
   const { data: functii, loading } = useQueryWithErrorHandling(FUNCTII_QUERY, {})
 
+  useEffect(
+    () => {
+      console.log(departamente?.departamenteData)
+      console.log(functii?.functiiData)
+    },
+    [departamente],
+    [functii]
+  )
   // useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
   //   onCompleted: data => {
   //     onPropertyChange('departamente', data.departamenteData)
@@ -53,8 +61,8 @@ export default function NewEmployeeContainer() {
   }
   return (
     <NewEmployeeComponent
-      fct={functii ? functii.tipConcedii : []}
-      department={departamente}
+      fct={functii ? functii.functiiData : []}
+      department={departamente ? departamente.departamenteData : []}
       onChange={onPropertyChange}
       onHandleSave={handleSave}
       state={state}

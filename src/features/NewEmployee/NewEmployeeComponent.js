@@ -135,8 +135,8 @@ function NewEmployeeComponent(props) {
 }
 
 NewEmployeeComponent.propTypes = {
-  fct: PropTypes.array.isRequired,
-  department: PropTypes.array.isRequired,
+  functii: PropTypes.array,
+  departamente: PropTypes.array,
   onChange: PropTypes.func,
   onHistoryClick: PropTypes.func,
   state: PropTypes.object,
