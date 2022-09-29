@@ -38,4 +38,13 @@ mutation ModificareEchipa($input: modificareEchipa!) {
   modificareEchipa(input: $input)
 }
 `
-
+export const SCHIMBARE_FUNCTIE_MUTATION=gql`
+mutation SchimbareFunctie($input: schimbareFunctie!) {
+  schimbareFunctie(input: $input)
+}
+`
+export const SCHIMBARE_DEPARTAMENT_MUTATION=gql`
+mutation SchimbareDepartament($input: schimbareDepartament!) {
+  schimbareDepartament(input: $input)
+}
+`

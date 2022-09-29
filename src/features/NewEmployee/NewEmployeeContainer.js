@@ -8,9 +8,11 @@ import { INPUT_NEW_ANGAJAT } from './input'
 import { SHA256 } from 'crypto-js'
 import { DEPARTAMENTE_QUERY, FUNCTII_QUERY } from 'features/AdministrareAngajati/queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import useUserData from 'utils/useData'
 
 export default function NewEmployeeContainer() {
   const addToast = useToast()
+  const user = useUserData()
   const [state, dispatch] = useReducer(NewEmployeeReducer, initialState)
   const [updateProcess, { loading: saving, _data, _error }] = useMutation(INPUT_NEW_ANGAJAT, {
     onCompleted: () => {
@@ -30,24 +32,29 @@ export default function NewEmployeeContainer() {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
     console.log(state)
   }
-  useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
-    onCompleted: data => {
-      onPropertyChange('departamente', data.departamenteData)
-    }
-  })
-  useQueryWithErrorHandling(FUNCTII_QUERY, {
-    onCompleted: data => {
-      onPropertyChange('functii', data.functiiData)
-    }
-  })
+
+  const { data: departamente, _loading } = useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {})
+
+  const { data: functii, loading } = useQueryWithErrorHandling(FUNCTII_QUERY, {})
+
+  // useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
+  //   onCompleted: data => {
+  //     onPropertyChange('departamente', data.departamenteData)
+  //   }
+  // })
+  // useQueryWithErrorHandling(FUNCTII_QUERY, {
+  //   onCompleted: data => {
+  //     onPropertyChange('functii', data.functiiData)
+  //   }
+  // })
   const history = useHistory()
   const handleClick = () => {
     history.push({ pathname: '/employees' })
   }
   return (
     <NewEmployeeComponent
-      fct={fct}
-      department={department}
+      fct={functii ? functii.tipConcedii : []}
+      department={departamente}
       onChange={onPropertyChange}
       onHandleSave={handleSave}
       state={state}
