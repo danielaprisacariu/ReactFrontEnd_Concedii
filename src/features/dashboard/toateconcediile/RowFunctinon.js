@@ -26,6 +26,7 @@ function RowFunctinon(props) {
       <TableCell className={classes.Cell}>{dataSfarsAfis}</TableCell>
       <TableCell className={classes.Cell}>{row?.inlocuitorNume}</TableCell>
       <TableCell className={classes.Cell}>{row?.stareConcediu}</TableCell>
+
     </TableRow>
   )
 }

@@ -6,7 +6,7 @@ import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { makeStyles } from '@material-ui/styles'
 import AdministrareAngajatiStyle from '../AdministrareAngajatiStyle'
 const useStyles = makeStyles(AdministrareAngajatiStyle)
-export function SchimbareFunc({onChange,state}) {
+export function SchimbareFunc({updateProcess,onChange,state}) {
   const classes = useStyles()
  
   return (
@@ -29,5 +29,6 @@ export function SchimbareFunc({onChange,state}) {
 }
 SchimbareFunc.propTypes={
     onChange: PropTypes.func,
-    state: PropTypes.object
+    state: PropTypes.object,
+    updateProcess: PropTypes.func
 }

@@ -5,10 +5,12 @@ import { ComboBoxComponenta } from './ComboBoxComponenta'
 import { AAReducer,initialState } from './AAReducer'
 import { makeStyles } from '@material-ui/styles'
 import AdministrareAngajatiStyle from '../AdministrareAngajatiStyle'
+import { MODIFICARE_ECHIPA_MUTATION } from '../queries'
+
 const useStyles=makeStyles(AdministrareAngajatiStyle)
-export function EchipaNouaComp({onChange,state}){
-    const classes=useStyles()
-    
+export function EchipaNouaComp({onChange,state,onClick}){
+ const classes=useStyles()
+   
     return(
         <Container className={classes.Card}><div>Infiinteaza echipa</div>
             <div>Manager:<ComboBoxComponenta onChange={onChange}
@@ -17,11 +19,12 @@ export function EchipaNouaComp({onChange,state}){
                <div>Angajat:<ComboBoxComponenta onChange={onChange}
                                  propertyName='angajatEN'
                                  arrayDataSource={state.angajatiEN}/></div>                      
-            
+                  <button onClick={onClick}>Creeaza</button>
         </Container>
     )
 }
 EchipaNouaComp.propTypes={
    onChange: PropTypes.func,
-   state: PropTypes.object
+   state: PropTypes.object,
+   onClick: PropTypes.func
 }

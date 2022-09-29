@@ -27,7 +27,7 @@ export const GET_EMPLOYEE_BY_ID = gql`
   }
 `
 export const UPDATE_ANGAJAT = gql`
-  mutation newAngajat($input: NewAngajat!) {
-    newAngajat(input: $input)
+  mutation updateAngajat($input: UpdateAngajat!) {
+    updateAngajat(input: $input)
   }
 `

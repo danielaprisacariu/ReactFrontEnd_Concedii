@@ -16,7 +16,7 @@ export function ComboBoxComponenta(props) {
         getOptionLabel={element => element.nume}
         style={{ width: 300 }}
         onChange={(event, value) => onChange(propertyName, value.id)}
-        renderInput={params => <TextField {...params} variant='standard' />}
+        renderInput={params => <TextField {...params} variant='standard' required={true} />}
       />
     </div>
   )
