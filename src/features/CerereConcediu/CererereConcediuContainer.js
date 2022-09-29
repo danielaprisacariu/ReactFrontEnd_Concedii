@@ -47,7 +47,9 @@ export default function CererereConcediuContainer() {
   })
 
   const handleSave = () => {
-    updateProcess({ variables: { input: state } })
+    if (state.zileConcediu <= state.zileRamase && state.zileRamase > 0 && state.zileRamase != null)
+      updateProcess({ variables: { input: state } })
+    else addToast('Error', '')
   }
 
   const onPropertyChange = (propertyName, value) => {
