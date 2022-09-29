@@ -26,7 +26,24 @@ export default function NewEmployeeContainer() {
     let hash = SHA256(newEmployee.parola).toString().toUpperCase()
     console.log('newEmployee', newEmployee)
     newEmployee = { ...newEmployee, parola: hash }
-    updateProcess({ variables: { input: newEmployee } })
+    const primaCifra = ['3', '4', '7', '8', '9']
+    var esteVerificat = true
+    if (newEmployee.cnp[0].includes(primaCifra)) esteVerificat = false
+    // if (newEmployee.cnp.contains(primaCifra)) esteVerificat = false
+    console.log(newEmployee.cnp.indexOf('1'))
+    if (newEmployee.cnp.substring(3, 4) > 12) esteVerificat = false
+    if (newEmployee.cnp.substring(5, 6) > 31) esteVerificat = false
+    if (newEmployee.cnp.length != 13) esteVerificat = false
+    if (newEmployee.serie.length != 2) esteVerificat = false
+    if (newEmployee.no.length != 6) esteVerificat = false
+    if (newEmployee.nrTelefon.length != 10) esteVerificat = false
+    // var today = new Date()
+    // if (newEmployee.dataNasterii > today) esteVerificat = false
+    // if (newEmployee.dataAngajare > today) esteVerificat = false
+    if (newEmployee.email.indexOf('@totalsoft.ro') == -1) esteVerificat = false
+
+    if (esteVerificat == true) updateProcess({ variables: { input: newEmployee } })
+    else addToast('Error', '')
   }
   const onPropertyChange = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
@@ -45,16 +62,7 @@ export default function NewEmployeeContainer() {
   //   [departamente],
   //   [functii]
   // )
-  // useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
-  //   onCompleted: data => {
-  //     onPropertyChange('departamente', data.departamenteData)
-  //   }
-  // })
-  // useQueryWithErrorHandling(FUNCTII_QUERY, {
-  //   onCompleted: data => {
-  //     onPropertyChange('functii', data.functiiData)
-  //   }
-  // })
+
   const history = useHistory()
   const handleClick = () => {
     history.push({ pathname: '/employees' })
