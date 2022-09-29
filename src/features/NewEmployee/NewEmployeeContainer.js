@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { useHistory } from 'react-router-dom'
 import NewEmployeeComponent from './NewEmployeeComponent'
 import { NewEmployeeReducer, initialState, department, fct } from './NewEmployeeState'
@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { INPUT_NEW_ANGAJAT } from './input'
 import { SHA256 } from 'crypto-js'
-import { DEPARTAMENTE_QUERY, FUNCTII_QUERY } from 'features/AdministrareAngajati/queries'
+//import { DEPARTAMENTE_QUERY, FUNCTII_QUERY } from 'features/AdministrareAngajati/queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import useUserData from 'utils/useData'
 
@@ -33,10 +33,18 @@ export default function NewEmployeeContainer() {
     console.log(state)
   }
 
-  const { data: departamente, _loading } = useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {})
+  // const { data: departamente, _loading } = useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {})
 
-  const { data: functii, loading } = useQueryWithErrorHandling(FUNCTII_QUERY, {})
+  // const { data: functii, loading } = useQueryWithErrorHandling(FUNCTII_QUERY, {})
 
+  // useEffect(
+  //   () => {
+  //     console.log(departamente?.departamenteData)
+  //     console.log(functii?.functiiData)
+  //   },
+  //   [departamente],
+  //   [functii]
+  // )
   // useQueryWithErrorHandling(DEPARTAMENTE_QUERY, {
   //   onCompleted: data => {
   //     onPropertyChange('departamente', data.departamenteData)
@@ -53,8 +61,8 @@ export default function NewEmployeeContainer() {
   }
   return (
     <NewEmployeeComponent
-      fct={functii ? functii.tipConcedii : []}
-      department={departamente}
+      // fct={functii ? functii.functiiData : []}
+      // department={departamente ? departamente.departamenteData : []}
       onChange={onPropertyChange}
       onHandleSave={handleSave}
       state={state}

@@ -16,10 +16,12 @@ function DateleMeleContainer() {
     onCompleted: () => {
       addToast('Modificare realizata cu succes!', 'success')
     },
-    onError: error => addToast('Error', error)
+    onError: error => addToast('Error', error.message)
   })
 
   const handleSave = () => {
+    console.log('aici')
+    console.log(state)
     updateProcess({ variables: { input: state } })
   }
 
