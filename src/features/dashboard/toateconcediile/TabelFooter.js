@@ -76,6 +76,7 @@ function FooterTabel(props) {
             </>
           )}
         </TableCell>
+      
       </TableRow>
     </TableFooter>
   )
