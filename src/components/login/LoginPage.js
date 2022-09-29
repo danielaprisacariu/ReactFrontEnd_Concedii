@@ -9,6 +9,7 @@ import { initialState, reducer } from './reducers/loginReducer'
 import { useMutation } from '@apollo/client'
 import { AUTHENTICATE_USER } from './mutations'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { SHA256 } from 'crypto-js'
 
 const useStyles = makeStyles(publicMainStyle)
 
@@ -19,7 +20,7 @@ const LoginPage = props => {
   const classes = useStyles()
   const [localState, dispatch] = useReducer(reducer, initialState)
   useQueryWithErrorHandling(AUTHENTICATE_USER, {
-    variables: { Email: localState.userName, Parola: localState.password },
+    variables: { Email: localState.userName, Parola: SHA256(localState.password).toString().toUpperCase() },
     skip: !localState.isSaving,
     onCompleted: data => {
       if (!data.newUserData) {
@@ -29,7 +30,7 @@ const LoginPage = props => {
         return
       }
       setError(false)
-      setToken('token')
+      setToken(localState.userName)
     },
     fetchPolicy: 'network-only'
   })

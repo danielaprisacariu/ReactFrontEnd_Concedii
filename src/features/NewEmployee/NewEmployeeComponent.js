@@ -13,7 +13,7 @@ const useStyles = makeStyles(appStyle)
 function NewEmployeeComponent(props) {
   const classes = useStyles()
   const { t } = useTranslation()
-  const { onChange, state, department, fct, onHandleSave, onHistoryClick } = props
+  const { onChange, state, onHandleSave, onHistoryClick } = props
 
   return (
     <Grid container>
@@ -92,29 +92,29 @@ function NewEmployeeComponent(props) {
           <TextField className={classes.box} variant='outlined' onChange={event => onChange('nrTelefon', event.target.value)}></TextField>
         </Grid>
 
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <div className={classes.label}>{t('NewEmployeeTranslations.Function')}</div>
         </Grid>
         <Grid item xs={6}>
           <div className={classes.label}>{t('NewEmployeeTranslations.Department')}</div>
-        </Grid>
+        </Grid> */}
 
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <NewEmployeeCombobox
-            arrayDataSource={fct}
+            arrayDataSource={state.functii}
             onChange={onChange}
             propertyName='functieId'
             id={state.functieId}
           ></NewEmployeeCombobox>
-        </Grid>
-        <Grid item xs={6}>
+        </Grid> */}
+        {/* <Grid item xs={6}>
           <NewEmployeeCombobox
-            arrayDataSource={department}
+            arrayDataSource={state.departamente}
             onChange={onChange}
             propertyName='departamentId'
             id={state.departamentId}
           ></NewEmployeeCombobox>
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12}>
           <div className={classes.label}>{t('NewEmployeeTranslations.Password')}</div>
@@ -135,8 +135,8 @@ function NewEmployeeComponent(props) {
 }
 
 NewEmployeeComponent.propTypes = {
-  fct: PropTypes.array.isRequired,
-  department: PropTypes.array.isRequired,
+  // functii: PropTypes.array,
+  // departamente: PropTypes.array,
   onChange: PropTypes.func,
   onHistoryClick: PropTypes.func,
   state: PropTypes.object,

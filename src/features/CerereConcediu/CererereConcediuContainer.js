@@ -3,27 +3,39 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import CerereConcediuComponenta from './CerereConcediuComponenta'
 import { CerereConcediuReducer, initialState } from './CerereConcediuReducer'
-import { GET_INLOCUITORI, GET_TIP_CONCEDII, PUT_CERERE_CONCEDIU } from './queries'
+import { GET_INLOCUITORI, GET_TIP_CONCEDII, GET_ZILE_RAMASE, PUT_CERERE_CONCEDIU } from './queries'
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import useUserData from '../../utils/useData'
+import { AUTHENTICATE_USER } from 'components/login/mutations'
 
 export default function CererereConcediuContainer() {
   const addToast = useToast()
   const [state, dispatch] = useReducer(CerereConcediuReducer, initialState)
 
+  const user = useUserData()
+  //const userr = AUTHENTICATE_USER()
   const { data: inlocuitori, _loading } = useQueryWithErrorHandling(GET_INLOCUITORI, {
-    variables: { idM: 30, angajatiNumeConcatenatId: 24 }
+    variables: { idM: user.managerId, angajatiNumeConcatenatId: user.id }
   })
 
   const { data: tipConcedii, loading } = useQueryWithErrorHandling(GET_TIP_CONCEDII, {})
+
+  let tipId = state?.tipConcediuId
+  const { data: zileRamase, loading: ld } = useQueryWithErrorHandling(GET_ZILE_RAMASE, {
+    variables: { zileRamaseId: user.id, tipConcediuId: state?.tipConcediuId },
+    skip: !state?.tipConcediuId //state?.tipConcediuId
+  })
 
   useEffect(
     () => {
       console.log(inlocuitori?.angajatiNumeConcatenat)
       console.log(tipConcedii?.tipConcedii)
+      console.log(zileRamase)
     },
     [inlocuitori],
-    [tipConcedii]
+    [tipConcedii],
+    zileRamase
   )
 
   const [updateProcess, { loading: saving, _data, _error }] = useMutation(PUT_CERERE_CONCEDIU, {
@@ -54,6 +66,7 @@ export default function CererereConcediuContainer() {
       onHistoryClick={handleClick}
       onHandleSave={handleSave}
       state={state}
+      zileRamase={zileRamase}
     ></CerereConcediuComponenta>
   )
 }

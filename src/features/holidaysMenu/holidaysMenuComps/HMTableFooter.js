@@ -11,7 +11,7 @@ function HMTableFooter(props) {
   const {t}=useTranslation()
 
 
-
+ 
   return (
     <TableFooter className={classes.Header}>
       <TableRow className={classes.TableRow}>
@@ -24,6 +24,7 @@ function HMTableFooter(props) {
               </MenuItem>))}
               </Select></TableCell>
         <TableCell className={(classes.Cell, classes.CF)}>
+          
           {page !== 0 && (
             <>
           
@@ -47,7 +48,7 @@ function HMTableFooter(props) {
             </>
           )}
 
-          {page !== Math.ceil(rows?.length / rowsOnPage) - 1 && (
+          {page !== Math.ceil(rows?.length / rowsOnPage)-1 && (
             <>
               <div
                 onClick={() => {
@@ -59,7 +60,7 @@ function HMTableFooter(props) {
               </div>
               <div
                 onClick={() => {
-                  setPage(Math.ceil(rows?.length / rowsOnPage) - 1)
+                  setPage(Math.ceil(rows?.length / rowsOnPage) -  1)
                 }}
                 className={classes.BtnNext}
               >

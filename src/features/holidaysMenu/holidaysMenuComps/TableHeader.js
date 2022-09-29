@@ -1,11 +1,11 @@
 import React from 'react'
-import { TableHead, TableRow, TableCell, makeStyles,TextField } from '@material-ui/core'
+import { TableHead, TableRow, TableCell, makeStyles} from '@material-ui/core'
 import HolidaysMenuStyle from '../HolidaysMenuStyle'
 import { useTranslation } from 'react-i18next'
-import { PropTypes } from 'prop-types'
+
 const useStyles = makeStyles(HolidaysMenuStyle)
 
-function TableHeader(p) {
+function TableHeader() {
   const {t}=useTranslation()
 
   const classes = useStyles()
@@ -24,7 +24,7 @@ function TableHeader(p) {
     </TableHead>
   )
 }
-TableHeader.propTypes = {
 
-}
+
+
 export default TableHeader

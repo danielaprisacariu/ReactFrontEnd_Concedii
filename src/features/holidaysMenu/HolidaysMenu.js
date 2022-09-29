@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { TableFooter, TableCell, Table, TableRow, TableBody, TableHead, TableContainer } from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core'
-import {useQueryWithErrorHandling} from 'hooks/errorHandling'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import HolidaysMenuStyle from './HolidaysMenuStyle.js'
 import HMTable from './HMTable'
 import SearchBar from '../dashboard/toateconcediile/SearchBar'
-import {USER_DATA_QUERY} from './holidaysMenuComps/QUERYhm'
+import { USER_DATA_QUERY } from './holidaysMenuComps/QUERYhm'
 import { useQuery } from '@apollo/client'
 
 const useStyles = makeStyles(HolidaysMenuStyle)
@@ -15,17 +15,16 @@ function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, 
 }
 //preluare date
 
-
-
-
 function HolidaysMenu() {
+  const id = 26
+  const [filteredArray, setFilteredArray] = useState()
+  useQueryWithErrorHandling(USER_DATA_QUERY, {
+    variables: { id: id },
+    onCompleted: data => {
+      setFilteredArray(data?.concediiData)
+    }
+  })
 
-  const id=26
-  useQueryWithErrorHandling(USER_DATA_QUERY,{variables:{id:id} , onCompleted: data => {
-    setFilteredArray (data.concediiData)
-  }})
-  
- 
   const RopVals = [
     1, 5,
 
@@ -33,15 +32,11 @@ function HolidaysMenu() {
   ]
   //console.log("HolidaysMenu"+RopVals)
   const [page, setPage] = useState(0)
-
+  console.log(page)
   const [RopVal, setRopVal] = useState(5)
   const handleRopValChange = event => {
-  
     setRopVal(event.target.value)
   }
- 
-  
-  const [filteredArray, setFilteredArray] = useState()
 
   const handleFilter = input => {
     const value = input.target.value
@@ -70,7 +65,6 @@ function HolidaysMenu() {
         setPage={setPage}
         rows={filteredArray}
         rowsOnPage={RopVal}
- 
         handleRopValChange={handleRopValChange}
       />
     </>
