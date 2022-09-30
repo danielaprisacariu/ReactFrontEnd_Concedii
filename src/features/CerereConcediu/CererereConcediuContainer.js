@@ -48,9 +48,12 @@ export default function CererereConcediuContainer() {
   })
 
   const handleSave = () => {
-    if (state.zileConcediu <= state.zileRamase && state.zileRamase > 0 && state.zileRamase != null)
-      updateProcess({ variables: { input: state } })
-    else addToast('Error', '')
+    updateProcess({ variables: { input: state } })
+    // if (state.zileConcediu <= state.zileRamase && state.zileConcediu > 0 && state.zileRamase != null) {
+
+    // } else {
+    //   addToast('Eroare', '')
+    // }
   }
 
   const onPropertyChange = (propertyName, value) => {
