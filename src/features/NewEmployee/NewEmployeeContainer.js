@@ -80,6 +80,7 @@ export default function NewEmployeeContainer() {
 
     if (esteVerificat == true) updateProcess({ variables: { input: newEmployee } })
     else addToast(eroare, 'Error')
+    esteVerificat = true
   }
   const onPropertyChange = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChange', propertyName, value })
