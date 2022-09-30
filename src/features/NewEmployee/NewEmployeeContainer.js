@@ -68,13 +68,15 @@ export default function NewEmployeeContainer() {
     history.push({ pathname: '/employees' })
   }
   return (
-    <NewEmployeeComponent
-      // fct={functii ? functii.functiiData : []}
-      // department={departamente ? departamente.departamenteData : []}
-      onChange={onPropertyChange}
-      onHandleSave={handleSave}
-      state={state}
-      onHistoryClick={handleClick}
-    ></NewEmployeeComponent>
+    <div>
+      <NewEmployeeComponent
+        // fct={functii ? functii.functiiData : []}
+        // department={departamente ? departamente.departamenteData : []}
+        onChange={onPropertyChange}
+        onHandleSave={handleSave}
+        state={state}
+        onHistoryClick={handleClick}
+      ></NewEmployeeComponent>
+    </div>
   )
 }
