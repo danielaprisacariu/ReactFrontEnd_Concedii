@@ -9,6 +9,7 @@ import { SHA256 } from 'crypto-js'
 //import { DEPARTAMENTE_QUERY, FUNCTII_QUERY } from 'features/AdministrareAngajati/queries'
 import { useQueryWithErrorHandling } from 'hooks/errorHandling'
 import useUserData from 'utils/useData'
+import moment from 'moment'
 
 export default function NewEmployeeContainer() {
   const addToast = useToast()
@@ -17,11 +18,12 @@ export default function NewEmployeeContainer() {
   const [updateProcess, { loading: saving, _data, _error }] = useMutation(INPUT_NEW_ANGAJAT, {
     onCompleted: () => {
       addToast('Inserare realizata cu succes!', 'success')
-      //history.push({ pathname: `/NewEmployee` })
+      history.push({ pathname: `/employees` })
     },
     onError: error => addToast('Error', error)
   })
   const handleSave = () => {
+    let eroare
     let newEmployee = state
     let hash = SHA256(newEmployee.parola).toString().toUpperCase()
     console.log('newEmployee', newEmployee)
@@ -31,19 +33,53 @@ export default function NewEmployeeContainer() {
     if (newEmployee.cnp[0].includes(primaCifra)) esteVerificat = false
     // if (newEmployee.cnp.contains(primaCifra)) esteVerificat = false
     console.log(newEmployee.cnp.indexOf('1'))
-    if (newEmployee.cnp.substring(3, 4) > 12) esteVerificat = false
-    if (newEmployee.cnp.substring(5, 6) > 31) esteVerificat = false
-    if (newEmployee.cnp.length != 13) esteVerificat = false
-    if (newEmployee.serie.length != 2) esteVerificat = false
-    if (newEmployee.no.length != 6) esteVerificat = false
-    if (newEmployee.nrTelefon.length != 10) esteVerificat = false
-    // var today = new Date()
-    // if (newEmployee.dataNasterii > today) esteVerificat = false
-    // if (newEmployee.dataAngajare > today) esteVerificat = false
-    if (newEmployee.email.indexOf('@totalsoft.ro') == -1) esteVerificat = false
+    if (newEmployee.cnp.substring(3, 4) > 12) {
+      eroare = 'CNP invalid!'
+      esteVerificat = false
+    }
+
+    if (newEmployee.cnp.substring(5, 6) > 31) {
+      eroare = 'CNP invalid!'
+      esteVerificat = false
+    }
+
+    if (newEmployee.cnp.length != 13) {
+      eroare = 'CNP invalid!'
+      esteVerificat = false
+    }
+    if (newEmployee.serie.length != 2) {
+      eroare = 'Serie invalida!'
+      esteVerificat = false
+    }
+    if (newEmployee.no.length != 6) {
+      eroare = 'Numar invalid!'
+      esteVerificat = false
+    }
+    if (newEmployee.nrTelefon.length != 10) {
+      eroare = 'Numar telefon invalid!'
+      esteVerificat = false
+    }
+    var today = new Date()
+    console.log(today)
+    console.log(today.getTime())
+    if (
+      new Date(newEmployee.dataNasterii).getTime() >= today.getTime() ||
+      new Date(newEmployee.dataNasterii).getTime() <= new Date('2004-01-01').getTime()
+    ) {
+      eroare = 'Data nastere invalida!'
+      esteVerificat = false
+    }
+    if (new Date(newEmployee.dataAngajare).getTime() >= today.getTime()) {
+      eroare = 'Data angajare invalida!'
+      esteVerificat = false
+    }
+    if (newEmployee.email.indexOf('@totalsoft.ro') == -1) {
+      eroare = 'Email invalid!'
+      esteVerificat = false
+    }
 
     if (esteVerificat == true) updateProcess({ variables: { input: newEmployee } })
-    else addToast('Error', '')
+    else addToast(eroare, 'Error')
   }
   const onPropertyChange = (propertyName, value) => {
     dispatch({ type: 'OnPropertyChange', propertyName, value })

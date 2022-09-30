@@ -18,11 +18,13 @@
   "NavBar": {
     "Dashboard": "Dashboard",
     "NewEmployee": "New Employee",
+    "HolidaysMenu": "Holidays Menu",
     "Employees": "Employees",
     "Settings": "Settings",
     "Privacy": "Privacy",
     "Security": "Security",
-    "Delogare": "Logout"
+    "Delogare": "Logout",
+    "CerereConcediu":"Leave Request"
   },
   "Tooltips": {
     "Logout": "Logout",

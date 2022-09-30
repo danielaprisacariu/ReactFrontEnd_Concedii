@@ -120,7 +120,12 @@ function NewEmployeeComponent(props) {
           <div className={classes.label}>{t('NewEmployeeTranslations.Password')}</div>
         </Grid>
         <Grid item xs={12}>
-          <TextField className={classes.box} variant='outlined' onChange={event => onChange('parola', event.target.value)}></TextField>
+          <TextField
+            className={classes.box}
+            variant='outlined'
+            type='password'
+            onChange={event => onChange('parola', event.target.value)}
+          ></TextField>
         </Grid>
 
         <Grid item xs={12}>
