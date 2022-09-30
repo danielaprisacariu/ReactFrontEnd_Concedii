@@ -17,7 +17,7 @@ function crd(Id, DataInceput, DataSfarsit, TipConcediu, Inlocuitor, Comentarii, 
 //preluare date
 
 function HolidaysMenu() {
-  const user =useUserData()
+  const user = useUserData()
   const id = user.id
   const [filteredArray, setFilteredArray] = useState()
   useQueryWithErrorHandling(USER_DATA_QUERY, {
@@ -47,10 +47,10 @@ function HolidaysMenu() {
         return el
       } else {
         return (
-          el.Inlocuitor.toLowerCase().includes(value) ||
-          el.TipConcediu.toLowerCase().includes(value) ||
-          el.StareConcedii.toLowerCase().includes(value) ||
-          el.Comentarii.toLowerCase().includes(value)
+          el.inlocuitor.toLowerCase().includes(value) ||
+          el.tipConcediu.toLowerCase().includes(value) ||
+          el.stareConcedii.toLowerCase().includes(value) ||
+          el.comentarii.toLowerCase().includes(value)
         )
       }
     })

@@ -48,7 +48,7 @@ function CerereConcediuComponenta(props) {
         <Grid item md={6} xs={12}>
           <div className={classes.span1}>ZILE LIBERE DISPONIBILE</div>
           <div className={classes.box}></div>
-          <div className={classes.span2}>{zileRamase?.zileRamase} </div>
+          <div className={classes.span2}>{zileRamase} </div>
         </Grid>
 
         <Grid item md={6} xs={12}>

@@ -42,18 +42,19 @@ export default function CererereConcediuContainer() {
   const [updateProcess, { loading: saving, _data, _error }] = useMutation(PUT_CERERE_CONCEDIU, {
     onCompleted: () => {
       addToast('Inserare realizata cu succes!', 'success')
-      //history.push({ pathname: `/toateconcediile` })
+      history.push({ pathname: `/toateconcediile` })
     },
     onError: error => addToast('Error', error)
   })
 
   const handleSave = () => {
-    updateProcess({ variables: { input: state } })
-    // if (state.zileConcediu <= state.zileRamase && state.zileConcediu > 0 && state.zileRamase != null) {
-
-    // } else {
-    //   addToast('Eroare', '')
-    // }
+    console.log(state.zileConcediu)
+    console.log(zileRamase.zileRamase)
+    if (state.zileConcediu <= zileRamase.zileRamase && state.zileConcediu > 0 && zileRamase.zileRamase != 0) {
+      updateProcess({ variables: { input: state } })
+    } else {
+      addToast('Eroare', '')
+    }
   }
 
   const onPropertyChange = (propertyName, value) => {
@@ -72,7 +73,7 @@ export default function CererereConcediuContainer() {
       onHistoryClick={handleClick}
       onHandleSave={handleSave}
       state={state}
-      zileRamase={zileRamase}
+      zileRamase={zileRamase ? zileRamase.zileRamase : 0}
     ></CerereConcediuComponenta>
   )
 }
