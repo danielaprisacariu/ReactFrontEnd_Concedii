@@ -12,7 +12,7 @@ const menuItems = [
   { icon: <CalendarViewDayRounded />, text: 'Toate Concediile', path: '/toateconcediile', nume: 'Toate Concediile' },
   { icon: <MenuBook />, text: 'HolidaysMenu', path: '/holidaysMenu', name: 'HolidaysMenu' },
   { icon: <CalendarToday />, text: 'Cerere Concediu', path: '/CerereConcediuContainer', name: 'CerereConcediu' },
-  { icon: <ExitToAppIcon />, text: 'NavBar.Delogare', path: '/login', name: 'Delogare' }
+  { icon: <ExitToAppIcon />, text: 'NavBar.Delogare', path: '/logout', name: 'Delogare' }
 ]
 
 export default menuItems
