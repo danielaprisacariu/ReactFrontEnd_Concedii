@@ -14,9 +14,11 @@
     "NewEmployee": "Angajat Nou",
     "Employees": "Angajati",
     "Settings": "Setari",
+    "HolidaysMenu":"Meniu Concedii",
     "Privacy": "Confidentialitate",
     "Security": "Securitate",
-    "Delogare": "Delogare"
+    "Delogare": "Delogare",
+    "CerereConcediu":"Cerere Concediu"
   },
   "Tooltips": {
     "Logout": "Iesire",

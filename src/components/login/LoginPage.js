@@ -66,7 +66,7 @@ const LoginPage = props => {
       <Container className={classes.loginForm} maxWidth='sm'>
         <div className={classes.paper}>
           <img src={logo} alt='logo' className={classes.logo} />
-          <TextField label={'Username'} onChange={event => handleChange('userName', event.target.value)}></TextField>
+          <TextField label={'Email'} onChange={event => handleChange('userName', event.target.value)}></TextField>
           <TextField label={'Password'} type='password' onChange={event => handleChange('password', event.target.value)}></TextField>
           {error && <Typography color='error'>{helperText}</Typography>}
           <Button className={classes.login} variant='contained' color='primary' size='large' onClick={handleCLick}>
