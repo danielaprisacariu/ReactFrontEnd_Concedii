@@ -20,7 +20,7 @@ function HolidaysMenu() {
   const user = useUserData()
   const id = user.id
   const [filteredArray, setFilteredArray] = useState()
-  useQueryWithErrorHandling(USER_DATA_QUERY, {
+  const { data } = useQueryWithErrorHandling(USER_DATA_QUERY, {
     variables: { id: id },
     onCompleted: data => {
       setFilteredArray(data?.concediiData)
@@ -42,14 +42,14 @@ function HolidaysMenu() {
 
   const handleFilter = input => {
     const value = input.target.value
-    const newArray = filteredArray.filter(el => {
+    const newArray = data?.concediiData.filter(el => {
       if (value === '') {
         return el
       } else {
         return (
-          el.inlocuitor.toLowerCase().includes(value) ||
-          el.tipConcediu.toLowerCase().includes(value) ||
-          el.stareConcedii.toLowerCase().includes(value) ||
+          el.inlocuitorNume.toLowerCase().includes(value) ||
+          el.tipConcediuNume.toLowerCase().includes(value) ||
+          el.stareConcediuNume.toLowerCase().includes(value) ||
           el.comentarii.toLowerCase().includes(value)
         )
       }
