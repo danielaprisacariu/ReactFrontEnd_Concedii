@@ -72,7 +72,7 @@ const LoginPage = props => {
           <Button className={classes.login} variant='contained' color='primary' size='large' onClick={handleCLick}>
             {'Login'}
           </Button>
-          <Button className={classes.login} variant='contained' color='primary' size='sm' onClick={handleCLick2}>
+          <Button className={classes.login} variant='contained' color='primary' size='small' onClick={handleCLick2}>
             {'Inregistare'}
           </Button>
         </div>
