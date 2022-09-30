@@ -106,6 +106,10 @@ const Style = () => {
 
       width: '70%',
       height: '150px'
+    },
+
+    containerS: {
+      marginLeft: '12px'
     }
   }
 }

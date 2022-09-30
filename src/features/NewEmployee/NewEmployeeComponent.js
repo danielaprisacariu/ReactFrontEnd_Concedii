@@ -16,7 +16,7 @@ function NewEmployeeComponent(props) {
   const { onChange, state, onHandleSave, onHistoryClick } = props
 
   return (
-    <Grid container>
+    <Grid container className={classes.containerS}>
       <Grid item xs={12}>
         <h1 className={classes.Title}>{t('NewEmployeeTranslations.AddNewEmployee')} </h1>
       </Grid>
